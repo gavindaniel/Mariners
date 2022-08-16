@@ -1,4 +1,4 @@
-# Mariners 2.0
+# Mariners
 
 This is an unofficial app for the Seattle Mariners baseball club. This app is intented to be an all-in-one app for keeping up-to-date on everything Mariners.
 
