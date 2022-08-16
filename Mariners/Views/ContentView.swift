@@ -29,6 +29,7 @@ struct ContentView: View {
         case tweets
         case twitter
         case test
+        case standings
     }
     
     var body: some View {
@@ -53,11 +54,17 @@ struct ContentView: View {
                 }
                 .tag(Tab.twitter)
             
-            ResponseView()
+//            ResponseView()
+//                .tabItem {
+//                   Label("Test", systemImage: "gearshape.fill")
+//                }
+//                .tag(Tab.test)
+            
+            StandingsView()
                 .tabItem {
-                   Label("Test", systemImage: "gearshape.fill")
+                   Label("Standings", systemImage: "list.number")
                 }
-                .tag(Tab.test)
+                .tag(Tab.standings)
         }
     }
 }
