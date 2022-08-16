@@ -1,0 +1,5 @@
+html/
+__pycache__/
+output/
+test/
+scrape-espn/
