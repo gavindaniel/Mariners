@@ -39,7 +39,7 @@ struct GameFeatured: View {
                 Text(String(game.awayScore))
                     .font(.title)
                     .fontWeight(.bold)
-                    .padding(30)
+                    .padding(20)
                 VStack {
 //                    Text(game.inningHalf + " " + game.inning)
 //                        .foregroundColor(Color.red)
@@ -79,7 +79,7 @@ struct GameFeatured: View {
                 Text(String(game.homeScore))
                     .font(.title)
                     .fontWeight(.bold)
-                    .padding(30)
+                    .padding(20)
                 VStack {
                     game.homeLogo
                         .resizable()

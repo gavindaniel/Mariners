@@ -31,6 +31,7 @@ struct StandingsView: View {
         List(leagues, id: \.id) { league in
 //            ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
+                    Text(league.name)
                     ForEach(league.divisions!) { division in
 //                        NavigationLink {
 //                            NewsDetail(article: article)
@@ -38,12 +39,16 @@ struct StandingsView: View {
 //                            NewsRow(article: article)
 //                        }
                         StandingItem(division: division)
+                            .padding()
+                        Divider()
                     }
                 }
 //            }
             .listRowInsets(EdgeInsets())
+            .listRowSeparator(.hidden)
         }
         .listStyle(.inset)
+        
         .navigationTitle("Standings")
         .refreshable {
             await loadData()
