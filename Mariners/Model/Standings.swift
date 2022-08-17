@@ -36,7 +36,7 @@ struct Season: Codable {
 }
 
 // MARK: - League
-struct League: Codable {
+struct League: Codable, Identifiable {
     let alias, name, id: String
     let season: Season?
     let divisions: [League]?
@@ -44,7 +44,7 @@ struct League: Codable {
 }
 
 // MARK: - Team
-struct Team: Codable {
+struct Team: Codable, Identifiable {
     let name, market, abbr, id: String
     let awayLoss, awayWin, eliminationNumber: Int
     let gamesBack: Double

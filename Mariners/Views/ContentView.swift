@@ -41,18 +41,18 @@ struct ContentView: View {
                 }
                 .tag(Tab.home)
             
-            WebView(url: URL(string:"https://www.mlbshop.com/seattle-mariners/t-14893351+z-9767467-794195422")!, showLoading: $showLoading)
-                .overlay(showLoading ? ProgressView().toAnyView() : EmptyView().toAnyView())
-                .tabItem {
-                   Label("Shop", systemImage: "tshirt.fill")
-                }
-                .tag(Tab.shop)
-            
-            WebView(url: URL(string:"https://www.twitter.com")!, showLoading: $showLoading)
-                .tabItem {
-                   Label("Twitter", systemImage: "newspaper.fill")
-                }
-                .tag(Tab.twitter)
+//            WebView(url: URL(string:"https://www.mlbshop.com/seattle-mariners/t-14893351+z-9767467-794195422")!, showLoading: $showLoading)
+//                .overlay(showLoading ? ProgressView().toAnyView() : EmptyView().toAnyView())
+//                .tabItem {
+//                   Label("Shop", systemImage: "tshirt.fill")
+//                }
+//                .tag(Tab.shop)
+//            
+//            WebView(url: URL(string:"https://www.twitter.com")!, showLoading: $showLoading)
+//                .tabItem {
+//                   Label("Twitter", systemImage: "newspaper.fill")
+//                }
+//                .tag(Tab.twitter)
             
 //            ResponseView()
 //                .tabItem {

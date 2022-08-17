@@ -11,23 +11,39 @@ struct StandingsView: View {
     @State private var leagues = [League]()
     
     var body: some View {
-        List(leagues, id: \.id) { league in
-            VStack(alignment: .leading) {
-                Text(league.name)
-                    .font(.headline)
-
-            }
-        } 
         
-//        ForEach(leagues, id: \.id) { league in
-//            List(league.divisions!, id: \.id) { division in
-//                VStack(alignment: .leading) {
-//                    Text(division.name)
-//                        .font(.headline)
-//
+//        List(leagues, id: \.id) { league in
+//            Section(header: Text(league.name)) {
+//                ForEach(league.divisions!) { division in
+//                    Section(header: Text(division.name)) {
+//                        ForEach(division.teams!) { team in
+//                            Text(team.name)
+//                        }
+//                    }
 //                }
 //            }
 //        }
+        
+        List(leagues, id: \.id) { league in
+//            Section(header: Text(league.name)) {
+                VStack(alignment: .leading) {
+                    ScrollView(showsIndicators: false) {
+                        ForEach(league.divisions!) { division in
+    //                        NavigationLink {
+    //                            NewsDetail(article: article)
+    //                        } label: {
+    //                            NewsRow(article: article)
+    //                        }
+                            StandingItem(division: division)
+                        }
+                    }
+                }
+                .listRowInsets(EdgeInsets())
+//            }
+            
+        }
+        .listStyle(.inset)
+        .navigationTitle("Standings")
         
         .task {
             await loadData()
@@ -52,8 +68,16 @@ struct StandingsView: View {
     }
 }
 
-struct StandingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        StandingsView()
-    }
-}
+//struct StandingsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StandingsView()
+////        List { // next pattern easily wrapped with ForEach
+////            ItemRow("Category", isCategory: true) // this can be section's header
+////            Section {
+////                ItemRow("Item 1")
+////                ItemRow("Item 2")
+////                ItemRow("Item 3")
+////            }.padding(.leading, 20)
+////        }
+//    }
+//}

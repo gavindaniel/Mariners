@@ -46,6 +46,7 @@
 		4C394B6C28AB447900313CBD /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B6B28AB447900313CBD /* ResponseView.swift */; };
 		4C394B6F28AC232500313CBD /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B6E28AC232500313CBD /* StandingsView.swift */; };
 		4C394B7128AC233500313CBD /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B7028AC233500313CBD /* Standings.swift */; };
+		4C6F7A4728AC5C54007CBE94 /* StandingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		4C394B6B28AB447900313CBD /* ResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
 		4C394B6E28AC232500313CBD /* StandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsView.swift; sourceTree = "<group>"; };
 		4C394B7028AC233500313CBD /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
+		4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				4C394B6E28AC232500313CBD /* StandingsView.swift */,
+				4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */,
 			);
 			path = Standings;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				4C394B5E28AB41B800313CBD /* LoginView.swift in Sources */,
 				4C394B6F28AC232500313CBD /* StandingsView.swift in Sources */,
 				4C394B6728AB41B900313CBD /* HomeView.swift in Sources */,
+				4C6F7A4728AC5C54007CBE94 /* StandingItem.swift in Sources */,
 				4C394B5828AB41B800313CBD /* TweetList.swift in Sources */,
 				4C267D7828A9A9BD008468A2 /* Tweet.swift in Sources */,
 				4C267D7928A9A9BD008468A2 /* Settings.swift in Sources */,
