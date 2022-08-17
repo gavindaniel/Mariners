@@ -47,6 +47,9 @@
 		4C394B6F28AC232500313CBD /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B6E28AC232500313CBD /* StandingsView.swift */; };
 		4C394B7128AC233500313CBD /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B7028AC233500313CBD /* Standings.swift */; };
 		4C6F7A4728AC5C54007CBE94 /* StandingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */; };
+		4C9AB9C928AD41AB0020CCEA /* HomeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9C828AD41AB0020CCEA /* HomeGame.swift */; };
+		4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9CC28AD42F70020CCEA /* GameRow.swift */; };
+		4C9AB9CF28AD45FF0020CCEA /* InningText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9CE28AD45FF0020CCEA /* InningText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +91,9 @@
 		4C394B6E28AC232500313CBD /* StandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsView.swift; sourceTree = "<group>"; };
 		4C394B7028AC233500313CBD /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 		4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingItem.swift; sourceTree = "<group>"; };
+		4C9AB9C828AD41AB0020CCEA /* HomeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGame.swift; sourceTree = "<group>"; };
+		4C9AB9CC28AD42F70020CCEA /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
+		4C9AB9CE28AD45FF0020CCEA /* InningText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +223,7 @@
 			children = (
 				4C394B4228AB41B800313CBD /* GameFeatured.swift */,
 				4C394B4328AB41B800313CBD /* GameList.swift */,
+				4C9AB9CC28AD42F70020CCEA /* GameRow.swift */,
 				4C394B4428AB41B800313CBD /* GameDetail.swift */,
 			);
 			path = Games;
@@ -225,6 +232,7 @@
 		4C394B4528AB41B800313CBD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4C9AB9CE28AD45FF0020CCEA /* InningText.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -250,8 +258,8 @@
 		4C394B4C28AB41B800313CBD /* News */ = {
 			isa = PBXGroup;
 			children = (
-				4C394B4D28AB41B800313CBD /* NewsDetail.swift */,
 				4C394B4E28AB41B800313CBD /* Headlines */,
+				4C394B4D28AB41B800313CBD /* NewsDetail.swift */,
 				4C394B5128AB41B800313CBD /* NewsRow.swift */,
 				4C394B5228AB41B800313CBD /* NewsList.swift */,
 			);
@@ -271,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				4C394B5428AB41B800313CBD /* HomeView.swift */,
+				4C9AB9C828AD41AB0020CCEA /* HomeGame.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -387,7 +396,9 @@
 				4C267D7728A9A9BD008468A2 /* Game.swift in Sources */,
 				4C394B5728AB41B800313CBD /* TweetCard.swift in Sources */,
 				4C267D7A28A9A9BD008468A2 /* Article.swift in Sources */,
+				4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */,
 				4C394B5C28AB41B800313CBD /* GameList.swift in Sources */,
+				4C9AB9C928AD41AB0020CCEA /* HomeGame.swift in Sources */,
 				4C394B5D28AB41B800313CBD /* GameDetail.swift in Sources */,
 				4C267D5A28A9A902008468A2 /* MarinersApp.swift in Sources */,
 				4C394B6528AB41B800313CBD /* NewsRow.swift in Sources */,
@@ -399,6 +410,7 @@
 				4C394B5828AB41B800313CBD /* TweetList.swift in Sources */,
 				4C267D7828A9A9BD008468A2 /* Tweet.swift in Sources */,
 				4C267D7928A9A9BD008468A2 /* Settings.swift in Sources */,
+				4C9AB9CF28AD45FF0020CCEA /* InningText.swift in Sources */,
 				4C394B6128AB41B800313CBD /* SettingsHost.swift in Sources */,
 				4C394B7128AC233500313CBD /* Standings.swift in Sources */,
 				4C267D7B28A9A9BD008468A2 /* ModelData.swift in Sources */,

@@ -13,38 +13,41 @@ struct StandingsView: View {
     var body: some View {
         
 //        List(leagues, id: \.id) { league in
-//            Section(header: Text(league.name)) {
-//                ForEach(league.divisions!) { division in
-//                    Section(header: Text(division.name)) {
-//                        ForEach(division.teams!) { team in
-//                            Text(team.name)
-//                        }
+//            VStack(alignment: .leading) {
+//                ScrollView(showsIndicators: false) {
+//                    ForEach(league.divisions!) { division in
+////                        NavigationLink {
+////                            NewsDetail(article: article)
+////                        } label: {
+////                            NewsRow(article: article)
+////                        }
+//                        StandingItem(division: division)
 //                    }
 //                }
 //            }
+//            .listRowInsets(EdgeInsets())
 //        }
         
         List(leagues, id: \.id) { league in
-//            Section(header: Text(league.name)) {
+//            ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
-                    ScrollView(showsIndicators: false) {
-                        ForEach(league.divisions!) { division in
-    //                        NavigationLink {
-    //                            NewsDetail(article: article)
-    //                        } label: {
-    //                            NewsRow(article: article)
-    //                        }
-                            StandingItem(division: division)
-                        }
+                    ForEach(league.divisions!) { division in
+//                        NavigationLink {
+//                            NewsDetail(article: article)
+//                        } label: {
+//                            NewsRow(article: article)
+//                        }
+                        StandingItem(division: division)
                     }
                 }
-                .listRowInsets(EdgeInsets())
 //            }
-            
+            .listRowInsets(EdgeInsets())
         }
         .listStyle(.inset)
         .navigationTitle("Standings")
-        
+        .refreshable {
+            await loadData()
+        }
         .task {
             await loadData()
         }
