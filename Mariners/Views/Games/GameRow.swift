@@ -15,44 +15,76 @@ struct GameRow: View {
         modelData.games.firstIndex(where: { $0.id == game.id })!
     }
     
-    var body: some View {
+    var body: some View {        
         HStack {
             VStack {
                 game.awayLogo
                     .resizable()
-                    .frame(width: 30, height: 30)
-                Text(game.awayInits)
-                    .font(.caption2)
-                    .fontWeight(.bold)
-                Text(game.awayRecord)
-                    .font(.caption2)
-                    .foregroundColor(Color.secondary)
+                    .frame(width: 50, height: 50)
             }
-            Text(String(game.awayScore))
-                .fontWeight(.bold)
-                .padding(30)
-            VStack {
-                Text(game.inningHalf + " " + game.inning)
-                    .foregroundColor(Color.red)
-                Text(game.outs == 1 ? "\(game.outs) Out" : "\(game.outs) Outs")
+            Spacer()
+            if checkGameFinal(game.inning, game.inningHalf, game.outs) {
+                if (game.awayScore > game.homeScore) {
+                Text(String(game.awayScore))
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                    .padding(20)
+                } else {
+                Text(String(game.awayScore))
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.secondary)
+                    .padding(20)
+                }
+            } else {
+                Text(String(game.awayScore))
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                    .padding(20)
+            }
+            Spacer()
+            VStack(alignment: .center) {
+                if checkGameFinal(game.inning, game.inningHalf, game.outs) {
+                    Text("Final")
+                        .foregroundColor(.red)
+                } else {
+                    InningView(inning: game.inning, inningHalf: game.inningHalf)
+                    OutsView(outStrings: getOutsStrings(input: game.outs))
+                }
             }
             .font(.caption)
-            
-            Text(String(game.homeScore))
-                .fontWeight(.bold)
-                .padding(30)
+            Spacer()
+            if checkGameFinal(game.inning, game.inningHalf, game.outs) {
+                if (game.homeScore > game.awayScore) {
+                Text(String(game.homeScore))
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                    .padding(20)
+                } else {
+                Text(String(game.homeScore))
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.secondary)
+                    .padding(20)
+                }
+            } else {
+                Text(String(game.homeScore))
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                    .padding(20)
+            }
+            Spacer()
             VStack {
                 game.homeLogo
                     .resizable()
-                    .frame(width: 30, height: 30)
-                Text(game.homeInits)
-                    .font(.caption2)
-                    .fontWeight(.bold)
-                Text(game.homeRecord)
-                    .font(.caption2)
-                    .foregroundColor(Color.secondary)
+                    .frame(width: 50, height: 50)
             }
         }
+        .padding(20)
     }
 }
 

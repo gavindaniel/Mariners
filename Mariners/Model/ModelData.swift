@@ -11,7 +11,7 @@ import Combine
 final class ModelData: ObservableObject {
     @Published var tweets: [Tweet] = load("tweetData.json")
     var games: [Game] = load("gameData.json")
-//    var articles: [Article] = load("articleData.json")
+    var articles: [Article] = load("articleData.json")
     @Published var settings = Settings.default
 }
 

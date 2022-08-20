@@ -12,38 +12,21 @@ struct StandingsView: View {
     
     var body: some View {
         
-//        List(leagues, id: \.id) { league in
-//            VStack(alignment: .leading) {
-//                ScrollView(showsIndicators: false) {
-//                    ForEach(league.divisions!) { division in
-////                        NavigationLink {
-////                            NewsDetail(article: article)
-////                        } label: {
-////                            NewsRow(article: article)
-////                        }
-//                        StandingItem(division: division)
-//                    }
-//                }
-//            }
-//            .listRowInsets(EdgeInsets())
-//        }
         
         List(leagues, id: \.id) { league in
-//            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading) {
-                    Text(league.name)
-                    ForEach(league.divisions!) { division in
+            VStack(alignment: .leading) {
+                Text(league.name)
+                ForEach(league.divisions!) { division in
 //                        NavigationLink {
 //                            NewsDetail(article: article)
 //                        } label: {
 //                            NewsRow(article: article)
 //                        }
-                        StandingItem(division: division)
-                            .padding()
-                        Divider()
-                    }
+                    StandingItem(division: division)
+                        .padding()
+                    Divider()
                 }
-//            }
+            }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
         }

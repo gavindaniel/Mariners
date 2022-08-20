@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameFeatured: View {
     @EnvironmentObject var modelData: ModelData
+    @State private var leagues = [League]()
     
     var game: Game
     
@@ -30,62 +31,28 @@ struct GameFeatured: View {
             }
             .padding(.top, 10)
             Divider()
-            HStack {
-                VStack {
-                    game.awayLogo
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                }
-                Text(String(game.awayScore))
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(20)
-                VStack {
-//                    Text(game.inningHalf + " " + game.inning)
-//                        .foregroundColor(Color.red)
-//                    Text(game.outs == 1 ? "\(game.outs) Out" : "\(game.outs) Outs")
-                    HStack(alignment: .center) {
-                        if game.inningHalf == "Top" { Label("", systemImage: "arrowtriangle.up.fill")
-                                .offset(x: 10, y: -3)
-                        } else { Label("", systemImage: "arrowtriangle.down.fill")
-                                .offset(x: 10, y: -3)
-                        }
-                        Text(game.inning)
-                            .font(.callout)
-                    }
-                    HStack {
-                        if game.outs == 0 {
-                            Label("", systemImage: "circle")
-                            Label("", systemImage: "circle")
-                            Label("", systemImage: "circle")
-                        } else if game.outs == 1 {
-                            Label("", systemImage: "circle.fill")
-                            Label("", systemImage: "circle")
-                            Label("", systemImage: "circle")
-                        } else if game.outs == 2 {
-                            Label("", systemImage: "circle")
-                            Label("", systemImage: "circle.fill")
-                            Label("", systemImage: "circle.fill")
-                        } else {
-                            Label("", systemImage: "circle.fill")
-//                                .frame(width: 5, height: 5)
-                            Label("", systemImage: "circle.fill")
-                            Label("", systemImage: "circle.fill")
-                        }
-                    }
-                }
-                .font(.caption)
-                
-                Text(String(game.homeScore))
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(20)
-                VStack {
-                    game.homeLogo
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                }
+            NavigationLink {
+                GameDetail(game: game)
+            } label: {
+                GameRow(game: game)
             }
+        }
+    }
+    
+    func loadData() async {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/seasons/2022/REG/standings.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
+            print("Invalid URL")
+            return
+        }
+        
+        do {
+            let (jsonData, _) = try await URLSession.shared.data(from: url)
+            
+            if let standings = try? JSONDecoder().decode(Standings.self, from: jsonData) {
+                leagues = standings.league.season!.leagues
+            }
+        } catch {
+            print("Invalid data")
         }
     }
 }

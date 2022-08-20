@@ -11,6 +11,7 @@ import Combine
 
 struct HeadlineList: View {
     @StateObject var viewModel = ViewModel()
+    @EnvironmentObject var modelData: ModelData
     
     var body: some View {
         VStack(alignment: .center) {
@@ -71,5 +72,6 @@ extension HeadlineList {
 struct HeadlineList_Previews: PreviewProvider {
     static var previews: some View {
         HeadlineList()
+            .environmentObject(ModelData())
     }
 }

@@ -10,12 +10,13 @@ import SwiftUI
 
 struct NewsList: View {
     @StateObject var viewModel = ViewModel()
+    @EnvironmentObject var modelData: ModelData
     
     var body: some View {
-        List {
-            VStack(alignment: .leading) {
+//        List {
+//            VStack(alignment: .leading) {
                 ScrollView(showsIndicators: true) {
-                    ForEach(viewModel.articles) { article in
+                    ForEach(modelData.articles) { article in
                         NavigationLink {
                             NewsDetail(article: article)
                         } label: {
@@ -23,9 +24,9 @@ struct NewsList: View {
                         }
                     }
                 }
-            }
+//            }
             .listRowInsets(EdgeInsets())
-        }
+//        }
         .listStyle(.inset)
         .navigationTitle("News")
 //        .onAppear(perform: viewModel.getArticles)

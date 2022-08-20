@@ -11,8 +11,16 @@ struct GameList: View {
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {
-        List(modelData.games, id: \.id) { game in
-            GameDetail(game: game)
+        ScrollView(showsIndicators: true) {
+            ForEach(modelData.games) { game in
+                NavigationLink {
+                    GameDetail(game: game)
+                } label: {
+                    GameRow(game: game)
+                }
+                
+                Divider()
+            }
         }
         .navigationTitle("Scores")
     }

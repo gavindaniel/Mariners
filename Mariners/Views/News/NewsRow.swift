@@ -10,6 +10,7 @@ import SwiftUI
 struct NewsRow: View {
     @Environment(\.presentationMode) var presentationMode
 //    @EnvironmentObject var sessionManager: SessionManager
+//    @EnvironmentObject var modelData: ModelData
     
     let article: Article
     
@@ -39,9 +40,8 @@ struct NewsRow: View {
     }
 }
 
-//struct NewsRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewsRow(article: ModelData().articles[0])
-//        NewsRow()
-//    }
-//}
+struct NewsRow_Previews: PreviewProvider {
+    static var previews: some View {
+        NewsRow(article: ModelData().articles[0])
+    }
+}
