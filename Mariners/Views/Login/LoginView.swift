@@ -5,7 +5,7 @@
 //  Created by Gavin Daniel on 8/14/22.
 //
 
-import Amplify
+//import Amplify
 import SwiftUI
 
 struct LoginView: View {

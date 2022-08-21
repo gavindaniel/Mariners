@@ -9,20 +9,46 @@ import SwiftUI
 
 struct GameList: View {
     @EnvironmentObject var modelData: ModelData
+    @State private var games = [GameElement]()
     
     var body: some View {
         ScrollView(showsIndicators: true) {
-            ForEach(modelData.games) { game in
+            ForEach(games) { game in
                 NavigationLink {
-                    GameDetail(game: game)
+//                    GameDetail(game: game)
+//                    BoxscoreDetail(game: game)
                 } label: {
-                    GameRow(game: game)
+//                    GameRow(game: game)
+                    BoxscoreRow(game: game.game)
                 }
                 
                 Divider()
             }
         }
         .navigationTitle("Scores")
+        .refreshable {
+            await loadData()
+        }
+        .task {
+            await loadData()
+        }
+    }
+    
+    func loadData() async {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/2022/08/19/boxscore.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
+            print("Invalid URL")
+            return
+        }
+        
+        do {
+            let (jsonData, _) = try await URLSession.shared.data(from: url)
+            
+            if let box_scores = try? JSONDecoder().decode(DailyBoxscore.self, from: jsonData) {
+                games = box_scores.league.games
+            }
+        } catch {
+            print("Invalid data")
+        }
     }
 }
 

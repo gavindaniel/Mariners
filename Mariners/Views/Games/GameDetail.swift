@@ -50,10 +50,7 @@ struct GameDetail: View {
 }
 
 struct GamesDetail_Previews: PreviewProvider {
-    static var modelData = ModelData()
-    
     static var previews: some View {
-        GameDetail(game: modelData.games[0])
-            .environmentObject(modelData)
+        GameDetail(game: ModelData().games[0])
     }
 }

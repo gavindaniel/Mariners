@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Amplify
+//import Amplify
 
 struct NewsDetail: View {
     @Environment(\.presentationMode) var presentationMode

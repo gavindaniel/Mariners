@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Amplify
+//import Amplify
 import Combine
 
 struct HeadlineList: View {

@@ -5,7 +5,7 @@
 //  Created by Gavin Daniel on 8/5/22.
 //
 
-import Amplify
+//import Amplify
 import SwiftUI
 
 struct NewsList: View {

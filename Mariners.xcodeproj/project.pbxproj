@@ -54,6 +54,9 @@
 		4C9AB9CF28AD45FF0020CCEA /* InningText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9CE28AD45FF0020CCEA /* InningText.swift */; };
 		4CDFA76B28B15439009EA2F5 /* BoxScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA76A28B15439009EA2F5 /* BoxScore.swift */; };
 		4CDFA77728B16A4A009EA2F5 /* CheckGameFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77628B16A4A009EA2F5 /* CheckGameFinal.swift */; };
+		4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */; };
+		4CDFA77B28B1AF88009EA2F5 /* BoxscoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */; };
+		4CDFA77D28B1AFBF009EA2F5 /* BoxscoreDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77C28B1AFBF009EA2F5 /* BoxscoreDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +105,9 @@
 		4C9AB9CE28AD45FF0020CCEA /* InningText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningText.swift; sourceTree = "<group>"; };
 		4CDFA76A28B15439009EA2F5 /* BoxScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxScore.swift; sourceTree = "<group>"; };
 		4CDFA77628B16A4A009EA2F5 /* CheckGameFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckGameFinal.swift; sourceTree = "<group>"; };
+		4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxscore.swift; sourceTree = "<group>"; };
+		4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreRow.swift; sourceTree = "<group>"; };
+		4CDFA77C28B1AFBF009EA2F5 /* BoxscoreDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +200,7 @@
 				4C394B6828AB43CC00313CBD /* TestResponse.swift */,
 				4C394B7028AC233500313CBD /* Standings.swift */,
 				4CDFA76A28B15439009EA2F5 /* BoxScore.swift */,
+				4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +241,8 @@
 				4C394B4328AB41B800313CBD /* GameList.swift */,
 				4C9AB9CC28AD42F70020CCEA /* GameRow.swift */,
 				4C394B4428AB41B800313CBD /* GameDetail.swift */,
+				4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */,
+				4CDFA77C28B1AFBF009EA2F5 /* BoxscoreDetail.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -398,8 +407,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C394B5928AB41B800313CBD /* EmbedsViewController.swift in Sources */,
+				4CDFA77B28B1AF88009EA2F5 /* BoxscoreRow.swift in Sources */,
 				4C5A100328AD68FA00AB96A8 /* OutsStrings.swift in Sources */,
 				4C394B5F28AB41B800313CBD /* SettingsSummary.swift in Sources */,
+				4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */,
 				4C394B6028AB41B800313CBD /* SettingsEditor.swift in Sources */,
 				4C394B5528AB41B800313CBD /* TweetDetail.swift in Sources */,
 				4C394B6928AB43CC00313CBD /* TestResponse.swift in Sources */,
@@ -413,6 +424,7 @@
 				4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */,
 				4C394B5C28AB41B800313CBD /* GameList.swift in Sources */,
 				4C394B5D28AB41B800313CBD /* GameDetail.swift in Sources */,
+				4CDFA77D28B1AFBF009EA2F5 /* BoxscoreDetail.swift in Sources */,
 				4C267D5A28A9A902008468A2 /* MarinersApp.swift in Sources */,
 				4C394B6528AB41B800313CBD /* NewsRow.swift in Sources */,
 				4C394B6C28AB447900313CBD /* ResponseView.swift in Sources */,

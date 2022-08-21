@@ -11,10 +11,6 @@ struct GameRow: View {
     @EnvironmentObject var modelData: ModelData
     var game: Game
     
-    var gameIndex: Int {
-        modelData.games.firstIndex(where: { $0.id == game.id })!
-    }
-    
     var body: some View {        
         HStack {
             VStack {
@@ -89,10 +85,7 @@ struct GameRow: View {
 }
 
 struct GameRow_Previews: PreviewProvider {
-    static var modelData = ModelData()
-    
     static var previews: some View {
-        GameRow(game: modelData.games[0])
-            .environmentObject(modelData)
+        GameRow(game: ModelData().games[0])
     }
 }

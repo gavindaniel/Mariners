@@ -58,10 +58,7 @@ struct GameFeatured: View {
 }
 
 struct GameFeatured_Previews: PreviewProvider {
-    static var modelData = ModelData()
-    
     static var previews: some View {
-        GameFeatured(game: modelData.games[0])
-            .environmentObject(ModelData())
+        GameFeatured(game: ModelData().games[0])
     }
 }

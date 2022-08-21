@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Amplify
+//import Amplify
 
 struct HomeView: View {
     @EnvironmentObject var modelData: ModelData
