@@ -57,6 +57,7 @@
 		4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */; };
 		4CDFA77B28B1AF88009EA2F5 /* BoxscoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */; };
 		4CDFA77D28B1AFBF009EA2F5 /* BoxscoreDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77C28B1AFBF009EA2F5 /* BoxscoreDetail.swift */; };
+		4CF1231F28B441D100666DEE /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF1231E28B441D100666DEE /* FinalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,7 @@
 		4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxscore.swift; sourceTree = "<group>"; };
 		4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreRow.swift; sourceTree = "<group>"; };
 		4CDFA77C28B1AFBF009EA2F5 /* BoxscoreDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreDetail.swift; sourceTree = "<group>"; };
+		4CF1231E28B441D100666DEE /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 		4C394B4528AB41B800313CBD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4CF1231E28B441D100666DEE /* FinalView.swift */,
 				4C5A100028AD67CA00AB96A8 /* OutsView.swift */,
 				4C5A100428AD6C6C00AB96A8 /* InningView.swift */,
 				4C5A100228AD68FA00AB96A8 /* DisplayFunctions.swift */,
@@ -438,6 +441,7 @@
 				4C267D7828A9A9BD008468A2 /* Tweet.swift in Sources */,
 				4C5A100528AD6C6C00AB96A8 /* InningView.swift in Sources */,
 				4C267D7928A9A9BD008468A2 /* Settings.swift in Sources */,
+				4CF1231F28B441D100666DEE /* FinalView.swift in Sources */,
 				4C394B6128AB41B800313CBD /* SettingsHost.swift in Sources */,
 				4C394B7128AC233500313CBD /* Standings.swift in Sources */,
 				4C267D7B28A9A9BD008468A2 /* ModelData.swift in Sources */,

@@ -45,34 +45,7 @@ struct GameRow: View {
             Spacer()
             VStack(alignment: .center) {
                 if checkFinal(game.status.rawValue) {
-                    if (game.away.runs > game.home.runs) {
-                        HStack {
-                            Image(systemName: "arrowtriangle.left.fill")
-                                .resizable()
-                                .frame(width: 10, height: 10)
-                                .foregroundColor(.primary)
-                            Text("Final")
-                                .foregroundColor(.primary)
-                                .font(.footnote)
-                                .fontWeight(.semibold)
-                                .padding()
-                        }
-                        .padding(.trailing, 10)
-                    } else {
-                        HStack {
-                            Text("Final")
-                                .foregroundColor(.primary)
-                                .font(.footnote)
-                                .fontWeight(.semibold)
-                                .padding()
-                            Image(systemName: "arrowtriangle.right.fill")
-                                .resizable()
-                                .frame(width: 10, height: 10)
-                                .foregroundColor(.primary)
-                        }
-                        .padding(.leading, 10)
-                    }
-                    
+                    FinalView(awayRuns: game.away.runs, homeRuns: game.home.runs)
                 } else {
                     InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
                     OutsView(outStrings: getOutsStrings(input: game.outcome!.count.outs))
