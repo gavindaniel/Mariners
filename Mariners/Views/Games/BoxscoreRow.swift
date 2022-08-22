@@ -15,10 +15,10 @@ struct BoxscoreRow: View {
     var body: some View {
         HStack {
             VStack {
-                Image("circle-logo")
+                Image(game.away.abbr)
                     .resizable()
                     .frame(width: 30, height: 30)
-                Image("circle-logo")
+                Image(game.home.abbr)
                     .resizable()
                     .frame(width: 30, height: 30)
             }

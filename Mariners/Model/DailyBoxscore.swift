@@ -30,7 +30,7 @@ struct LeagueBoxscore: Codable {
 
 // MARK: - GameElement
 struct GameElement: Codable, Identifiable {
-    var id: UUID
+    var id = UUID()
     let game: GameGame
 }
 

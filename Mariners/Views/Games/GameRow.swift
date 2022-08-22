@@ -14,7 +14,7 @@ struct GameRow: View {
     var body: some View {        
         HStack {
             VStack {
-                game.awayLogo
+                Image(game.awayInits)
                     .resizable()
                     .frame(width: 50, height: 50)
             }
@@ -75,7 +75,7 @@ struct GameRow: View {
             }
             Spacer()
             VStack {
-                game.homeLogo
+                Image(game.homeInits)
                     .resizable()
                     .frame(width: 50, height: 50)
             }

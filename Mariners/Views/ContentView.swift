@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-extension View {
-    func toAnyView() -> AnyView {
-        AnyView(self)
-    }
-}
+//extension View {
+//    func toAnyView() -> AnyView {
+//        AnyView(self)
+//    }
+//}
 
 struct ContentView: View {
     @State private var selection: Tab = .home

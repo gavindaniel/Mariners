@@ -11,15 +11,11 @@ struct GameDetail: View {
     @EnvironmentObject var modelData: ModelData
     var game: Game
     
-    var gameIndex: Int {
-        modelData.games.firstIndex(where: { $0.id == game.id })!
-    }
-    
     var body: some View {
         ScrollView {
             HStack {
                 VStack {
-                    game.awayLogo
+                    Image(game.awayInits)
                         .resizable()
                         .frame(width: 50, height: 50)
                 }
@@ -40,7 +36,7 @@ struct GameDetail: View {
                     .foregroundColor(.primary)
                     .padding(20)
                 VStack {
-                    game.homeLogo
+                    Image(game.homeInits)
                         .resizable()
                         .frame(width: 50, height: 50)
                 }

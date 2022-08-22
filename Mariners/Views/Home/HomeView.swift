@@ -15,14 +15,6 @@ struct HomeView: View {
     
     
     var body: some View {
-//        VStack {
-//            Image("text-logo")
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .frame(width: 100)
-//
-//            Spacer()
-//        }
         NavigationView {
             List {
                 VStack(alignment: .leading) {
@@ -61,7 +53,7 @@ struct HomeView: View {
                 } label: {
                     Label("User Settings", systemImage: "gearshape.fill")
                 }
-            }
+//            }
             .sheet(isPresented: $showingSettings) {
                 SettingsHost()
                     .environmentObject(modelData)
