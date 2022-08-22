@@ -11,8 +11,6 @@ struct StandingsView: View {
     @State private var leagues = [League]()
     
     var body: some View {
-        
-        
         List(leagues, id: \.id) { league in
             VStack(alignment: .leading) {
                 Text(league.name)

@@ -48,6 +48,7 @@ struct GameList: View {
             
             if let box_scores = try? JSONDecoder().decode(DailyBoxscore.self, from: jsonData) {
                 games = box_scores.league.games
+                print("JSON decoded.")
             }
         } catch {
             print("Invalid data")
@@ -55,9 +56,9 @@ struct GameList: View {
     }
 }
 
-struct GameList_Previews: PreviewProvider {
-    static var previews: some View {
-        GameList()
-            .environmentObject(ModelData())
-    }
-}
+//struct GameList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GameList()
+//            .environmentObject(ModelData())
+//    }
+//}

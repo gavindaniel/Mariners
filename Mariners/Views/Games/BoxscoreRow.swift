@@ -36,14 +36,14 @@ struct BoxscoreRow: View {
                         .foregroundColor(.secondary)
                 }
             } else {
-                VStack {
+                VStack(alignment: .leading) {
                     Text(game.away.name)
                         .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(.secondary)
                         .padding(.bottom, 5)
                     Text(game.home.name)
-                        .font(.title)
+                        .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
                 }
@@ -96,12 +96,12 @@ struct BoxscoreRow: View {
                     Text(String(game.away.hits))
                         .font(.title3)
                         .fontWeight(.bold)
-                        .foregroundColor(.primary)
+                        .foregroundColor(.secondary)
                         .padding(.bottom, 5)
                     Text(String(game.home.hits))
                         .font(.title3)
                         .fontWeight(.bold)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.primary)
                 }
                 .padding(.trailing, 10)
             }
@@ -127,7 +127,7 @@ struct BoxscoreRow: View {
                         .foregroundColor(.secondary)
                         .padding(.bottom, 5)
                     Text(String(game.home.errors))
-                        .font(.title)
+                        .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
                 }
@@ -138,8 +138,8 @@ struct BoxscoreRow: View {
     }
 }
 
-//struct BoxscoreRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BoxscoreRow(game: ModelData().games[0])
-//    }
-//}
+struct BoxscoreRow_Previews: PreviewProvider {
+    static var previews: some View {
+        BoxscoreRow(game: ModelData().scores.league.games[0].game)
+    }
+}

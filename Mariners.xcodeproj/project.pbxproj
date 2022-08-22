@@ -23,6 +23,7 @@
 		4C267D7E28A9AB6A008468A2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4C267D7D28A9AB6A008468A2 /* FirebaseAnalytics */; };
 		4C267D8128A9B1EB008468A2 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 4C267D8028A9B1EB008468A2 /* FirebaseAppCheck */; };
 		4C267D8428A9B77A008468A2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4C267D8328A9B77A008468A2 /* FirebaseFirestore */; };
+		4C329E9328B32ADF00F8A237 /* boxscoreData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C329E9228B32ADF00F8A237 /* boxscoreData.json */; };
 		4C394B5528AB41B800313CBD /* TweetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B3928AB41B800313CBD /* TweetDetail.swift */; };
 		4C394B5628AB41B800313CBD /* TweetCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B3B28AB41B800313CBD /* TweetCardRow.swift */; };
 		4C394B5728AB41B800313CBD /* TweetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B3C28AB41B800313CBD /* TweetCard.swift */; };
@@ -52,7 +53,6 @@
 		4C6F7A4728AC5C54007CBE94 /* StandingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */; };
 		4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9CC28AD42F70020CCEA /* GameRow.swift */; };
 		4C9AB9CF28AD45FF0020CCEA /* InningText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9CE28AD45FF0020CCEA /* InningText.swift */; };
-		4CDFA76B28B15439009EA2F5 /* BoxScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA76A28B15439009EA2F5 /* BoxScore.swift */; };
 		4CDFA77728B16A4A009EA2F5 /* CheckGameFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77628B16A4A009EA2F5 /* CheckGameFinal.swift */; };
 		4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */; };
 		4CDFA77B28B1AF88009EA2F5 /* BoxscoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */; };
@@ -74,6 +74,7 @@
 		4C267D7428A9A9BD008468A2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4C267D7528A9A9BD008468A2 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		4C267D7628A9A9BD008468A2 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		4C329E9228B32ADF00F8A237 /* boxscoreData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = boxscoreData.json; sourceTree = "<group>"; };
 		4C394B3928AB41B800313CBD /* TweetDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetail.swift; sourceTree = "<group>"; };
 		4C394B3B28AB41B800313CBD /* TweetCardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCardRow.swift; sourceTree = "<group>"; };
 		4C394B3C28AB41B800313CBD /* TweetCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCard.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingItem.swift; sourceTree = "<group>"; };
 		4C9AB9CC28AD42F70020CCEA /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
 		4C9AB9CE28AD45FF0020CCEA /* InningText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningText.swift; sourceTree = "<group>"; };
-		4CDFA76A28B15439009EA2F5 /* BoxScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxScore.swift; sourceTree = "<group>"; };
 		4CDFA77628B16A4A009EA2F5 /* CheckGameFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckGameFinal.swift; sourceTree = "<group>"; };
 		4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxscore.swift; sourceTree = "<group>"; };
 		4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreRow.swift; sourceTree = "<group>"; };
@@ -185,6 +185,7 @@
 				4C267D6B28A9A9B0008468A2 /* gameData.json */,
 				4C267D6C28A9A9B0008468A2 /* tweetData.json */,
 				4C267D6D28A9A9B0008468A2 /* articleData.json */,
+				4C329E9228B32ADF00F8A237 /* boxscoreData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -199,7 +200,6 @@
 				4C267D7628A9A9BD008468A2 /* ModelData.swift */,
 				4C394B6828AB43CC00313CBD /* TestResponse.swift */,
 				4C394B7028AC233500313CBD /* Standings.swift */,
-				4CDFA76A28B15439009EA2F5 /* BoxScore.swift */,
 				4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */,
 			);
 			path = Model;
@@ -390,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C329E9328B32ADF00F8A237 /* boxscoreData.json in Resources */,
 				4C267D7028A9A9B0008468A2 /* articleData.json in Resources */,
 				4C267D6128A9A903008468A2 /* Preview Assets.xcassets in Resources */,
 				4C267D6E28A9A9B0008468A2 /* gameData.json in Resources */,
@@ -418,7 +419,6 @@
 				4C394B5A28AB41B800313CBD /* WebView.swift in Sources */,
 				4C267D5C28A9A902008468A2 /* ContentView.swift in Sources */,
 				4C267D7728A9A9BD008468A2 /* Game.swift in Sources */,
-				4CDFA76B28B15439009EA2F5 /* BoxScore.swift in Sources */,
 				4C394B5728AB41B800313CBD /* TweetCard.swift in Sources */,
 				4C267D7A28A9A9BD008468A2 /* Article.swift in Sources */,
 				4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */,
