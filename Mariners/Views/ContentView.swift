@@ -60,11 +60,6 @@ struct ContentView: View {
 //                   Label("Test", systemImage: "gearshape.fill")
 //                }
 //                .tag(Tab.test)
-            GameList()
-                .tabItem {
-                   Label("Scores", systemImage: "list.number")
-                }
-                .tag(Tab.scores)
             
             StandingsView()
                 .tabItem {

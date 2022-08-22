@@ -9,65 +9,66 @@ import SwiftUI
 
 struct GameRow: View {
     @EnvironmentObject var modelData: ModelData
-    var game: Game
+//    var game: Game
+    var game: GameGame
     
     var body: some View {        
         HStack {
             VStack {
-                Image(game.awayInits)
+                Image(game.away.abbr)
                     .resizable()
                     .frame(width: 50, height: 50)
             }
             Spacer()
-            if checkGameFinal(game.inning, game.inningHalf, game.outs) {
-                if (game.awayScore > game.homeScore) {
-                Text(String(game.awayScore))
+            if checkFinal(game.status.rawValue) {
+                if (game.away.runs > game.home.runs) {
+                    Text(String(game.away.runs))
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                     .padding(20)
                 } else {
-                Text(String(game.awayScore))
+                    Text(String(game.away.runs))
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.secondary)
                     .padding(20)
                 }
             } else {
-                Text(String(game.awayScore))
+                Text(String(game.away.runs))
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                     .padding(20)
             }
             Spacer()
-            VStack(alignment: .center) {
-                if checkGameFinal(game.inning, game.inningHalf, game.outs) {
-                    Text("Final")
-                        .foregroundColor(.red)
-                } else {
-                    InningView(inning: game.inning, inningHalf: game.inningHalf)
-                    OutsView(outStrings: getOutsStrings(input: game.outs))
-                }
-            }
-            .font(.caption)
-            Spacer()
-            if checkGameFinal(game.inning, game.inningHalf, game.outs) {
-                if (game.homeScore > game.awayScore) {
-                Text(String(game.homeScore))
+//            VStack(alignment: .center) {
+//                if checkGameFinal(game.inning, game.inningHalf, game.outs) {
+//                    Text("Final")
+//                        .foregroundColor(.red)
+//                } else {
+//                    InningView(inning: game.inning, inningHalf: game.inningHalf)
+//                    OutsView(outStrings: getOutsStrings(input: game.outs))
+//                }
+//            }
+//            .font(.caption)
+//            Spacer()
+            if checkFinal(game.status.rawValue) {
+                if (game.home.runs > game.away.runs) {
+                Text(String(game.home.runs))
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                     .padding(20)
                 } else {
-                Text(String(game.homeScore))
+                Text(String(game.home.runs))
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.secondary)
                     .padding(20)
                 }
             } else {
-                Text(String(game.homeScore))
+                Text(String(game.home.runs))
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
@@ -75,7 +76,7 @@ struct GameRow: View {
             }
             Spacer()
             VStack {
-                Image(game.homeInits)
+                Image(game.home.abbr)
                     .resizable()
                     .frame(width: 50, height: 50)
             }
@@ -86,6 +87,6 @@ struct GameRow: View {
 
 struct GameRow_Previews: PreviewProvider {
     static var previews: some View {
-        GameRow(game: ModelData().games[0])
+        GameRow(game: ModelData().scores.league.games[0].game)
     }
 }

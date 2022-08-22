@@ -134,7 +134,8 @@ struct BoxscoreRow: View {
                 .padding(.trailing, 10)
             }
         }
-        .padding(20)
+        .padding(.top, 20)
+        .padding(.bottom, 20)
     }
 }
 

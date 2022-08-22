@@ -42,7 +42,7 @@ struct GameElement: Codable, Identifiable {
 // MARK: - GameGame
 struct GameGame: Codable {
     var id: String
-//    var status: GameStatus
+    var status: GameStatus
 //    var coverage: Coverage
 //    var gameNumber: Int
 //    var dayNight: DayNight
@@ -294,9 +294,9 @@ struct Home: Codable {
 //    case a = "A"
 //}
 //
-//enum GameStatus: String, Codable {
-//    case closed = "closed"
-//}
+enum GameStatus: String, Codable {
+    case closed = "closed"
+}
 //
 //// MARK: - Venue
 //struct Venue: Codable {
