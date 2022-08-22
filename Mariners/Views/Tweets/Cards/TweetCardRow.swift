@@ -14,7 +14,8 @@ struct TweetCardRow: View {
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
                 Text("Tweets")
-                    .font(.headline)
+                    .font(.title3)
+                    .fontWeight(.semibold)
 
                 Spacer()
                 
@@ -23,7 +24,7 @@ struct TweetCardRow: View {
                 } label: {
                     Text("See All")
                         .foregroundColor(Color.blue)
-                        .font(.caption)
+                        .font(.callout)
                 }
             }
             .padding(.top, 10)

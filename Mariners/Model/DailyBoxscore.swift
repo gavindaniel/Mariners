@@ -56,7 +56,8 @@ struct GameGame: Codable {
 //    var venue: Venue
 //    var broadcast: Broadcast
 //    var weather: Weather
-//    var gameFinal: Final
+    var outcome: Outcome?
+    var gameFinal: Final?
     var home: Home
     var away: Away
 //    var pitching: Pitching
@@ -73,7 +74,7 @@ struct GameGame: Codable {
 //        case entryMode = "entry_mode"
 //        case reference, venue, broadcast, weather
 //        case gameFinal = "final"
-//        case home, away, pitching
+//        case home, away // , pitching
 //    }
 }
 
@@ -114,10 +115,10 @@ struct Away: Codable {
 //    }
 //}
 //
-//enum InningHalf: String, Codable {
-//    case b = "B"
-//    case t = "T"
-//}
+enum InningHalf: String, Codable {
+    case b = "B"
+    case t = "T"
+}
 //
 //// MARK: - Runner
 //struct Runner: Codable {
@@ -184,17 +185,107 @@ struct Away: Codable {
 //    case stomp = "STOMP"
 //}
 //
-//// MARK: - Final
-//struct Final: Codable {
-//    var inning: Int
-//    var inningHalf: InningHalf
+// MARK: - Final
+struct Final: Codable {
+    var inning: Int
+    var inningHalf: InningHalf
+
+    enum CodingKeys: String, CodingKey {
+        case inning
+        case inningHalf = "inning_half"
+    }
+}
+
+// MARK: - Outcome
+struct Outcome: Codable {
+    var type: String
+    var currentInning: Int
+    var currentInningHalf: String
+    var count: Count
+//    var hitter: Hitter
+//    var pitcher: PitcherClass
+//    var runners: [OutcomeRunner]
+
+//    enum CodingKeys: String, CodingKey {
+//        case type
+//        case currentInning = "current_inning"
+//        case currentInningHalf = "current_inning_half"
+//        case count, hitter, pitcher, runners
+//    }
+}
+
+// MARK: - Count
+struct Count: Codable {
+    var balls, strikes, outs, inning: Int
+    var inningHalf: String
+    var halfOver: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case balls, strikes, outs, inning
+        case inningHalf = "inning_half"
+        case halfOver = "half_over"
+    }
+}
+
+//// MARK: - Hitter
+//struct Hitter: Codable {
+//    var preferredName, firstName, lastName, jerseyNumber: String
+//    var id, outcomeID: String
+//    var abOver: Bool
 //
 //    enum CodingKeys: String, CodingKey {
-//        case inning
-//        case inningHalf = "inning_half"
+//        case preferredName = "preferred_name"
+//        case firstName = "first_name"
+//        case lastName = "last_name"
+//        case jerseyNumber = "jersey_number"
+//        case id
+//        case outcomeID = "outcome_id"
+//        case abOver = "ab_over"
 //    }
 //}
 //
+//// MARK: - PitcherClass
+//struct PitcherClass: Codable {
+//    var preferredName, firstName, lastName, jerseyNumber: String
+//    var id: String
+//    var pitchSpeed: Double
+//    var pitchType: String
+//    var pitchZone, pitchX, pitchY: Int
+//
+//    enum CodingKeys: String, CodingKey {
+//        case preferredName = "preferred_name"
+//        case firstName = "first_name"
+//        case lastName = "last_name"
+//        case jerseyNumber = "jersey_number"
+//        case id
+//        case pitchSpeed = "pitch_speed"
+//        case pitchType = "pitch_type"
+//        case pitchZone = "pitch_zone"
+//        case pitchX = "pitch_x"
+//        case pitchY = "pitch_y"
+//    }
+//}
+//
+//// MARK: - OutcomeRunner
+//struct OutcomeRunner: Codable {
+//    var preferredName, firstName, lastName, jerseyNumber: String
+//    var id, outcomeID: String
+//    var startingBase, endingBase: Int
+//    var out: Bool
+//
+//    enum CodingKeys: String, CodingKey {
+//        case preferredName = "preferred_name"
+//        case firstName = "first_name"
+//        case lastName = "last_name"
+//        case jerseyNumber = "jersey_number"
+//        case id
+//        case outcomeID = "outcome_id"
+//        case startingBase = "starting_base"
+//        case endingBase = "ending_base"
+//        case out
+//    }
+//}
+
 // MARK: - Home
 struct Home: Codable {
     var name, market, abbr, id: String

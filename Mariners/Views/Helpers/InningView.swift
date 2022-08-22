@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct InningView: View {
-    var inning: String
+    var inning: Int
     var inningHalf: String
     
     var body: some View {
         HStack(alignment: .center) {
-            if inningHalf == "Top" {
+            if inningHalf == "T" {
                 Image(systemName: "arrowtriangle.up.fill")
                     .resizable()
                     .frame(width: 10, height: 10)
@@ -24,7 +24,7 @@ struct InningView: View {
                     .frame(width: 10, height: 10)
                     .foregroundColor(.primary)
             }
-            Text(inning)
+            Text(getInningText(input: inning))
                 .font(.callout)
                 .foregroundColor(.primary)
         }
@@ -33,6 +33,6 @@ struct InningView: View {
 
 struct InningView_Previews: PreviewProvider {
     static var previews: some View {
-        InningView(inning: "1st", inningHalf: "Top")
+        InningView(inning: 1, inningHalf: "B")
     }
 }

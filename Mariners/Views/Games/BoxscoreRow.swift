@@ -17,11 +17,15 @@ struct BoxscoreRow: View {
             VStack {
                 Image(game.away.abbr)
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
+//                    .padding(.bottom, 5)
                 Image(game.home.abbr)
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
             }
+            .padding(.trailing, 5)
             // names
             if (game.away.runs > game.home.runs) {
                 VStack(alignment: .leading) {

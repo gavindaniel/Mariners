@@ -17,7 +17,8 @@ struct HeadlineList: View {
         VStack(alignment: .center) {
             HStack(alignment: .center) {
                 Text("Headlines")
-                    .font(.headline)
+                    .font(.title3)
+                    .fontWeight(.semibold)
 
                 Spacer()
                 
@@ -26,7 +27,7 @@ struct HeadlineList: View {
                 } label: {
                     Text("See All")
                         .foregroundColor(Color.blue)
-                        .font(.caption)
+                        .font(.callout)
                 }
             }
             .padding(.top, 10)

@@ -17,7 +17,8 @@ struct GameRow: View {
             VStack {
                 Image(game.away.abbr)
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 40, height: 40)
             }
             Spacer()
             if checkFinal(game.status.rawValue) {
@@ -42,17 +43,43 @@ struct GameRow: View {
                     .padding(20)
             }
             Spacer()
-//            VStack(alignment: .center) {
-//                if checkGameFinal(game.inning, game.inningHalf, game.outs) {
-//                    Text("Final")
-//                        .foregroundColor(.red)
-//                } else {
-//                    InningView(inning: game.inning, inningHalf: game.inningHalf)
-//                    OutsView(outStrings: getOutsStrings(input: game.outs))
-//                }
-//            }
+            VStack(alignment: .center) {
+                if checkFinal(game.status.rawValue) {
+                    if (game.away.runs > game.home.runs) {
+                        HStack {
+                            Image(systemName: "arrowtriangle.left.fill")
+                                .resizable()
+                                .frame(width: 10, height: 10)
+                                .foregroundColor(.primary)
+                            Text("Final")
+                                .foregroundColor(.primary)
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                                .padding()
+                        }
+                        .padding(.trailing, 10)
+                    } else {
+                        HStack {
+                            Text("Final")
+                                .foregroundColor(.primary)
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                                .padding()
+                            Image(systemName: "arrowtriangle.right.fill")
+                                .resizable()
+                                .frame(width: 10, height: 10)
+                                .foregroundColor(.primary)
+                        }
+                        .padding(.leading, 10)
+                    }
+                    
+                } else {
+                    InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
+                    OutsView(outStrings: getOutsStrings(input: game.outcome!.count.outs))
+                }
+            }
 //            .font(.caption)
-//            Spacer()
+            Spacer()
             if checkFinal(game.status.rawValue) {
                 if (game.home.runs > game.away.runs) {
                 Text(String(game.home.runs))
@@ -78,7 +105,8 @@ struct GameRow: View {
             VStack {
                 Image(game.home.abbr)
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 40, height: 40)
             }
         }
         .padding(20)

@@ -9,16 +9,14 @@ import SwiftUI
 
 struct GameFeatured: View {
     @EnvironmentObject var modelData: ModelData
-//    @State private var games = [GameElement]()
-    
-//    var game: Game
     var game: GameGame
     
     var body: some View {
         VStack(alignment: .center) {
             HStack(alignment: .center) {
                 Text("Scores")
-                    .font(.headline)
+                    .font(.title3)
+                    .fontWeight(.semibold)
 
                 Spacer()
                 
@@ -27,7 +25,7 @@ struct GameFeatured: View {
                 } label: {
                     Text("See All")
                         .foregroundColor(Color.blue)
-                        .font(.caption)
+                        .font(.callout)
                 }
             }
             .padding(.top, 10)
