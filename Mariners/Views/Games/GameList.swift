@@ -12,19 +12,22 @@ struct GameList: View {
     @State private var games = [GameElement]()
     
     var body: some View {
-        ScrollView(showsIndicators: true) {
-            ForEach(games) { game in
-                NavigationLink {
-//                    GameDetail(game: game)
-//                    BoxscoreDetail(game: game)
-                } label: {
-//                    GameRow(game: game)
-                    BoxscoreRow(game: game.game)
-                }
-                
+        List(games, id: \.id) { game in
+            VStack(alignment: .leading) {
+//                NavigationLink {
+//                    NewsDetail(article: article)
+//                } label: {
+//                    NewsRow(article: article)
+//                }
+                BoxscoreRow(game: game.game)
+                    .padding()
                 Divider()
             }
+            .listRowInsets(EdgeInsets())
+            .listRowSeparator(.hidden)
         }
+        .listStyle(.inset)
+        
         .navigationTitle("Scores")
         .refreshable {
             await loadData()

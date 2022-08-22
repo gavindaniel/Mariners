@@ -53,7 +53,7 @@ struct HomeView: View {
                 } label: {
                     Label("User Settings", systemImage: "gearshape.fill")
                 }
-//            }
+            }
             .sheet(isPresented: $showingSettings) {
                 SettingsHost()
                     .environmentObject(modelData)
