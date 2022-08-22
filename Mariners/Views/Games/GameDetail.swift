@@ -15,6 +15,7 @@ struct GameDetail: View {
     var body: some View {
         ScrollView {
             GameRow(game: game)
+            BoxscoreDetail(game: game)
         }
     }
 }

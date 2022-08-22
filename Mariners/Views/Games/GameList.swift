@@ -12,20 +12,32 @@ struct GameList: View {
     @State private var games = [GameElement]()
     
     var body: some View {
-        List(games, id: \.id) { game in
-            VStack(alignment: .leading) {
-//                NavigationLink {
-//                    NewsDetail(article: article)
-//                } label: {
-//                    NewsRow(article: article)
-//                }
-                BoxscoreRow(game: game.game)
-                    .padding()
+        ScrollView(showsIndicators: true) {
+            ForEach(games) { game in
+                NavigationLink {
+                    GameDetail(game: game.game)
+                } label: {
+                    BoxscoreRow(game: game.game)
+                }
+                .padding()
                 Divider()
             }
-            .listRowInsets(EdgeInsets())
-            .listRowSeparator(.hidden)
         }
+        .listRowInsets(EdgeInsets())
+//        List(games, id: \.id) { game in
+//            VStack(alignment: .leading) {
+//                NavigationLink {
+//                    GameDetail(game: game.game)
+//                } label: {
+//                    BoxscoreRow(game: game.game)
+//                }
+//                
+//                    .padding()
+//                Divider()
+//            }
+//            .listRowInsets(EdgeInsets())
+//            .listRowSeparator(.hidden)
+//        }
         .listStyle(.inset)
         
         .navigationTitle("Scores")
@@ -56,9 +68,9 @@ struct GameList: View {
     }
 }
 
-//struct GameList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GameList()
-//            .environmentObject(ModelData())
-//    }
-//}
+struct GameList_Previews: PreviewProvider {
+    static var previews: some View {
+        GameList()
+            .environmentObject(ModelData())
+    }
+}
