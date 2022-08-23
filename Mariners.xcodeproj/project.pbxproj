@@ -56,8 +56,10 @@
 		4CDFA77728B16A4A009EA2F5 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */; };
 		4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */; };
 		4CDFA77B28B1AF88009EA2F5 /* BoxscoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */; };
-		4CDFA77D28B1AFBF009EA2F5 /* BoxscoreDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77C28B1AFBF009EA2F5 /* BoxscoreDetail.swift */; };
+		4CDFA77D28B1AFBF009EA2F5 /* BoxscoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77C28B1AFBF009EA2F5 /* BoxscoreItem.swift */; };
 		4CF1231F28B441D100666DEE /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF1231E28B441D100666DEE /* FinalView.swift */; };
+		4CF1232128B468FC00666DEE /* BoxscoreTotals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF1232028B468FC00666DEE /* BoxscoreTotals.swift */; };
+		4CF1232328B4697100666DEE /* BoxscoreInnings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF1232228B4697100666DEE /* BoxscoreInnings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,8 +110,10 @@
 		4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 		4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxscore.swift; sourceTree = "<group>"; };
 		4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreRow.swift; sourceTree = "<group>"; };
-		4CDFA77C28B1AFBF009EA2F5 /* BoxscoreDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreDetail.swift; sourceTree = "<group>"; };
+		4CDFA77C28B1AFBF009EA2F5 /* BoxscoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreItem.swift; sourceTree = "<group>"; };
 		4CF1231E28B441D100666DEE /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = "<group>"; };
+		4CF1232028B468FC00666DEE /* BoxscoreTotals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreTotals.swift; sourceTree = "<group>"; };
+		4CF1232228B4697100666DEE /* BoxscoreInnings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreInnings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,7 +248,7 @@
 				4C9AB9CC28AD42F70020CCEA /* GameRow.swift */,
 				4C394B4428AB41B800313CBD /* GameDetail.swift */,
 				4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */,
-				4CDFA77C28B1AFBF009EA2F5 /* BoxscoreDetail.swift */,
+				4CDFA77C28B1AFBF009EA2F5 /* BoxscoreItem.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -258,6 +262,8 @@
 				4C5A100228AD68FA00AB96A8 /* DisplayFunctions.swift */,
 				4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */,
 				4C329E9428B3364C00F8A237 /* TimeFunctions.swift */,
+				4CF1232028B468FC00666DEE /* BoxscoreTotals.swift */,
+				4CF1232228B4697100666DEE /* BoxscoreInnings.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF1232328B4697100666DEE /* BoxscoreInnings.swift in Sources */,
 				4C394B5928AB41B800313CBD /* EmbedsViewController.swift in Sources */,
 				4CDFA77B28B1AF88009EA2F5 /* BoxscoreRow.swift in Sources */,
 				4C5A100328AD68FA00AB96A8 /* DisplayFunctions.swift in Sources */,
@@ -427,7 +434,7 @@
 				4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */,
 				4C394B5C28AB41B800313CBD /* GameList.swift in Sources */,
 				4C394B5D28AB41B800313CBD /* GameDetail.swift in Sources */,
-				4CDFA77D28B1AFBF009EA2F5 /* BoxscoreDetail.swift in Sources */,
+				4CDFA77D28B1AFBF009EA2F5 /* BoxscoreItem.swift in Sources */,
 				4C267D5A28A9A902008468A2 /* MarinersApp.swift in Sources */,
 				4C394B6528AB41B800313CBD /* NewsRow.swift in Sources */,
 				4C394B6C28AB447900313CBD /* ResponseView.swift in Sources */,
@@ -439,6 +446,7 @@
 				4C329E9528B3364C00F8A237 /* TimeFunctions.swift in Sources */,
 				4C394B5828AB41B800313CBD /* TweetList.swift in Sources */,
 				4C267D7828A9A9BD008468A2 /* Tweet.swift in Sources */,
+				4CF1232128B468FC00666DEE /* BoxscoreTotals.swift in Sources */,
 				4C5A100528AD6C6C00AB96A8 /* InningView.swift in Sources */,
 				4C267D7928A9A9BD008468A2 /* Settings.swift in Sources */,
 				4CF1231F28B441D100666DEE /* FinalView.swift in Sources */,
