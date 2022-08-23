@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StandingItem: View {
+    var isLoading: Bool
     var division: League
     
     var body: some View {
@@ -62,6 +63,7 @@ struct StandingItem: View {
             }
         }
         .font(.caption)
+        .redacted(reason: isLoading ? .placeholder : [])
     }
 }
 

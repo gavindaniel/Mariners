@@ -61,7 +61,7 @@ struct ContentView: View {
 //                }
 //                .tag(Tab.test)
             
-            StandingsView()
+            StandingsView(isLoading: true)
                 .tabItem {
                    Label("Standings", systemImage: "list.number")
                 }

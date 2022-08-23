@@ -13,6 +13,7 @@ final class ModelData: ObservableObject {
     var articles: [Article] = load("articleData.json")
     var scores: DailyBoxscore = load("boxscoreData.json")
     var score: GameBoxscore = load("gameData.json")
+    var standings: Standings = load("standingsData.json")
     @Published var settings = Settings.default
 }
 

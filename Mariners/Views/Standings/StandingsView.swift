@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct StandingsView: View {
-    @State private var leagues = [League]()
+    @State var isLoading: Bool
+    @State private var leagues = ModelData().standings.league.season!.leagues
     
     var body: some View {
         List(leagues, id: \.id) { league in
             VStack(alignment: .leading) {
                 Text(league.name)
+                    .padding(.top, 20)
                 ForEach(league.divisions!) { division in
-//                        NavigationLink {
-//                            NewsDetail(article: article)
-//                        } label: {
-//                            NewsRow(article: article)
-//                        }
-                    StandingItem(division: division)
+                    StandingItem(isLoading: isLoading, division: division)
                         .padding()
                     Divider()
                 }
@@ -46,10 +43,13 @@ struct StandingsView: View {
         }
         
         do {
+            isLoading = true
             let (jsonData, _) = try await URLSession.shared.data(from: url)
             
             if let standings = try? JSONDecoder().decode(Standings.self, from: jsonData) {
                 leagues = standings.league.season!.leagues
+                print("standings JSON decoded.")
+                isLoading = false
             }
         } catch {
             print("Invalid data")
