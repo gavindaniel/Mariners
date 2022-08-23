@@ -20,7 +20,7 @@ struct GameRow: View {
                     .frame(width: 40, height: 40)
             }
             Spacer()
-            if checkFinal(game.status) {
+            if checkFinal(game.status.rawValue) {
                 if (game.away.runs > game.home.runs) {
                     Text(String(game.away.runs))
                     .font(.title)
@@ -43,7 +43,7 @@ struct GameRow: View {
             }
             Spacer()
             VStack(alignment: .center) {
-                if checkFinal(game.status) {
+                if checkFinal(game.status.rawValue) {
                     FinalView(awayRuns: game.away.runs, homeRuns: game.home.runs)
                 } else {
                     InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
@@ -52,7 +52,7 @@ struct GameRow: View {
             }
 //            .font(.caption)
             Spacer()
-            if checkFinal(game.status) {
+            if checkFinal(game.status.rawValue) {
                 if (game.home.runs > game.away.runs) {
                 Text(String(game.home.runs))
                     .font(.title)

@@ -14,12 +14,15 @@ struct GameDetail: View {
     var body: some View {
         List {
             GameRow(game: game)
-            Divider()
+//            Divider()
             BoxscoreItem(game: game)
-            Divider()
+//            Divider()
+            .listRowInsets(EdgeInsets())
+            .listRowSeparator(.hidden)
         }
-        .listRowInsets(EdgeInsets())
+//        .listRowInsets(EdgeInsets())
         .listStyle(.inset)
+        .navigationTitle("Boxscore")
         .refreshable {
             await loadData()
         }

@@ -15,7 +15,7 @@ struct BoxscoreItem: View {
         HStack {
             // teams
             Group {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 10) {
                     Text("")
                     Text(game.away.abbr)
                         .font(.caption)

@@ -16,7 +16,6 @@ struct GameList: View {
             ForEach(games) { game in
                 NavigationLink {
                     GameDetail()
-//                    GameDetail(game: game.game)
                 } label: {
                     BoxscoreRow(game: game.game)
                 }
@@ -25,20 +24,6 @@ struct GameList: View {
             }
         }
         .listRowInsets(EdgeInsets())
-//        List(games, id: \.id) { game in
-//            VStack(alignment: .leading) {
-//                NavigationLink {
-//                    GameDetail(game: game.game)
-//                } label: {
-//                    BoxscoreRow(game: game.game)
-//                }
-//                
-//                    .padding()
-//                Divider()
-//            }
-//            .listRowInsets(EdgeInsets())
-//            .listRowSeparator(.hidden)
-//        }
         .listStyle(.inset)
         
         .navigationTitle("Scores")
