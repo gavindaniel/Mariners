@@ -9,8 +9,7 @@ import SwiftUI
 
 struct GameDetail: View {
     @EnvironmentObject var modelData: ModelData
-//    var game: Game
-    var game: GameGame
+    @State private var game = ModelData().score.game
     
     var body: some View {
         List {
@@ -19,6 +18,8 @@ struct GameDetail: View {
             BoxscoreItem(game: game)
             Divider()
         }
+        .listRowInsets(EdgeInsets())
+        .listStyle(.inset)
         .refreshable {
             await loadData()
         }
@@ -28,7 +29,7 @@ struct GameDetail: View {
     }
     
     func loadData() async {
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/2022/08/19/boxscore.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/00cb0901-a2c1-411a-8884-f03190a54e8a/boxscore.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
             print("Invalid URL")
             return
         }
@@ -36,9 +37,9 @@ struct GameDetail: View {
         do {
             let (jsonData, _) = try await URLSession.shared.data(from: url)
             
-            if let box_scores = try? JSONDecoder().decode(DailyBoxscore.self, from: jsonData) {
-                games = box_scores.league.games
-                print("JSON decoded.")
+            if let gameBoxscore = try? JSONDecoder().decode(GameBoxscore.self, from: jsonData) {
+                game = gameBoxscore.game
+                print("game JSON decoded.")
             }
         } catch {
             print("Invalid data")
@@ -48,6 +49,8 @@ struct GameDetail: View {
 
 struct GamesDetail_Previews: PreviewProvider {
     static var previews: some View {
-        GameDetail(game: ModelData().scores.league.games[0].game)
+//        GameDetail(game: ModelData().scores.league.games[0].game)
+        GameDetail()
+            .environmentObject(ModelData())
     }
 }

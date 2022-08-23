@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameFeatured: View {
     @EnvironmentObject var modelData: ModelData
-    var game: GameGame
+    var game: Game
     
     var body: some View {
         VStack(alignment: .center) {
@@ -31,7 +31,8 @@ struct GameFeatured: View {
             .padding(.top, 10)
             Divider()
             NavigationLink {
-                GameDetail(game: game)
+                GameDetail()
+//                GameDetail(game: game)
             } label: {
                 GameRow(game: game)
             }

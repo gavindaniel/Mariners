@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct BoxscoreTotals: View {
-    var game: GameGame
+    var game: Game
     
     var body: some View {
         HStack {
             Group {
+                // runs
                 VStack(alignment: .center, spacing: 10) {
                     Text("R")
                         .font(.caption2)
@@ -30,34 +31,36 @@ struct BoxscoreTotals: View {
                         
                 }
                 .padding(5)
+                // hits
                 VStack(alignment: .center, spacing: 10) {
                     Text("H")
                         .font(.caption2)
                         .foregroundColor(.secondary)
                         
-                    Text(String(game.away.runs))
+                    Text(String(game.away.hits))
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
                         
-                    Text(String(game.home.runs))
+                    Text(String(game.home.hits))
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
                         
                 }
                 .padding(5)
+                // errors
                 VStack(alignment: .center, spacing: 10) {
                     Text("E")
                         .font(.caption2)
                         .foregroundColor(.secondary)
                         
-                    Text(String(game.away.runs))
+                    Text(String(game.away.errors))
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
                         
-                    Text(String(game.home.runs))
+                    Text(String(game.home.errors))
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)

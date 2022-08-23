@@ -9,8 +9,7 @@ import SwiftUI
 
 struct BoxscoreRow: View {
     @EnvironmentObject var modelData: ModelData
-    var game: GameGame
-//    var game: Game
+    var game: Game
     
     var body: some View {
         HStack {

@@ -1,194 +1,595 @@
-[
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1001,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
+{
+    "game": {
+        "id": "00cb0901-a2c1-411a-8884-f03190a54e8a",
+        "status": "closed",
+        "coverage": "full",
+        "game_number": 1,
+        "day_night": "D",
+        "scheduled": "2022-08-19T18:20:00+00:00",
+        "home_team": "55714da8-fcaf-4574-8443-59bfb511a524",
+        "away_team": "dcfd5266-00ce-442c-bc09-264cd20cf455",
+        "attendance": 39962,
+        "duration": "2:54",
+        "double_header": false,
+        "entry_mode": "STOMP",
+        "reference": "663228",
+        "venue": {
+            "name": "Wrigley Field",
+            "market": "Chicago",
+            "capacity": 41649,
+            "surface": "grass",
+            "address": "1060 West Addison Street",
+            "city": "Chicago",
+            "state": "IL",
+            "zip": "60613",
+            "country": "USA",
+            "id": "53f8eb0d-a361-4a7a-930b-2f8735ea0698",
+            "field_orientation": "NE",
+            "stadium_type": "outdoor",
+            "location": {
+                "lat": "41.9474473",
+                "lng": "-87.6560538"
+            }
+        },
+        "broadcast": {
+            "network": "MLB Network"
+        },
+        "weather": {
+            "forecast": {
+                "temp_f": 85,
+                "condition": "Partly cloudy",
+                "humidity": 40,
+                "dew_point_f": 57,
+                "cloud_cover": 75,
+                "obs_time": "2022-08-19T20:36:35.000Z",
+                "wind": {
+                    "speed_mph": 13,
+                    "direction": "SSW"
+                }
+            },
+            "current_conditions": {
+                "temp_f": 85,
+                "condition": "Partly cloudy",
+                "humidity": 40,
+                "dew_point_f": 57,
+                "cloud_cover": 75,
+                "obs_time": "2022-08-19T21:08:39.000Z",
+                "wind": {
+                    "speed_mph": 13,
+                    "direction": "SSW"
+                }
+            }
+        },
+        "final": {
+            "inning": 9,
+            "inning_half": "T"
+        },
+        "home": {
+            "name": "Cubs",
+            "market": "Chicago",
+            "abbr": "CHC",
+            "id": "55714da8-fcaf-4574-8443-59bfb511a524",
+            "runs": 8,
+            "hits": 10,
+            "errors": 1,
+            "win": 51,
+            "loss": 67,
+            "probable_pitcher": {
+                "preferred_name": "Keegan",
+                "first_name": "Keegan",
+                "last_name": "Thompson",
+                "jersey_number": "71",
+                "id": "fd6497de-3655-49f8-b944-0ed11459f60a",
+                "win": 9,
+                "loss": 5,
+                "era": 3.666
+            },
+            "starting_pitcher": {
+                "preferred_name": "Keegan",
+                "first_name": "Keegan",
+                "last_name": "Thompson",
+                "jersey_number": "71",
+                "id": "fd6497de-3655-49f8-b944-0ed11459f60a",
+                "win": 9,
+                "loss": 5,
+                "era": 3.666
+            },
+            "scoring": [{
+                    "number": 1,
+                    "sequence": 1,
+                    "runs": 3,
+                    "hits": 4,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 2,
+                    "sequence": 2,
+                    "runs": 1,
+                    "hits": 2,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 3,
+                    "sequence": 3,
+                    "runs": 0,
+                    "hits": 0,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 4,
+                    "sequence": 4,
+                    "runs": 0,
+                    "hits": 0,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 5,
+                    "sequence": 5,
+                    "runs": 2,
+                    "hits": 2,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 6,
+                    "sequence": 6,
+                    "runs": 2,
+                    "hits": 2,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 7,
+                    "sequence": 7,
+                    "runs": 0,
+                    "hits": 0,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 8,
+                    "sequence": 8,
+                    "runs": 0,
+                    "hits": 0,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 9,
+                    "sequence": 9,
+                    "runs": "X",
+                    "hits": "X",
+                    "errors": "X",
+                    "type": "inning"
+                }
+            ],
+            "events": [{
+                    "hitter_id": "aa691806-f8a0-4dc7-b833-94e59dc22a34",
+                    "pitcher_id": "3f7d4224-7406-429e-9128-e302ebe4470a",
+                    "inning": 1,
+                    "inning_half": "B",
+                    "type": "pitch",
+                    "hitter_outcome": "aD",
+                    "id": "ffb5bc3f-8e74-4bb1-8c16-6f98ad78861e",
+                    "runners": [{
+                        "starting_base": 2,
+                        "first_name": "Nicklaus",
+                        "last_name": "Madrigal",
+                        "preferred_name": "Nick",
+                        "jersey_number": "1",
+                        "id": "04bbd2cb-cc77-41da-8550-e332c2da0cf1"
+                    }]
+                },
+                {
+                    "hitter_id": "4308aa12-26f5-497d-8558-60df2cbe88e6",
+                    "pitcher_id": "3f7d4224-7406-429e-9128-e302ebe4470a",
+                    "inning": 1,
+                    "inning_half": "B",
+                    "type": "pitch",
+                    "hitter_outcome": "aT",
+                    "id": "63b38d32-cab1-4eb6-8217-bb6665f600c4",
+                    "runners": [{
+                        "starting_base": 2,
+                        "first_name": "Seiya",
+                        "last_name": "Suzuki",
+                        "preferred_name": "Seiya",
+                        "jersey_number": "27",
+                        "id": "aa691806-f8a0-4dc7-b833-94e59dc22a34"
+                    }]
+                },
+                {
+                    "hitter_id": "d8968ebd-8227-44b6-b442-77d088c9f98a",
+                    "pitcher_id": "3f7d4224-7406-429e-9128-e302ebe4470a",
+                    "inning": 1,
+                    "inning_half": "B",
+                    "type": "pitch",
+                    "hitter_outcome": "aS",
+                    "id": "4baa2e5e-31ed-4653-b935-b350703fb5df",
+                    "runners": [{
+                        "starting_base": 3,
+                        "first_name": "Franmil",
+                        "last_name": "Reyes",
+                        "preferred_name": "Franmil",
+                        "jersey_number": "32",
+                        "id": "4308aa12-26f5-497d-8558-60df2cbe88e6"
+                    }]
+                },
+                {
+                    "hitter_id": "9d93f121-f032-407d-bb30-ad3593641db9",
+                    "pitcher_id": "3f7d4224-7406-429e-9128-e302ebe4470a",
+                    "inning": 2,
+                    "inning_half": "B",
+                    "type": "pitch",
+                    "hitter_outcome": "oSF",
+                    "id": "ff0c9088-b4ac-41c5-b8e6-8ef260106f12",
+                    "runners": [{
+                        "starting_base": 3,
+                        "first_name": "Christopher",
+                        "last_name": "Morel",
+                        "preferred_name": "Christopher",
+                        "jersey_number": "5",
+                        "id": "70573042-2ab4-4d82-b86e-9325f8d7686d"
+                    }]
+                },
+                {
+                    "hitter_id": "34fcb984-f20f-4c4f-af38-61387ae2cbc9",
+                    "pitcher_id": "3f7d4224-7406-429e-9128-e302ebe4470a",
+                    "inning": 5,
+                    "inning_half": "B",
+                    "type": "pitch",
+                    "hitter_outcome": "aHR",
+                    "id": "3baeed98-68ab-4b63-8a87-ed59aafd3dcd",
+                    "runners": [{
+                            "starting_base": 0,
+                            "first_name": "Patrick",
+                            "last_name": "Wisdom",
+                            "preferred_name": "Patrick",
+                            "jersey_number": "16",
+                            "id": "34fcb984-f20f-4c4f-af38-61387ae2cbc9"
+                        },
+                        {
+                            "starting_base": 2,
+                            "first_name": "Nicklaus",
+                            "last_name": "Madrigal",
+                            "preferred_name": "Nick",
+                            "jersey_number": "1",
+                            "id": "04bbd2cb-cc77-41da-8550-e332c2da0cf1"
+                        }
+                    ]
+                },
+                {
+                    "hitter_id": "70573042-2ab4-4d82-b86e-9325f8d7686d",
+                    "pitcher_id": "e83160b9-1507-4d04-aad5-086a5196af0a",
+                    "inning": 6,
+                    "inning_half": "B",
+                    "type": "pitch",
+                    "hitter_outcome": "aHR",
+                    "id": "c4f3c2cb-3ffb-4d02-a3c9-0e3e98d8a2b0",
+                    "runners": [{
+                            "starting_base": 0,
+                            "first_name": "Christopher",
+                            "last_name": "Morel",
+                            "preferred_name": "Christopher",
+                            "jersey_number": "5",
+                            "id": "70573042-2ab4-4d82-b86e-9325f8d7686d"
+                        },
+                        {
+                            "starting_base": 1,
+                            "first_name": "Ian",
+                            "last_name": "Happ",
+                            "preferred_name": "Ian",
+                            "jersey_number": "8",
+                            "id": "d8968ebd-8227-44b6-b442-77d088c9f98a"
+                        }
+                    ]
+                }
+            ]
+        },
+        "away": {
+            "name": "Brewers",
+            "market": "Milwaukee",
+            "abbr": "MIL",
+            "id": "dcfd5266-00ce-442c-bc09-264cd20cf455",
+            "runs": 7,
+            "hits": 9,
+            "errors": 0,
+            "win": 63,
+            "loss": 55,
+            "probable_pitcher": {
+                "preferred_name": "Aaron",
+                "first_name": "Aaron",
+                "last_name": "Ashby",
+                "jersey_number": "26",
+                "id": "3f7d4224-7406-429e-9128-e302ebe4470a",
+                "win": 2,
+                "loss": 10,
+                "era": 4.237
+            },
+            "starting_pitcher": {
+                "preferred_name": "Aaron",
+                "first_name": "Aaron",
+                "last_name": "Ashby",
+                "jersey_number": "26",
+                "id": "3f7d4224-7406-429e-9128-e302ebe4470a",
+                "win": 2,
+                "loss": 10,
+                "era": 4.237
+            },
+            "scoring": [{
+                    "number": 1,
+                    "sequence": 1,
+                    "runs": 2,
+                    "hits": 3,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 2,
+                    "sequence": 2,
+                    "runs": 0,
+                    "hits": 0,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 3,
+                    "sequence": 3,
+                    "runs": 3,
+                    "hits": 3,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 4,
+                    "sequence": 4,
+                    "runs": 0,
+                    "hits": 0,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 5,
+                    "sequence": 5,
+                    "runs": 0,
+                    "hits": 0,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 6,
+                    "sequence": 6,
+                    "runs": 2,
+                    "hits": 2,
+                    "errors": 1,
+                    "type": "inning"
+                },
+                {
+                    "number": 7,
+                    "sequence": 7,
+                    "runs": 0,
+                    "hits": 0,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 8,
+                    "sequence": 8,
+                    "runs": 0,
+                    "hits": 0,
+                    "errors": 0,
+                    "type": "inning"
+                },
+                {
+                    "number": 9,
+                    "sequence": 9,
+                    "runs": 0,
+                    "hits": 1,
+                    "errors": 0,
+                    "type": "inning"
+                }
+            ],
+            "events": [{
+                    "hitter_id": "53a80099-966e-451c-a1e2-dccbb16f8dd8",
+                    "pitcher_id": "fd6497de-3655-49f8-b944-0ed11459f60a",
+                    "inning": 1,
+                    "inning_half": "T",
+                    "type": "pitch",
+                    "hitter_outcome": "aHR",
+                    "id": "28434937-a3f8-4f79-9c56-9fa279395976",
+                    "runners": [{
+                            "starting_base": 0,
+                            "first_name": "Andrew",
+                            "last_name": "McCutchen",
+                            "preferred_name": "Andrew",
+                            "jersey_number": "24",
+                            "id": "53a80099-966e-451c-a1e2-dccbb16f8dd8"
+                        },
+                        {
+                            "starting_base": 1,
+                            "first_name": "Christian",
+                            "last_name": "Yelich",
+                            "preferred_name": "Christian",
+                            "jersey_number": "22",
+                            "id": "42cb5171-ffa3-4600-9c41-dbc3805206ea"
+                        }
+                    ]
+                },
+                {
+                    "hitter_id": "3959d7a0-04fc-4772-b9d2-65f97ec4ccb6",
+                    "pitcher_id": "fd6497de-3655-49f8-b944-0ed11459f60a",
+                    "inning": 3,
+                    "inning_half": "T",
+                    "type": "pitch",
+                    "hitter_outcome": "aHR",
+                    "id": "c8a809cb-8982-4afd-93eb-aadc885bc725",
+                    "runners": [{
+                        "starting_base": 0,
+                        "first_name": "Ryan",
+                        "last_name": "Tellez",
+                        "preferred_name": "Rowdy",
+                        "jersey_number": "11",
+                        "id": "3959d7a0-04fc-4772-b9d2-65f97ec4ccb6"
+                    }]
+                },
+                {
+                    "hitter_id": "89bab4bd-0fb6-41a6-88d6-0fd6307ae072",
+                    "pitcher_id": "fd6497de-3655-49f8-b944-0ed11459f60a",
+                    "inning": 3,
+                    "inning_half": "T",
+                    "type": "pitch",
+                    "hitter_outcome": "aHR",
+                    "id": "8bebdc02-2c40-4215-8f02-0f1335267838",
+                    "runners": [{
+                            "starting_base": 0,
+                            "first_name": "Dustin",
+                            "last_name": "Renfroe",
+                            "preferred_name": "Hunter",
+                            "jersey_number": "12",
+                            "id": "89bab4bd-0fb6-41a6-88d6-0fd6307ae072"
+                        },
+                        {
+                            "starting_base": 1,
+                            "first_name": "Andrew",
+                            "last_name": "McCutchen",
+                            "preferred_name": "Andrew",
+                            "jersey_number": "24",
+                            "id": "53a80099-966e-451c-a1e2-dccbb16f8dd8"
+                        }
+                    ]
+                },
+                {
+                    "hitter_id": "42cb5171-ffa3-4600-9c41-dbc3805206ea",
+                    "pitcher_id": "f2a5b0c9-e16f-43a3-bea6-da1c1098147c",
+                    "inning": 6,
+                    "inning_half": "T",
+                    "type": "pitch",
+                    "hitter_outcome": "oGO",
+                    "id": "f23725f5-d3db-4c1e-8f65-788ef02a5978",
+                    "runners": [{
+                        "starting_base": 3,
+                        "first_name": "Luis",
+                        "last_name": "Urías",
+                        "preferred_name": "Luis",
+                        "jersey_number": "2",
+                        "id": "b158fb37-c794-4708-86fb-7cf18287dc97"
+                    }]
+                },
+                {
+                    "hitter_id": "81af51ef-1387-495a-bef2-57f219415370",
+                    "pitcher_id": "f2a5b0c9-e16f-43a3-bea6-da1c1098147c",
+                    "inning": 6,
+                    "inning_half": "T",
+                    "type": "pitch",
+                    "hitter_outcome": "aSAD2",
+                    "id": "758bad2f-d614-4ff3-8afc-41cc9e1a9f2c",
+                    "runners": [{
+                        "starting_base": 3,
+                        "first_name": "Tyrone",
+                        "last_name": "Taylor",
+                        "preferred_name": "Tyrone",
+                        "jersey_number": "15",
+                        "id": "58d665be-7e9e-4ff7-8882-52a770469967"
+                    }]
+                }
+            ]
+        },
+        "pitching": {
+            "win": {
+                "preferred_name": "Michael",
+                "first_name": "Michael",
+                "last_name": "Rucker",
+                "jersey_number": "59",
+                "status": "A",
+                "position": "P",
+                "primary_position": "RP",
+                "id": "70da19cd-4226-43da-a667-e604ee2dc0b5",
+                "win": 2,
+                "loss": 1,
+                "save": 0,
+                "hold": 3,
+                "blown_save": 0
+            },
+            "loss": {
+                "preferred_name": "Hoby",
+                "first_name": "Hoby",
+                "last_name": "Milner",
+                "jersey_number": "55",
+                "status": "A",
+                "position": "P",
+                "primary_position": "RP",
+                "id": "e83160b9-1507-4d04-aad5-086a5196af0a",
+                "win": 3,
+                "loss": 2,
+                "save": 0,
+                "hold": 6,
+                "blown_save": 1
+            },
+            "save": {
+                "preferred_name": "Brandon",
+                "first_name": "Brandon",
+                "last_name": "Hughes",
+                "jersey_number": "47",
+                "status": "A",
+                "position": "P",
+                "primary_position": "RP",
+                "id": "78faf94e-cace-4571-960a-deedf954839f",
+                "win": 2,
+                "loss": 1,
+                "save": 2,
+                "hold": 2,
+                "blown_save": 2
+            },
+            "hold": [{
+                "preferred_name": "Mark",
+                "first_name": "Mark",
+                "last_name": "Leiter Jr.",
+                "jersey_number": "62",
+                "status": "A",
+                "position": "P",
+                "primary_position": "RP",
+                "id": "3f24039c-5b79-4724-9db7-31609917c462",
+                "win": 2,
+                "loss": 5,
+                "save": 1,
+                "hold": 1,
+                "blown_save": 2
+            }],
+            "blown_save": [{
+                    "preferred_name": "Hoby",
+                    "first_name": "Hoby",
+                    "last_name": "Milner",
+                    "jersey_number": "55",
+                    "status": "A",
+                    "position": "P",
+                    "primary_position": "RP",
+                    "id": "e83160b9-1507-4d04-aad5-086a5196af0a",
+                    "win": 3,
+                    "loss": 2,
+                    "save": 0,
+                    "hold": 6,
+                    "blown_save": 1
+                },
+                {
+                    "preferred_name": "Steven",
+                    "first_name": "Steven",
+                    "last_name": "Brault",
+                    "jersey_number": "25",
+                    "status": "A",
+                    "position": "P",
+                    "primary_position": "RP",
+                    "id": "f2a5b0c9-e16f-43a3-bea6-da1c1098147c",
+                    "win": 0,
+                    "loss": 0,
+                    "save": 0,
+                    "hold": 1,
+                    "blown_save": 1
+                }
+            ]
+        }
     },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1002,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1003,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1004,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1005,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1006,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1007,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1008,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1009,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1010,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1011,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    },
-    {
-        "awayName": "Angels",
-        "homeName": "Mariners",
-        "awayInits": "LAA",
-        "homeInits": "SEA",
-        "id": 1012,
-        "awayScore": 4,
-        "homeScore": 3,
-        "inningHalf": "Bottom",
-        "inning": "9th",
-        "outs": 3,
-        "awayRecord": "57-50",
-        "homeRecord": "45-61",
-        "awayLogoName": "circle-logo",
-        "homeLogoName": "s-logo"
-    }
-]
+    "_comment": "Generation started @ 2022-08-23 02:45:24 UTC ended @ 2022-08-23 02:45:24 UTC"
+}

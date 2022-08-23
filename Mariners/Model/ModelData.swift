@@ -10,9 +10,9 @@ import Combine
 
 final class ModelData: ObservableObject {
     @Published var tweets: [Tweet] = load("tweetData.json")
-    var games: [Game] = load("gameData.json")
     var articles: [Article] = load("articleData.json")
     var scores: DailyBoxscore = load("boxscoreData.json")
+    var score: GameBoxscore = load("gameData.json")
     @Published var settings = Settings.default
 }
 

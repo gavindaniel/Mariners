@@ -9,8 +9,7 @@ import SwiftUI
 
 struct GameRow: View {
     @EnvironmentObject var modelData: ModelData
-//    var game: Game
-    var game: GameGame
+    var game: Game
     
     var body: some View {        
         HStack {
@@ -21,7 +20,7 @@ struct GameRow: View {
                     .frame(width: 40, height: 40)
             }
             Spacer()
-            if checkFinal(game.status.rawValue) {
+            if checkFinal(game.status) {
                 if (game.away.runs > game.home.runs) {
                     Text(String(game.away.runs))
                     .font(.title)
@@ -44,7 +43,7 @@ struct GameRow: View {
             }
             Spacer()
             VStack(alignment: .center) {
-                if checkFinal(game.status.rawValue) {
+                if checkFinal(game.status) {
                     FinalView(awayRuns: game.away.runs, homeRuns: game.home.runs)
                 } else {
                     InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
@@ -53,7 +52,7 @@ struct GameRow: View {
             }
 //            .font(.caption)
             Spacer()
-            if checkFinal(game.status.rawValue) {
+            if checkFinal(game.status) {
                 if (game.home.runs > game.away.runs) {
                 Text(String(game.home.runs))
                     .font(.title)
