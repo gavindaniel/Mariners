@@ -9,15 +9,17 @@ import SwiftUI
 
 struct GameList: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var games = [GameElement]()
+//    @State private var games = [GameElement]()
+    @State private var games = ModelData().scores.league.games
+    @State var isLoading = true
     
     var body: some View {
         ScrollView(showsIndicators: true) {
             ForEach(games) { game in
                 NavigationLink {
-                    GameDetail(gameID: game.game.id)
+                    GameDetail(isLoading: isLoading, gameID: game.game.id)
                 } label: {
-                    BoxscoreRow(game: game.game)
+                    BoxscoreRow(isLoading: isLoading, game: game.game)
                 }
                 .padding()
                 Divider()
@@ -42,11 +44,13 @@ struct GameList: View {
         }
         
         do {
+            isLoading = true
             let (jsonData, _) = try await URLSession.shared.data(from: url)
             
             if let box_scores = try? JSONDecoder().decode(DailyBoxscore.self, from: jsonData) {
                 games = box_scores.league.games
                 print("JSON decoded.")
+                isLoading = false
             }
         } catch {
             print("Invalid data")

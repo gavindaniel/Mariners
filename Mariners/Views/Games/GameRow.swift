@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameRow: View {
     @EnvironmentObject var modelData: ModelData
+    var isLoading: Bool
     var game: Game
     
     var body: some View {        
@@ -82,11 +83,12 @@ struct GameRow: View {
             }
         }
         .padding(20)
+        .redacted(reason: isLoading ? .placeholder : [])
     }
 }
 
 struct GameRow_Previews: PreviewProvider {
     static var previews: some View {
-        GameRow(game: ModelData().scores.league.games[0].game)
+        GameRow(isLoading: true, game: ModelData().scores.league.games[0].game)
     }
 }

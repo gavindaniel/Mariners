@@ -20,7 +20,7 @@ struct HomeView: View {
             List {
                 VStack(alignment: .leading) {
                     ScrollView(showsIndicators: true) {
-                        GameFeatured(game: ModelData().scores.league.games[0].game)
+                        GameFeatured(isLoading: false, game: ModelData().scores.league.games[0].game)
                         .listRowInsets(EdgeInsets())
                     }
                 }

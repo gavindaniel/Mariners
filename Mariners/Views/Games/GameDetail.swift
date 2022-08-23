@@ -10,13 +10,14 @@ import SwiftUI
 struct GameDetail: View {
     @EnvironmentObject var modelData: ModelData
     @State private var game = ModelData().score.game
+    @State var isLoading: Bool
     var gameID: String
     
     var body: some View {
         List {
-            GameRow(game: game)
+            GameRow(isLoading: isLoading, game: game)
 //            Divider()
-            BoxscoreItem(game: game)
+            BoxscoreItem(isLoading: isLoading, game: game)
 //            Divider()
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
@@ -39,11 +40,13 @@ struct GameDetail: View {
         }
         
         do {
+            isLoading = true
             let (jsonData, _) = try await URLSession.shared.data(from: url)
             
             if let gameBoxscore = try? JSONDecoder().decode(GameBoxscore.self, from: jsonData) {
                 game = gameBoxscore.game
                 print("game JSON decoded.")
+                isLoading = false
             }
         } catch {
             print("Invalid data")
@@ -54,7 +57,7 @@ struct GameDetail: View {
 struct GamesDetail_Previews: PreviewProvider {
     static var previews: some View {
 //        GameDetail(game: ModelData().scores.league.games[0].game)
-        GameDetail(gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
+        GameDetail(isLoading: false, gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
             .environmentObject(ModelData())
     }
 }

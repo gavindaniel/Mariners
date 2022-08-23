@@ -9,7 +9,9 @@ import SwiftUI
 
 struct BoxscoreItem: View {
     @EnvironmentObject var modelData: ModelData
+    var isLoading: Bool
     var game: Game
+   
     
     var body: some View {
         HStack {
@@ -26,22 +28,21 @@ struct BoxscoreItem: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
                 }
-//                Spacer()
-                // innings & totals
+                Spacer()
+                // innings
                 BoxscoreInnings(game: game)
-                    // innings
-//                Spacer()
+                // totals
                 BoxscoreTotals(game: game)
-                    // totals
-//                Spacer()
+                Spacer()
             }
         }
         .padding(10)
+        .redacted(reason: isLoading ? .placeholder : [])
     }
 }
 
 struct BoxscoreItem_Previews: PreviewProvider {
     static var previews: some View {
-        BoxscoreItem(game: ModelData().scores.league.games[0].game)
+        BoxscoreItem(isLoading: false, game: ModelData().scores.league.games[0].game)
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameFeatured: View {
     @EnvironmentObject var modelData: ModelData
+    var isLoading: Bool
     var game: Game
     
     var body: some View {
@@ -31,9 +32,9 @@ struct GameFeatured: View {
             .padding(.top, 10)
             Divider()
             NavigationLink {
-                GameDetail(gameID: game.id)
+                GameDetail(isLoading: isLoading, gameID: game.id)
             } label: {
-                GameRow(game: game)
+                GameRow(isLoading: isLoading, game: game)
             }
         }
     }
@@ -41,6 +42,6 @@ struct GameFeatured: View {
 
 struct GameFeatured_Previews: PreviewProvider {
     static var previews: some View {
-        GameFeatured(game: ModelData().scores.league.games[0].game)
+        GameFeatured(isLoading: false, game: ModelData().scores.league.games[0].game)
     }
 }

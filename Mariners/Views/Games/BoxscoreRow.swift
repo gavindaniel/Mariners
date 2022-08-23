@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BoxscoreRow: View {
     @EnvironmentObject var modelData: ModelData
+    @State var isLoading: Bool
     var game: Game
     
     var body: some View {
@@ -139,11 +140,12 @@ struct BoxscoreRow: View {
         }
         .padding(.top, 20)
         .padding(.bottom, 20)
+        .redacted(reason: isLoading ? .placeholder : [])
     }
 }
 
 struct BoxscoreRow_Previews: PreviewProvider {
     static var previews: some View {
-        BoxscoreRow(game: ModelData().scores.league.games[0].game)
+        BoxscoreRow(isLoading: false, game: ModelData().scores.league.games[0].game)
     }
 }
