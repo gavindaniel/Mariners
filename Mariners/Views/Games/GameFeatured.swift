@@ -31,8 +31,7 @@ struct GameFeatured: View {
             .padding(.top, 10)
             Divider()
             NavigationLink {
-                GameDetail()
-//                GameDetail(game: game)
+                GameDetail(gameID: game.id)
             } label: {
                 GameRow(game: game)
             }

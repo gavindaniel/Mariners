@@ -15,7 +15,7 @@ struct GameList: View {
         ScrollView(showsIndicators: true) {
             ForEach(games) { game in
                 NavigationLink {
-                    GameDetail()
+                    GameDetail(gameID: game.game.id)
                 } label: {
                     BoxscoreRow(game: game.game)
                 }
