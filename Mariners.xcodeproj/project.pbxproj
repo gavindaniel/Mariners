@@ -59,10 +59,10 @@
 		4C67595028B575560055389D /* PlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67594F28B575560055389D /* PlayerProfile.swift */; };
 		4C67595228B58C100055389D /* ScoringFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67595128B58C100055389D /* ScoringFunctions.swift */; };
 		4C6F7A4728AC5C54007CBE94 /* StandingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */; };
-		4C7E071C28B5FDED000668C1 /* InningText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E071B28B5FDED000668C1 /* InningText.swift */; };
 		4C7E071E28B69AFF000668C1 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E071D28B69AFF000668C1 /* DateView.swift */; };
 		4C7E072028B69F75000668C1 /* Glossary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E071F28B69F75000668C1 /* Glossary.swift */; };
 		4C7E072228B69FF0000668C1 /* glossaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E072128B69FF0000668C1 /* glossaryData.json */; };
+		4C7E072428B6B3DA000668C1 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */; };
 		4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9CC28AD42F70020CCEA /* GameRow.swift */; };
 		4CDFA77728B16A4A009EA2F5 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */; };
 		4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */; };
@@ -126,10 +126,10 @@
 		4C67594F28B575560055389D /* PlayerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProfile.swift; sourceTree = "<group>"; };
 		4C67595128B58C100055389D /* ScoringFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringFunctions.swift; sourceTree = "<group>"; };
 		4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingItem.swift; sourceTree = "<group>"; };
-		4C7E071B28B5FDED000668C1 /* InningText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningText.swift; sourceTree = "<group>"; };
 		4C7E071D28B69AFF000668C1 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		4C7E071F28B69F75000668C1 /* Glossary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glossary.swift; sourceTree = "<group>"; };
 		4C7E072128B69FF0000668C1 /* glossaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = glossaryData.json; sourceTree = "<group>"; };
+		4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		4C9AB9CC28AD42F70020CCEA /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
 		4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 		4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxscore.swift; sourceTree = "<group>"; };
@@ -198,11 +198,10 @@
 			isa = PBXGroup;
 			children = (
 				4C267D5B28A9A902008468A2 /* ContentView.swift */,
-				4C67594A28B572770055389D /* Scoring */,
-				4C67594328B5702F0055389D /* Stats */,
-				4C394B4128AB41B800313CBD /* Games */,
-				4C394B4528AB41B800313CBD /* Helpers */,
 				4C394B5328AB41B800313CBD /* Home */,
+				4C394B4128AB41B800313CBD /* Games */,
+				4C67594328B5702F0055389D /* Stats */,
+				4C394B4528AB41B800313CBD /* Helpers */,
 				4C394B4628AB41B800313CBD /* Login */,
 				4C394B4C28AB41B800313CBD /* News */,
 				4C394B4828AB41B800313CBD /* Settings */,
@@ -279,8 +278,9 @@
 				4C394B4328AB41B800313CBD /* GameList.swift */,
 				4C9AB9CC28AD42F70020CCEA /* GameRow.swift */,
 				4C394B4428AB41B800313CBD /* GameDetail.swift */,
-				4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */,
-				4CDFA77C28B1AFBF009EA2F5 /* BoxscoreItem.swift */,
+				4C7E072628B6B65E000668C1 /* GameStatus */,
+				4C7E072528B6B557000668C1 /* Boxscores */,
+				4C67594A28B572770055389D /* ScoringPlays */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -289,16 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				4C7E071D28B69AFF000668C1 /* DateView.swift */,
-				4CF1231E28B441D100666DEE /* FinalView.swift */,
-				4C5A100028AD67CA00AB96A8 /* OutsView.swift */,
-				4C5A100428AD6C6C00AB96A8 /* InningView.swift */,
-				4C7E071B28B5FDED000668C1 /* InningText.swift */,
-				4C5A100228AD68FA00AB96A8 /* DisplayFunctions.swift */,
-				4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */,
-				4C329E9428B3364C00F8A237 /* TimeFunctions.swift */,
-				4CF1232028B468FC00666DEE /* BoxscoreTotals.swift */,
-				4CF1232228B4697100666DEE /* BoxscoreInnings.swift */,
-				4C67595128B58C100055389D /* ScoringFunctions.swift */,
+				4C7E072728B6B676000668C1 /* GlobalFunctions */,
+				4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -375,13 +367,45 @@
 			path = Stats;
 			sourceTree = "<group>";
 		};
-		4C67594A28B572770055389D /* Scoring */ = {
+		4C67594A28B572770055389D /* ScoringPlays */ = {
 			isa = PBXGroup;
 			children = (
 				4C67594828B572720055389D /* ScoringList.swift */,
 				4C67594B28B572880055389D /* ScoringRow.swift */,
 			);
-			path = Scoring;
+			path = ScoringPlays;
+			sourceTree = "<group>";
+		};
+		4C7E072528B6B557000668C1 /* Boxscores */ = {
+			isa = PBXGroup;
+			children = (
+				4CDFA77A28B1AF88009EA2F5 /* BoxscoreRow.swift */,
+				4CDFA77C28B1AFBF009EA2F5 /* BoxscoreItem.swift */,
+				4CF1232228B4697100666DEE /* BoxscoreInnings.swift */,
+				4CF1232028B468FC00666DEE /* BoxscoreTotals.swift */,
+			);
+			path = Boxscores;
+			sourceTree = "<group>";
+		};
+		4C7E072628B6B65E000668C1 /* GameStatus */ = {
+			isa = PBXGroup;
+			children = (
+				4CF1231E28B441D100666DEE /* FinalView.swift */,
+				4C5A100028AD67CA00AB96A8 /* OutsView.swift */,
+				4C5A100428AD6C6C00AB96A8 /* InningView.swift */,
+			);
+			path = GameStatus;
+			sourceTree = "<group>";
+		};
+		4C7E072728B6B676000668C1 /* GlobalFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				4C5A100228AD68FA00AB96A8 /* DisplayFunctions.swift */,
+				4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */,
+				4C329E9428B3364C00F8A237 /* TimeFunctions.swift */,
+				4C67595128B58C100055389D /* ScoringFunctions.swift */,
+			);
+			path = GlobalFunctions;
 			sourceTree = "<group>";
 		};
 		4CF1232628B4798B00666DEE /* Boxscores */ = {
@@ -512,6 +536,7 @@
 				4C394B6728AB41B900313CBD /* HomeView.swift in Sources */,
 				4C6F7A4728AC5C54007CBE94 /* StandingItem.swift in Sources */,
 				4CDFA77728B16A4A009EA2F5 /* GameFunctions.swift in Sources */,
+				4C7E072428B6B3DA000668C1 /* GlobalVariables.swift in Sources */,
 				4C329E9528B3364C00F8A237 /* TimeFunctions.swift in Sources */,
 				4C7E072028B69F75000668C1 /* Glossary.swift in Sources */,
 				4C394B5828AB41B800313CBD /* TweetList.swift in Sources */,
@@ -526,7 +551,6 @@
 				4C394B7128AC233500313CBD /* Standings.swift in Sources */,
 				4C267D7B28A9A9BD008468A2 /* ModelData.swift in Sources */,
 				4C67594C28B572880055389D /* ScoringRow.swift in Sources */,
-				4C7E071C28B5FDED000668C1 /* InningText.swift in Sources */,
 				4C394B5628AB41B800313CBD /* TweetCardRow.swift in Sources */,
 				4C5A100128AD67CA00AB96A8 /* OutsView.swift in Sources */,
 				4CF1232828B47BB800666DEE /* Game.swift in Sources */,

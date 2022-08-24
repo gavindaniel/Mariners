@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var globalVariables: GlobalVariables
     @State private var showingSettings = false
     @Binding var showLoading: Bool // optional show loading symbol
 //    @StateObject var viewModel = ViewModel()

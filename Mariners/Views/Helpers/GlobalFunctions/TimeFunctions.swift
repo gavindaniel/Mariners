@@ -19,3 +19,15 @@ func getDateComponents() -> [String] {
     print(year, month, day) // 2018 12 24
     return [year, month, day]
 }
+
+func getDateComponent(_ date: Date, _ component: String) -> String {
+    let formatter = DateFormatter()
+    if component == "Y" {
+        formatter.dateFormat = "yyyy"
+    } else if component == "M" {
+        formatter.dateFormat = "MM"
+    } else { // return day
+        formatter.dateFormat = "dd"
+    }
+    return formatter.string(from: date)
+}

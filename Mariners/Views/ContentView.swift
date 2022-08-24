@@ -16,6 +16,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var selection: Tab = .home
     @State private var showLoading: Bool = false
+    @StateObject var globalVariables = GlobalVariables()
 //    @EnvironmentObject var sessionManager: SessionManager
 //    @StateObject var viewModel = ViewModel()
     
@@ -37,6 +38,7 @@ struct ContentView: View {
         TabView(selection: $selection) {
             HomeView(showLoading: $showLoading)
                 .environmentObject(ModelData())
+                .environmentObject(globalVariables)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }

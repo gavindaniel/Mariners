@@ -44,17 +44,17 @@ func mergeEvents(_ awayEvents: [Event], _ homeEvents: [Event]) -> [Event] {
 }
 
 
-func getOutcome(_ hitter_outcome: String) -> String {
-    switch hitter_outcome {
-    case "aS": return " singled."
-    case "aD": return " doubled."
-    case "aT": return " tripled."
-    case "aHR": return " homered."
-    case "oSF": return " hit a sacrifice fly."
-    case "oGO": return " grounded into fielder's choice."
-    default: return " \(hitter_outcome)" // "unknown."
-    }
-}
+//func getOutcome(_ hitter_outcome: String) -> String {
+//    switch hitter_outcome {
+//    case "aS": return " singled."
+//    case "aD": return " doubled."
+//    case "aT": return " tripled."
+//    case "aHR": return " homered."
+//    case "oSF": return " hit a sacrifice fly."
+//    case "oGO": return " grounded into fielder's choice."
+//    default: return " \(hitter_outcome)" // "unknown."
+//    }
+//}
 
 
 func getPitchOutcome( _ pitchOutcomes: [PitchOutcome], _ hitter_outcome: String) -> String {

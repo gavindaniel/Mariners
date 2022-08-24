@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct DateView: View {
-    @State private var date = Date()
+    @EnvironmentObject var globalVariables: GlobalVariables
+//    @State private var date = Date()
     
     var body: some View {
         ZStack {
             DatePicker(
                 "",
-                selection: $date,
+                selection: $globalVariables.myDate,
                 displayedComponents: [.date]
             )
             .datePickerStyle(.compact)
