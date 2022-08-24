@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ScoringList: View {
+    @EnvironmentObject var modelData: ModelData
     var away: String
     var home: String
+//    @Published var aScore: Int = 0
+//    @Published var hScore: Int = 0
     @State private var showLoading: Bool = true
     var events: [Event]
     
@@ -19,7 +22,7 @@ struct ScoringList: View {
             HStack {
                 Text("Inning")
                     .padding(.leading, 10)
-                    .unredacted()
+//                    .unredacted()
                 Spacer()
                 Text(away)
                     .padding(.trailing, 5)
@@ -27,7 +30,8 @@ struct ScoringList: View {
                     .padding(.trailing, 10)
             }
             .font(.footnote)
-            .redacted(reason: showLoading ? .placeholder : [])
+            .foregroundColor(.secondary)
+//            .redacted(reason: showLoading ? .placeholder : [])
             Divider()
             ForEach(events) { event in
                 ScoringRow(showLoading: $showLoading, aScore: 0, hScore: 0, event: event)

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScoringRow: View {
+    @EnvironmentObject var modelData: ModelData
     @Binding var showLoading: Bool
     var aScore: Int
     var hScore: Int
@@ -18,9 +19,17 @@ struct ScoringRow: View {
         HStack {
             InningView(inning: event.inning, inningHalf: event.inningHalf.rawValue)
             Spacer()
-            Text(player.lastName + getOutcome(event.hitterOutcome))
-                .font(.footnote)
-                .frame(width: 200, alignment: .leading)
+//            Text(player.lastName + getOutcome(event.hitterOutcome))
+            HStack {
+                // check for Grand slam.
+                if event.hitterOutcome == "aHR" && event.runners.count == 4 {
+                    Text("Grand Slam - (\(event.runners.count))")
+                } else {
+                    Text(getPitchOutcome(modelData.glossary.pitchOutcomes, event.hitterOutcome) + " - (\(event.runners.count))")
+                }
+            }
+            .frame(width: 200, alignment: .leading)
+            .font(.footnote)
             Spacer()
             Text(getScore("away", aScore, event.runners.count, event.inningHalf.rawValue))
             Spacer()

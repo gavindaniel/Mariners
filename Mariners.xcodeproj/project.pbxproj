@@ -60,6 +60,9 @@
 		4C67595228B58C100055389D /* ScoringFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67595128B58C100055389D /* ScoringFunctions.swift */; };
 		4C6F7A4728AC5C54007CBE94 /* StandingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */; };
 		4C7E071C28B5FDED000668C1 /* InningText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E071B28B5FDED000668C1 /* InningText.swift */; };
+		4C7E071E28B69AFF000668C1 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E071D28B69AFF000668C1 /* DateView.swift */; };
+		4C7E072028B69F75000668C1 /* Glossary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E071F28B69F75000668C1 /* Glossary.swift */; };
+		4C7E072228B69FF0000668C1 /* glossaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E072128B69FF0000668C1 /* glossaryData.json */; };
 		4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9CC28AD42F70020CCEA /* GameRow.swift */; };
 		4CDFA77728B16A4A009EA2F5 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */; };
 		4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */; };
@@ -124,6 +127,9 @@
 		4C67595128B58C100055389D /* ScoringFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringFunctions.swift; sourceTree = "<group>"; };
 		4C6F7A4628AC5C54007CBE94 /* StandingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingItem.swift; sourceTree = "<group>"; };
 		4C7E071B28B5FDED000668C1 /* InningText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningText.swift; sourceTree = "<group>"; };
+		4C7E071D28B69AFF000668C1 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		4C7E071F28B69F75000668C1 /* Glossary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glossary.swift; sourceTree = "<group>"; };
+		4C7E072128B69FF0000668C1 /* glossaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = glossaryData.json; sourceTree = "<group>"; };
 		4C9AB9CC28AD42F70020CCEA /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
 		4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 		4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxscore.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 				4C267D6C28A9A9B0008468A2 /* tweetData.json */,
 				4C267D6D28A9A9B0008468A2 /* articleData.json */,
 				4C67594D28B575040055389D /* playerData.json */,
+				4C7E072128B69FF0000668C1 /* glossaryData.json */,
 				4C329E9228B32ADF00F8A237 /* boxscoreData.json */,
 				4C67594128B4B78B0055389D /* standingsData.json */,
 			);
@@ -231,6 +238,7 @@
 				4C267D7628A9A9BD008468A2 /* ModelData.swift */,
 				4C394B6828AB43CC00313CBD /* TestResponse.swift */,
 				4C394B7028AC233500313CBD /* Standings.swift */,
+				4C7E071F28B69F75000668C1 /* Glossary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +288,7 @@
 		4C394B4528AB41B800313CBD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4C7E071D28B69AFF000668C1 /* DateView.swift */,
 				4CF1231E28B441D100666DEE /* FinalView.swift */,
 				4C5A100028AD67CA00AB96A8 /* OutsView.swift */,
 				4C5A100428AD6C6C00AB96A8 /* InningView.swift */,
@@ -458,6 +467,7 @@
 				4C267D6128A9A903008468A2 /* Preview Assets.xcassets in Resources */,
 				4C67594E28B575040055389D /* playerData.json in Resources */,
 				4C267D6E28A9A9B0008468A2 /* gameData.json in Resources */,
+				4C7E072228B69FF0000668C1 /* glossaryData.json in Resources */,
 				4C267D5E28A9A903008468A2 /* Assets.xcassets in Resources */,
 				4C267D6F28A9A9B0008468A2 /* tweetData.json in Resources */,
 				4C267D6928A9A95D008468A2 /* GoogleService-Info.plist in Resources */,
@@ -486,6 +496,7 @@
 				4C394B6328AB41B800313CBD /* HeadlineRow.swift in Sources */,
 				4C394B5A28AB41B800313CBD /* WebView.swift in Sources */,
 				4C267D5C28A9A902008468A2 /* ContentView.swift in Sources */,
+				4C7E071E28B69AFF000668C1 /* DateView.swift in Sources */,
 				4C394B5728AB41B800313CBD /* TweetCard.swift in Sources */,
 				4C267D7A28A9A9BD008468A2 /* Article.swift in Sources */,
 				4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */,
@@ -502,6 +513,7 @@
 				4C6F7A4728AC5C54007CBE94 /* StandingItem.swift in Sources */,
 				4CDFA77728B16A4A009EA2F5 /* GameFunctions.swift in Sources */,
 				4C329E9528B3364C00F8A237 /* TimeFunctions.swift in Sources */,
+				4C7E072028B69F75000668C1 /* Glossary.swift in Sources */,
 				4C394B5828AB41B800313CBD /* TweetList.swift in Sources */,
 				4C67595228B58C100055389D /* ScoringFunctions.swift in Sources */,
 				4C267D7828A9A9BD008468A2 /* Tweet.swift in Sources */,

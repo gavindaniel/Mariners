@@ -39,7 +39,7 @@ struct BoxscoreItem: View {
             }
         }
         .padding(.top, 20)
-        .redacted(reason: showLoading ? .placeholder : [])
+//        .redacted(reason: showLoading ? .placeholder : [])
     }
 }
 

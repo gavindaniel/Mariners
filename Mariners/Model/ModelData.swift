@@ -15,6 +15,7 @@ final class ModelData: ObservableObject {
     var score: GameBoxscore = load("gameData.json")
     var standings: Standings = load("standingsData.json")
     var player_profile: PlayerProfile = load("playerData.json")
+    var glossary: Glossary = load("glossaryData.json")
     @Published var settings = Settings.default
 }
 

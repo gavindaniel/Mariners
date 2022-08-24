@@ -12,10 +12,11 @@ struct GameList: View {
 //    @State private var games = [GameElement]()
     @State private var games = ModelData().scores.league.games
 //    @State private var isLoading = true
-    @State private var showLoading: Bool = true
+    @State private var showLoading: Bool = false
     
     var body: some View {
         ScrollView(showsIndicators: true) {
+            DateView()
             ForEach(games) { game in
                 NavigationLink {
                     GameDetail(gameID: game.game.id)

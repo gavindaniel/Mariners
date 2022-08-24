@@ -54,7 +54,7 @@ struct GameRow: View {
 //            .offset(y: -20)
         }
         .padding(10)
-        .redacted(reason: showLoading ? .placeholder : [])
+//        .redacted(reason: showLoading ? .placeholder : [])
     }
 }
 

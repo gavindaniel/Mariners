@@ -18,14 +18,25 @@ struct GameDetail: View {
         List {
             GameRow(showLoading: $showLoading, game: game)
 //            Divider()
-            HStack {
-                Text(game.away.name)
-                    .font(.caption)
-                    .fontWeight(.semibold)
-                Spacer()
-                Text(game.home.name)
-                    .font(.caption)
-                    .fontWeight(.semibold)
+            VStack {
+                HStack {
+                    Text(game.away.name)
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                    Spacer()
+                    Text(game.home.name)
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                }
+                HStack {
+                    Text(String(game.away.win) + "-" + String(game.away.loss))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Spacer()
+                    Text(String(game.home.win) + "-" + String(game.home.loss))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
             }
             BoxscoreItem(showLoading: $showLoading, game: game)
 //            Divider()

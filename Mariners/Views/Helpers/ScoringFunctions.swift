@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SceneKit
 
 func mergeEvents(_ awayEvents: [Event], _ homeEvents: [Event]) -> [Event] {
     var events = [Event]()
@@ -56,12 +57,25 @@ func getOutcome(_ hitter_outcome: String) -> String {
 }
 
 
+func getPitchOutcome( _ pitchOutcomes: [PitchOutcome], _ hitter_outcome: String) -> String {
+    if pitchOutcomes.contains(where: { $0.id == hitter_outcome }) {
+        let pitchOutcome = pitchOutcomes.first(where: { $0.id == hitter_outcome })
+        return pitchOutcome!.desc
+    } else {
+        return " \(hitter_outcome)" // "unknown."
+    }
+}
+
+
 func getScore(_ side: String, _ score: Int, _ add: Int , _ inningHalf: String) -> String {
     if side == "away" && inningHalf == "T" { return String(score + add) }
     else if side == "home" && inningHalf == "B" { return String(score + add) }
     else { return String(score) }
 }
 
+func addScore(aScore: Int, hScore: Int) {
+    
+}
 
 //func getPlayerName(_ playerID: String) async -> String {
 //    let player: Player
