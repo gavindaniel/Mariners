@@ -16,7 +16,8 @@ struct GameDetail: View {
     
     var body: some View {
         List {
-            GameRow(showLoading: $showLoading, game: game)
+//            GameRow(showLoading: $showLoading, game: game)
+            GameRow(game: game)
 //            Divider()
             VStack {
                 HStack {

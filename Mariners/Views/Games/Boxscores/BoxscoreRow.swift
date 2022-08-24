@@ -30,12 +30,21 @@ struct BoxscoreRow: View {
             // names
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
-                    if checkFinal(game.status.rawValue) {
+//                    if checkFinal(game.status.rawValue) {
+//                        Text("Final")
+//                            .foregroundColor(.secondary)
+//                            .font(.footnote)
+//                    } else {
+//                        InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
+//                    }
+                    if game.status.rawValue == "scheduled" { // game hasn't started
+                        ScheduledView(game: game)
+                    } else if game.status.rawValue == "inprogress" { // game is in progress
+                        InningView(inning: game.outcome?.currentInning ?? 0, inningHalf: game.outcome?.currentInningHalf ?? "zero")
+                    } else { // status == closed , game is over
                         Text("Final")
                             .foregroundColor(.secondary)
                             .font(.footnote)
-                    } else {
-                        InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
                     }
                 }
                 .padding(.bottom, 5)
@@ -107,7 +116,7 @@ struct BoxscoreRow: View {
         }
         .padding(.top, 10)
         .padding(.bottom, 10)
-        .redacted(reason: showLoading ? .placeholder : [])
+//        .redacted(reason: showLoading ? .placeholder : [])
     }
 }
 

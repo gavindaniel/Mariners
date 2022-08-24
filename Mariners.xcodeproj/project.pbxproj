@@ -63,6 +63,7 @@
 		4C7E072028B69F75000668C1 /* Glossary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E071F28B69F75000668C1 /* Glossary.swift */; };
 		4C7E072228B69FF0000668C1 /* glossaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E072128B69FF0000668C1 /* glossaryData.json */; };
 		4C7E072428B6B3DA000668C1 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */; };
+		4C7E072928B6C144000668C1 /* ScheduledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E072828B6C144000668C1 /* ScheduledView.swift */; };
 		4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9CC28AD42F70020CCEA /* GameRow.swift */; };
 		4CDFA77728B16A4A009EA2F5 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */; };
 		4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */; };
@@ -130,6 +131,7 @@
 		4C7E071F28B69F75000668C1 /* Glossary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glossary.swift; sourceTree = "<group>"; };
 		4C7E072128B69FF0000668C1 /* glossaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = glossaryData.json; sourceTree = "<group>"; };
 		4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		4C7E072828B6C144000668C1 /* ScheduledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledView.swift; sourceTree = "<group>"; };
 		4C9AB9CC28AD42F70020CCEA /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
 		4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 		4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxscore.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				4CF1231E28B441D100666DEE /* FinalView.swift */,
 				4C5A100028AD67CA00AB96A8 /* OutsView.swift */,
 				4C5A100428AD6C6C00AB96A8 /* InningView.swift */,
+				4C7E072828B6C144000668C1 /* ScheduledView.swift */,
 			);
 			path = GameStatus;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				4C394B5828AB41B800313CBD /* TweetList.swift in Sources */,
 				4C67595228B58C100055389D /* ScoringFunctions.swift in Sources */,
 				4C267D7828A9A9BD008468A2 /* Tweet.swift in Sources */,
+				4C7E072928B6C144000668C1 /* ScheduledView.swift in Sources */,
 				4C67594928B572720055389D /* ScoringList.swift in Sources */,
 				4CF1232128B468FC00666DEE /* BoxscoreTotals.swift in Sources */,
 				4C5A100528AD6C6C00AB96A8 /* InningView.swift in Sources */,

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct GameRow: View {
     @EnvironmentObject var modelData: ModelData
-    @Binding var showLoading: Bool
+//    @Binding var showLoading: Bool
+    @State private var showLoading: Bool = false
     var game: Game
     
     var body: some View {
@@ -29,11 +30,15 @@ struct GameRow: View {
                     .padding(10)
                 Spacer()
                 VStack(alignment: .center) {
-                    if checkFinal(game.status.rawValue) {
-                        FinalView(awayRuns: game.away.runs, homeRuns: game.home.runs)
-                    } else {
-                        InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
-                        OutsView(outStrings: getOutsStrings(input: game.outcome!.count.outs))
+                    if game.status.rawValue == "scheduled" { // game hasn't started
+                        ScheduledView(game: game)
+                    } else { // status == inprogress
+                        if (checkFinal(game.status.rawValue)) {
+                            FinalView(awayRuns: game.away.runs, homeRuns: game.home.runs)
+                        } else { // status == inprogress
+                            InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
+                            OutsView(outStrings: getOutsStrings(input: game.outcome!.count!.outs))
+                        }
                     }
                 }
     //            .font(.caption)
@@ -58,8 +63,8 @@ struct GameRow: View {
     }
 }
 
-//struct GameRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GameRow(isLoading: false, game: ModelData().scores.league.games[0].game)
-//    }
-//}
+struct GameRow_Previews: PreviewProvider {
+    static var previews: some View {
+        GameRow(game: ModelData().scores.league.games[5].game)
+    }
+}

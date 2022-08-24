@@ -19,7 +19,7 @@ func getOutsStrings(input: Int) -> [String] {
 
 func getInningText(input: Int) -> String {
     switch input {
-    case 1:  return "1st"
+    case 1: return "1st"
     case 2: return "2nd"
     case 3: return "3rd"
     case 4: return "4th"
@@ -28,6 +28,6 @@ func getInningText(input: Int) -> String {
     case 7: return "7th"
     case 8: return "8th"
     case 9: return "9th"
-    default: return "Final"
+    default: return "\(String(input))"
     }
 }

@@ -11,14 +11,14 @@ import Foundation
 struct Game: Codable {
 //    var id, status: String
     var id: String
-    var status: GameStatus
+    var status: GameStatus // Status
 //    var status: GameStatus
 //    var homeTeam, awayTeam: String
     var outcome: Outcome?
     var gameFinal: Final?
     var home: Home
     var away: Away
-//    var pitching: Pitching
+//    var pitching: Pitching?
 
 
     enum CodingKeys: String, CodingKey {
@@ -32,6 +32,8 @@ struct Game: Codable {
 
 enum GameStatus: String, Codable {
     case closed = "closed"
+    case inprogress = "inprogress"
+    case scheduled = "scheduled"
 }
 
 // MARK: - Final
@@ -50,17 +52,17 @@ struct Outcome: Codable {
     var type: String
     var currentInning: Int
     var currentInningHalf: String
-    var count: Count
-//    var hitter: Hitter
-//    var pitcher: PitcherClass
-//    var runners: [OutcomeRunner]
+    var count: Count?
+//    var hitter: Hitter?
+//    var pitcher: PitcherClass?
+//    var runners: [OutcomeRunner]?
 
-//    enum CodingKeys: String, CodingKey {
-//        case type
-//        case currentInning = "current_inning"
-//        case currentInningHalf = "current_inning_half"
-//        case count, hitter, pitcher, runners
-//    }
+    enum CodingKeys: String, CodingKey {
+        case type
+        case currentInning = "current_inning"
+        case currentInningHalf = "current_inning_half"
+        case count // , hitter, pitcher, runners
+    }
 }
 
 // MARK: - Away
@@ -68,7 +70,7 @@ struct Away: Codable {
     var name, market, abbr, id: String
     var runs, hits, errors, win: Int
     var loss: Int
-//    var startingPitcher: Pitcher
+//    var startingPitcher: Pitcher?
 
     var scoring: [AwayScoring]?
     var events: [Event]?

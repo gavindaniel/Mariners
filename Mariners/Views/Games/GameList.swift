@@ -14,7 +14,8 @@ struct GameList: View {
     @State private var showLoading: Bool = false
     
     var body: some View {
-        ScrollView(showsIndicators: true) {
+        List {
+//        ScrollView(showsIndicators: true) {
             DateView()
             ForEach(games) { game in
                 NavigationLink {
@@ -25,10 +26,11 @@ struct GameList: View {
                 .padding()
                 Divider()
             }
+            .listRowInsets(EdgeInsets())
+            .listRowSeparator(.hidden)
+//        }
         }
-        .listRowInsets(EdgeInsets())
         .listStyle(.inset)
-        
         .navigationTitle("Scores")
         .refreshable {
             await loadData()
@@ -39,6 +41,7 @@ struct GameList: View {
     }
     
     func loadData() async {
+        print("/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/")
         guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/boxscore.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
             print("Invalid URL")
             return
@@ -63,5 +66,6 @@ struct GameList_Previews: PreviewProvider {
     static var previews: some View {
         GameList()
             .environmentObject(ModelData())
+            .environmentObject(GlobalVariables())
     }
 }

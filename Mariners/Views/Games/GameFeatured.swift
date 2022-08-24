@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameFeatured: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var globalVariables: GlobalVariables
     @Binding var showLoading: Bool
     var game: Game
     
@@ -23,6 +24,7 @@ struct GameFeatured: View {
                 
                 NavigationLink {
                     GameList()
+                        .environmentObject(globalVariables)
                 } label: {
                     Text("See All")
                         .foregroundColor(Color.blue)
@@ -34,7 +36,8 @@ struct GameFeatured: View {
             NavigationLink {
                 GameDetail(gameID: game.id)
             } label: {
-                GameRow(showLoading: $showLoading, game: game)
+//                GameRow(showLoading: $showLoading, game: game)
+                GameRow(game: game)
             }
         }
     }

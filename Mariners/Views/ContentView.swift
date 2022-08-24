@@ -62,7 +62,12 @@ struct ContentView: View {
 //                   Label("Test", systemImage: "gearshape.fill")
 //                }
 //                .tag(Tab.test)
-            
+//            GameList()
+//                .environmentObject(globalVariables)
+//                .tabItem {
+//                   Label("Scores", systemImage: "list.number")
+//                }
+//                .tag(Tab.scores)
             StandingsView()
                 .tabItem {
                    Label("Standings", systemImage: "list.number")

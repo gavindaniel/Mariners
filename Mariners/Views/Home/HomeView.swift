@@ -23,6 +23,7 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     ScrollView(showsIndicators: true) {
                         GameFeatured(showLoading: $showLoading, game: ModelData().scores.league.games[0].game)
+                            .environmentObject(globalVariables)
                         .listRowInsets(EdgeInsets())
                     }
                 }
