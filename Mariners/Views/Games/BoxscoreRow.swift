@@ -26,8 +26,19 @@ struct BoxscoreRow: View {
                     .frame(width: 30, height: 30)
             }
             .padding(.trailing, 5)
+            .offset(y: 15)
             // names
             VStack(alignment: .leading) {
+                HStack(alignment: .center) {
+                    if checkFinal(game.status.rawValue) {
+                        Text("Final")
+                            .foregroundColor(.secondary)
+                            .font(.footnote)
+                    } else {
+                        InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
+                    }
+                }
+                .padding(.bottom, 5)
                 Text(game.away.name)
                     .font(.title3)
                     .fontWeight(.bold)
@@ -40,7 +51,11 @@ struct BoxscoreRow: View {
             }
             Spacer()
             // score
-            VStack {
+            VStack(alignment: .center) {
+                Text("R")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+                    .padding(.bottom, 5)
                 Text(String(game.away.runs))
                     .font(.title3)
                     .fontWeight(.bold)
@@ -53,7 +68,11 @@ struct BoxscoreRow: View {
             }
             .padding(.trailing, 10)
             // hits
-            VStack {
+            VStack(alignment: .center) {
+                Text("H")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+                    .padding(.bottom, 5)
                 Text(String(game.away.hits))
                     .font(.title3)
                     .fontWeight(.bold)
@@ -66,7 +85,11 @@ struct BoxscoreRow: View {
             }
             .padding(.trailing, 10)
             // errors
-            VStack {
+            VStack(alignment: .center) {
+                Text("E")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+                    .padding(.bottom, 5)
                 Text(String(game.away.errors))
                     .font(.title3)
                     .fontWeight(.bold)
@@ -79,8 +102,8 @@ struct BoxscoreRow: View {
             }
             .padding(.trailing, 10)
         }
-        .padding(.top, 20)
-        .padding(.bottom, 20)
+        .padding(.top, 10)
+        .padding(.bottom, 10)
         .redacted(reason: showLoading ? .placeholder : [])
     }
 }
