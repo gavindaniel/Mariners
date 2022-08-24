@@ -14,6 +14,7 @@ final class ModelData: ObservableObject {
     var scores: DailyBoxscore = load("boxscoreData.json")
     var score: GameBoxscore = load("gameData.json")
     var standings: Standings = load("standingsData.json")
+    var player_profile: PlayerProfile = load("playerData.json")
     @Published var settings = Settings.default
 }
 

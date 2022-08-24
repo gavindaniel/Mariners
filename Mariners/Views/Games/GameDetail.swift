@@ -19,6 +19,7 @@ struct GameDetail: View {
 //            Divider()
             BoxscoreItem(isLoading: isLoading, game: game)
 //            Divider()
+            ScoringList(away: game.away.abbr, home: game.home.abbr, isLoading: isLoading, events: mergeEvents(game.away.events ?? [Event](), game.home.events ?? [Event]()))
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
         }

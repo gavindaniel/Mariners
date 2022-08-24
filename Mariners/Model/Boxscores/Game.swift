@@ -71,12 +71,12 @@ struct Away: Codable {
 //    var startingPitcher: Pitcher
 
     var scoring: [AwayScoring]?
-//    var events: [Event]
+    var events: [Event]?
 
     enum CodingKeys: String, CodingKey {
         case name, market, abbr, id, runs, hits, errors, win, loss
 //        case startingPitcher = "starting_pitcher"
-        case scoring  // , events
+        case scoring, events
     }
 }
 
@@ -87,12 +87,12 @@ struct Home: Codable {
     var loss: Int
 //    var startingPitcher: Pitcher
     var scoring: [HomeScoring]?
-//    var events: [Event]?
+    var events: [Event]?
 
     enum CodingKeys: String, CodingKey {
         case name, market, abbr, id, runs, hits, errors, win, loss
 //        case startingPitcher = "starting_pitcher"
-        case scoring // , events
+        case scoring, events
     }
 }
 
@@ -260,7 +260,8 @@ enum InningHalf: String, Codable {
 }
 
 // MARK: - Event
-struct Event: Codable {
+struct Event: Codable, Identifiable {
+//    var id = UUID()
     var hitterID, pitcherID: String
     var inning: Int
     var inningHalf: InningHalf
