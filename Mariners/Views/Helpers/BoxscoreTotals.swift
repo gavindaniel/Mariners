@@ -23,11 +23,13 @@ struct BoxscoreTotals: View {
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
+                        .padding(.top, 5)
                         
                     Text(String(game.home.runs))
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
+                        .padding(.top, 5)
                         
                 }
                 .padding(5)
@@ -41,11 +43,13 @@ struct BoxscoreTotals: View {
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
+                        .padding(.top, 5)
                         
                     Text(String(game.home.hits))
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
+                        .padding(.top, 5)
                         
                 }
                 .padding(5)
@@ -59,11 +63,13 @@ struct BoxscoreTotals: View {
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
+                        .padding(.top, 5)
                         
                     Text(String(game.home.errors))
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
+                        .padding(.top, 5)
                         
                 }
                 .padding(5)

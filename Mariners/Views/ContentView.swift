@@ -35,7 +35,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            HomeView()
+            HomeView(showLoading: $showLoading)
                 .environmentObject(ModelData())
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
@@ -61,7 +61,7 @@ struct ContentView: View {
 //                }
 //                .tag(Tab.test)
             
-            StandingsView(isLoading: true)
+            StandingsView()
                 .tabItem {
                    Label("Standings", systemImage: "list.number")
                 }

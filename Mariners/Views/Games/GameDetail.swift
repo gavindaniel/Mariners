@@ -10,22 +10,32 @@ import SwiftUI
 struct GameDetail: View {
     @EnvironmentObject var modelData: ModelData
     @State private var game = ModelData().score.game
-    @State var isLoading: Bool
+    @State private var events = ModelData().score.game.away.events
+    @State private var showLoading: Bool = false
     var gameID: String
     
     var body: some View {
         List {
-            GameRow(isLoading: isLoading, game: game)
+            GameRow(showLoading: $showLoading, game: game)
 //            Divider()
-            BoxscoreItem(isLoading: isLoading, game: game)
+            HStack {
+                Text(game.away.name)
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                Spacer()
+                Text(game.home.name)
+                    .font(.caption)
+                    .fontWeight(.semibold)
+            }
+            BoxscoreItem(showLoading: $showLoading, game: game)
 //            Divider()
-            ScoringList(away: game.away.abbr, home: game.home.abbr, isLoading: isLoading, events: mergeEvents(game.away.events ?? [Event](), game.home.events ?? [Event]()))
+            ScoringList(away: game.away.abbr, home: game.home.abbr, events: mergeEvents(game.away.events ?? [Event](), game.home.events ?? [Event]()))
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
         }
 //        .listRowInsets(EdgeInsets())
         .listStyle(.inset)
-        .navigationTitle("Boxscore")
+        .navigationTitle(game.away.abbr + " @ " + game.home.abbr)
         .refreshable {
             await loadData()
         }
@@ -41,13 +51,13 @@ struct GameDetail: View {
         }
         
         do {
-            isLoading = true
+            showLoading = true
             let (jsonData, _) = try await URLSession.shared.data(from: url)
             
             if let gameBoxscore = try? JSONDecoder().decode(GameBoxscore.self, from: jsonData) {
                 game = gameBoxscore.game
                 print("game JSON decoded.")
-                isLoading = false
+                showLoading = false
             }
         } catch {
             print("Invalid data")
@@ -55,10 +65,10 @@ struct GameDetail: View {
     }
 }
 
-struct GamesDetail_Previews: PreviewProvider {
-    static var previews: some View {
-//        GameDetail(game: ModelData().scores.league.games[0].game)
-        GameDetail(isLoading: false, gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
-            .environmentObject(ModelData())
-    }
-}
+//struct GamesDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+////        GameDetail(game: ModelData().scores.league.games[0].game)
+//        GameDetail(isLoading: false, gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
+//            .environmentObject(ModelData())
+//    }
+//}

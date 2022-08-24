@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScoringRow: View {
-    var isLoading: Bool
+    @Binding var showLoading: Bool
     var aScore: Int
     var hScore: Int
     var event: Event
@@ -27,7 +27,7 @@ struct ScoringRow: View {
             Text(getScore("home", hScore, event.runners.count, event.inningHalf.rawValue))
         }
         .padding()
-        .redacted(reason: isLoading ? .placeholder : [])
+//        .redacted(reason: showLoading ? .placeholder : [])
         .task {
             await loadData()
         }
@@ -40,11 +40,13 @@ struct ScoringRow: View {
         }
         
         do {
+            showLoading = true
             let (jsonData, _) = try await URLSession.shared.data(from: url)
             
             if let player_profile = try? JSONDecoder().decode(PlayerProfile.self, from: jsonData) {
                 player = player_profile.player
-                print("JSON decoded.")
+                print("player JSON decoded.")
+                showLoading = false
             }
         } catch {
             print("Invalid data")
@@ -52,8 +54,8 @@ struct ScoringRow: View {
     }
 }
 
-struct ScoringRow_Previews: PreviewProvider {
-    static var previews: some View {
-        ScoringRow(isLoading: false, aScore: 0, hScore: 0, event: ModelData().score.game.home.events![0])
-    }
-}
+//struct ScoringRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ScoringRow(aScore: 0, hScore: 0, event: ModelData().score.game.home.events![0])
+//    }
+//}

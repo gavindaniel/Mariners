@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showingSettings = false
+    @Binding var showLoading: Bool // optional show loading symbol
 //    @StateObject var viewModel = ViewModel()
 //    @State private var games = [GameElement]()
     
@@ -20,7 +21,7 @@ struct HomeView: View {
             List {
                 VStack(alignment: .leading) {
                     ScrollView(showsIndicators: true) {
-                        GameFeatured(isLoading: false, game: ModelData().scores.league.games[0].game)
+                        GameFeatured(showLoading: $showLoading, game: ModelData().scores.league.games[0].game)
                         .listRowInsets(EdgeInsets())
                     }
                 }
@@ -107,9 +108,10 @@ struct HomeView: View {
 //    }
 //}
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-            .environmentObject(ModelData())
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    @State private var showLoading: Bool = false
+//    static var previews: some View {
+//        HomeView(showLoading: $showLoading)
+//            .environmentObject(ModelData())
+//    }
+//}

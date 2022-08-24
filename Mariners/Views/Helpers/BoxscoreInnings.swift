@@ -22,11 +22,12 @@ struct BoxscoreInnings: View {
                             .font(.caption)
                             .fontWeight(.semibold)
                             .foregroundColor(.primary)
-                        
+                            .padding(.top, 5)
                         Text(game.home.scoring![i].runs!)
                             .font(.caption)
                             .fontWeight(.semibold)
                             .foregroundColor(.primary)
+                            .padding(.top, 5)
                     }
                     .padding(5)
                 }

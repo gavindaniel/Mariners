@@ -10,7 +10,7 @@ import SwiftUI
 struct ScoringList: View {
     var away: String
     var home: String
-    var isLoading: Bool
+    @State private var showLoading: Bool = true
     var events: [Event]
     
     
@@ -27,10 +27,10 @@ struct ScoringList: View {
                     .padding(.trailing, 10)
             }
             .font(.footnote)
-            .redacted(reason: isLoading ? .placeholder : [])
+            .redacted(reason: showLoading ? .placeholder : [])
             Divider()
             ForEach(events) { event in
-                ScoringRow(isLoading: isLoading, aScore: 0, hScore: 0, event: event)
+                ScoringRow(showLoading: $showLoading, aScore: 0, hScore: 0, event: event)
                 Divider()
             }
         }
@@ -38,8 +38,8 @@ struct ScoringList: View {
     }
 }
 
-struct ScoringList_Previews: PreviewProvider {
-    static var previews: some View {
-        ScoringList(away: "MIL", home: "CHC", isLoading: false, events: mergeEvents(ModelData().score.game.away.events!, ModelData().score.game.home.events!))
-    }
-}
+//struct ScoringList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ScoringList(away: "MIL", home: "CHC", showLoading: false, events: mergeEvents(ModelData().score.game.away.events!, ModelData().score.game.home.events!))
+//    }
+//}
