@@ -40,7 +40,9 @@ struct BoxscoreRow: View {
                     if game.status.rawValue == "scheduled" { // game hasn't started
                         ScheduledView(game: game)
                     } else if game.status.rawValue == "inprogress" { // game is in progress
-                        InningView(inning: game.outcome?.currentInning ?? 0, inningHalf: game.outcome?.currentInningHalf ?? "zero")
+                        if game.outcome != nil {
+                            InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
+                        }
                     } else { // status == closed , game is over
                         Text("Final")
                             .foregroundColor(.secondary)

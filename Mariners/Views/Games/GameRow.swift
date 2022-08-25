@@ -23,31 +23,45 @@ struct GameRow: View {
                         .frame(width: 40, height: 40)
                 }
                 Spacer()
-                Text(String(game.away.runs))
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(getColor("away", game))
-                    .padding(10)
+                if game.status.rawValue != "scheduled" {
+                    Text(String(game.away.win) + "-" + String(game.away.loss))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                } else { // game in progress or ended, show score
+                    Text(String(game.away.runs))
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(getColor("away", game))
+                        .padding(10)
+                }
                 Spacer()
                 VStack(alignment: .center) {
                     if game.status.rawValue == "scheduled" { // game hasn't started
                         ScheduledView(game: game)
-                    } else { // status == inprogress
-                        if (checkFinal(game.status.rawValue)) {
-                            FinalView(awayRuns: game.away.runs, homeRuns: game.home.runs)
-                        } else { // status == inprogress
+                    } else if game.status.rawValue == "inprogress" { // game is in progress
+                        if game.outcome != nil {
                             InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
-                            OutsView(outStrings: getOutsStrings(input: game.outcome!.count!.outs))
+                            if game.outcome!.count != nil {
+                                OutsView(outStrings: getOutsStrings(input: game.outcome!.count!.outs))
+                            }
                         }
+                    } else { // status == closed , game is over
+                        FinalView(awayRuns: game.away.runs, homeRuns: game.home.runs)
                     }
                 }
     //            .font(.caption)
                 Spacer()
-                Text(String(game.home.runs))
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(getColor("home", game))
-                    .padding(10)
+                if game.status.rawValue != "scheduled" {
+                    Text(String(game.home.win) + "-" + String(game.home.loss))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                } else { // game in progress or ended, show score
+                    Text(String(game.home.runs))
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(getColor("home", game))
+                        .padding(10)
+                }
                 Spacer()
                 VStack {
                     Image(game.home.abbr)

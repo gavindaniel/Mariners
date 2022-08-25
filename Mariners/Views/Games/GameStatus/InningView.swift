@@ -25,7 +25,7 @@ struct InningView: View {
                     .foregroundColor(.primary)
             }
             Text(getInningText(input: inning))
-                .font(.callout)
+                .font(.footnote) // callout
                 .foregroundColor(.primary)
         }
     }

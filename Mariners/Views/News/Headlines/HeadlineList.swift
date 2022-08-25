@@ -35,7 +35,8 @@ struct HeadlineList: View {
             Divider()
             
             VStack(alignment: .leading, spacing: 0) {
-                ForEach(viewModel.articles) { article in
+                // viewModel
+                ForEach(modelData.articles) { article in
                     NavigationLink {
                         NewsDetail(article: article)
                     } label: {

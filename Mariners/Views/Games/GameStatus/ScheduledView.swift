@@ -12,22 +12,15 @@ struct ScheduledView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "arrowtriangle.left.fill")
-                .resizable()
-                .frame(width: 10, height: 10)
-                .foregroundColor(.primary)
-            Text("Final")
-                .foregroundColor(.primary)
+            Text(getStartTime(game.scheduled))
+                .foregroundColor(.secondary)
                 .font(.footnote)
-                .fontWeight(.semibold)
-                .padding(5)
         }
-        .padding(.trailing, 15)
     }
 }
 
 struct ScheduledView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduledView(game: ModelData().score.game)
+        ScheduledView(game: ModelData().scores.league.games[0].game)
     }
 }

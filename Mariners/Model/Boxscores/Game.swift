@@ -12,7 +12,7 @@ struct Game: Codable {
 //    var id, status: String
     var id: String
     var status: GameStatus // Status
-//    var status: GameStatus
+    let scheduled: String
 //    var homeTeam, awayTeam: String
     var outcome: Outcome?
     var gameFinal: Final?
@@ -23,6 +23,7 @@ struct Game: Codable {
 
     enum CodingKeys: String, CodingKey {
         case id, status
+        case scheduled
 //        case homeTeam = "home_team"
 //        case awayTeam = "away_team"
         case gameFinal = "final"
