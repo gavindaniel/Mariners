@@ -30,6 +30,6 @@ struct OutsView: View {
 
 struct OutsView_Previews: PreviewProvider {
     static var previews: some View {
-        OutsView(outStrings: getOutsStrings(input: 3))
+        OutsView(outStrings: getOutsStrings(input: 2))
     }
 }

@@ -9,9 +9,9 @@ import Foundation
 
 func getOutsStrings(input: Int) -> [String] {
     switch input {
-    case 0: return ["circle", "circle", "cirlce"]
-    case 1: return ["circle.fill", "circle", "cirlce"]
-    case 2: return ["circle.fill", "circle.fill", "cirlce"]
+    case 0: return ["circle", "circle", "circle"]
+    case 1: return ["circle.fill", "circle", "circle"]
+    case 2: return ["circle.fill", "circle.fill", "circle"]
     case 3: return ["circle.fill", "circle.fill", "circle.fill"]
     default: return ["circle.fill", "circle.fill", "circle.fill"]
     }

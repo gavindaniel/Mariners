@@ -16,6 +16,7 @@ struct GameRow: View {
     var body: some View {
         VStack {
             HStack {
+                // away logo
                 VStack(alignment: .center) {
                     Image(game.away.abbr)
                         .resizable()
@@ -23,7 +24,8 @@ struct GameRow: View {
                         .frame(width: 40, height: 40)
                 }
                 Spacer()
-                if game.status.rawValue != "scheduled" {
+                // score or record
+                if game.status.rawValue == "scheduled" {
                     Text(String(game.away.win) + "-" + String(game.away.loss))
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -35,23 +37,24 @@ struct GameRow: View {
                         .padding(10)
                 }
                 Spacer()
+                // inning & out(s)
                 VStack(alignment: .center) {
                     if game.status.rawValue == "scheduled" { // game hasn't started
                         ScheduledView(game: game)
                     } else if game.status.rawValue == "inprogress" { // game is in progress
                         if game.outcome != nil {
                             InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
-//                            if game.outcome!.count != nil {
-//                                OutsView(outStrings: getOutsStrings(input: game.outcome!.count!.outs))
-//                            }
+                            if game.outcome!.count != nil {
+                                OutsView(outStrings: getOutsStrings(input: game.outcome!.count!.outs))
+                            }
                         }
                     } else { // status == closed , game is over
                         FinalView(awayRuns: game.away.runs, homeRuns: game.home.runs)
                     }
                 }
-    //            .font(.caption)
                 Spacer()
-                if game.status.rawValue != "scheduled" {
+                // home score / record
+                if game.status.rawValue == "scheduled" {
                     Text(String(game.home.win) + "-" + String(game.home.loss))
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -63,6 +66,7 @@ struct GameRow: View {
                         .padding(10)
                 }
                 Spacer()
+                // home logo
                 VStack {
                     Image(game.home.abbr)
                         .resizable()
