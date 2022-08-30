@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BoxscoreItem: View {
-    @EnvironmentObject var modelData: ModelData
     @Binding var showLoading: Bool
+    @EnvironmentObject var modelData: ModelData
     var game: Game
    
     
@@ -43,8 +43,8 @@ struct BoxscoreItem: View {
     }
 }
 
-//struct BoxscoreItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BoxscoreItem(isLoading: false, game: ModelData().scores.league.games[0].game)
-//    }
-//}
+struct BoxscoreItem_Previews: PreviewProvider {
+    static var previews: some View {
+        BoxscoreItem(showLoading: .constant(false), game: ModelData().scores.league.games[0].game)
+    }
+}

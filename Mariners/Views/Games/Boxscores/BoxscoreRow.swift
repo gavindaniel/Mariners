@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BoxscoreRow: View {
-//    @Binding var showLoading: Bool
-    var showLoading: Bool
+    @Binding var showLoading: Bool
+//    @State private var animationAmount = 5.0
     @EnvironmentObject var modelData: ModelData
     var game: Game
     
@@ -112,12 +112,18 @@ struct BoxscoreRow: View {
         }
         .padding(.top, 10)
         .padding(.bottom, 10)
-//        .redacted(reason: showLoading ? .placeholder : [])
+        .redacted(reason: showLoading ? .placeholder : [])
+//        .animation(.easeInOut, value: !showLoading)
+//        .animation(
+//            .easeInOut(duration: 5)
+//                .delay(2),
+//            value: animationAmount
+//        )
     }
 }
 
 struct BoxscoreRow_Previews: PreviewProvider {
     static var previews: some View {
-        BoxscoreRow(showLoading: false, game: ModelData().scores.league.games[2].game)
+        BoxscoreRow(showLoading: .constant(false), game: ModelData().scores.league.games[2].game)
     }
 }

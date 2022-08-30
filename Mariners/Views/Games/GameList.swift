@@ -12,24 +12,22 @@ struct GameList: View {
     @EnvironmentObject var globalVariables: GlobalVariables
     @State private var games = ModelData().scores.league.games
     @State private var showLoading: Bool = false
+//    @State private var animationAmount = 5.0
     
     var body: some View {
         List {
-//        ScrollView(showsIndicators: true) {
             DateView()
             ForEach(games) { game in
                 NavigationLink {
                     GameDetail(gameID: game.game.id)
                 } label: {
-//                    BoxscoreRow(showLoading: $showLoading, game: game.game)
-                    BoxscoreRow(showLoading: false, game: game.game)
+                    BoxscoreRow(showLoading: $showLoading, game: game.game)
                 }
                 .padding()
                 Divider()
             }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
-//        }
         }
         .listStyle(.inset)
         .navigationTitle("Scores")

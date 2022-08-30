@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct GameFeatured: View {
+    @Binding var showLoading: Bool
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var globalVariables: GlobalVariables
-    @Binding var showLoading: Bool
     var game: Game
     
     var body: some View {
@@ -43,8 +43,8 @@ struct GameFeatured: View {
     }
 }
 
-//struct GameFeatured_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GameFeatured(isLoading: false, game: ModelData().scores.league.games[0].game)
-//    }
-//}
+struct GameFeatured_Previews: PreviewProvider {
+    static var previews: some View {
+        GameFeatured(showLoading: .constant(false), game: ModelData().scores.league.games[0].game)
+    }
+}

@@ -10,7 +10,7 @@ import SwiftUI
 struct GameRow: View {
     @EnvironmentObject var modelData: ModelData
 //    @Binding var showLoading: Bool
-    @State private var showLoading: Bool = false
+//    @State private var showLoading: Bool = false
     var game: Game
     
     var body: some View {

@@ -78,10 +78,9 @@ struct GameDetail: View {
     }
 }
 
-//struct GamesDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-////        GameDetail(game: ModelData().scores.league.games[0].game)
-//        GameDetail(isLoading: false, gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
-//            .environmentObject(ModelData())
-//    }
-//}
+struct GamesDetail_Previews: PreviewProvider {
+    static var previews: some View {
+        GameDetail(gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
+            .environmentObject(ModelData())
+    }
+}
