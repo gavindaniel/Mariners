@@ -11,7 +11,7 @@ struct GameDetail: View {
     @EnvironmentObject var modelData: ModelData
     @State private var game = ModelData().score.game
     @State private var events = ModelData().score.game.away.events
-    @State private var showLoading: Bool = false
+    @State private var showLoading: Bool = true
     var gameID: String
     
     var body: some View {
@@ -45,6 +45,7 @@ struct GameDetail: View {
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
         }
+//        .redacted(reason: showLoading ? .placeholder : [])
 //        .listRowInsets(EdgeInsets())
         .listStyle(.inset)
         .navigationTitle(game.away.abbr + " @ " + game.home.abbr)
@@ -68,11 +69,11 @@ struct GameDetail: View {
             
             if let gameBoxscore = try? JSONDecoder().decode(GameBoxscore.self, from: jsonData) {
                 game = gameBoxscore.game
-                print("game JSON decoded.")
+                print("GameDetail JSON decoded.")
                 showLoading = false
             }
         } catch {
-            print("Invalid data")
+            print("Invalid GameDetail data")
         }
     }
 }

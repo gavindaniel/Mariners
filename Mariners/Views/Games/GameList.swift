@@ -54,11 +54,11 @@ struct GameList: View {
             
             if let box_scores = try? JSONDecoder().decode(DailyBoxscore.self, from: jsonData) {
                 games = box_scores.league.games
-                print("JSON decoded.")
+                print("GameList JSON decoded.")
                 showLoading = false
             }
         } catch {
-            print("Invalid data")
+            print("Invalid GameList data")
         }
     }
 }

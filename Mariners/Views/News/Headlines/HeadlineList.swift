@@ -16,7 +16,7 @@ struct HeadlineList: View {
     var body: some View {
         VStack(alignment: .center) {
             HStack(alignment: .center) {
-                Text("Headlines")
+                Text("News")
                     .font(.title3)
                     .fontWeight(.semibold)
 
@@ -36,7 +36,7 @@ struct HeadlineList: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 // viewModel
-                ForEach(modelData.articles) { article in
+                ForEach(modelData.articles.prefix(3)) { article in
                     NavigationLink {
                         NewsDetail(article: article)
                     } label: {
