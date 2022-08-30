@@ -25,7 +25,7 @@ struct ScoringRow: View {
                 if event.hitterOutcome == "aHR" && event.runners.count == 4 {
                     Text("Grand Slam - (\(event.runners.count))")
                 } else {
-                    Text(getPitchOutcome(modelData.glossary.pitchOutcomes, event.hitterOutcome) + " - (\(event.runners.count))")
+                    Text(getPitchOutcome(modelData.glossary.pitchOutcomes, event.hitterOutcome)) //  + " - (\(event.runners.count))"
                 }
             }
             .frame(width: 200, alignment: .leading)
