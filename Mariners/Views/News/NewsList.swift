@@ -14,17 +14,15 @@ struct NewsList: View {
     
     var body: some View {
 //        List {
-//            VStack(alignment: .leading) {
-                ScrollView(showsIndicators: true) {
-                    ForEach(modelData.articles) { article in
-                        NavigationLink {
-                            NewsDetail(article: article)
-                        } label: {
-                            NewsRow(article: article)
-                        }
+            ScrollView(showsIndicators: true) {
+                ForEach(modelData.articles) { article in
+                    NavigationLink {
+                        NewsDetail(article: article)
+                    } label: {
+                        NewsRow(article: article)
                     }
                 }
-//            }
+            }
             .listRowInsets(EdgeInsets())
 //        }
         .listStyle(.inset)

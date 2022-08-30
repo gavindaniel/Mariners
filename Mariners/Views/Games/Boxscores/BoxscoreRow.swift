@@ -9,8 +9,8 @@ import SwiftUI
 
 struct BoxscoreRow: View {
     @Binding var showLoading: Bool
-//    @State private var animationAmount = 5.0
     @EnvironmentObject var modelData: ModelData
+    //    @State private var animationAmount = 5.0
     var game: Game
     
     var body: some View {

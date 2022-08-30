@@ -31,9 +31,8 @@ struct HeadlineRow: View {
     }
 }
 
-//struct HeadlineRow_Previews: PreviewProvider {
-//    static var previews: some View {
-////        HeadlineRow(article: ModelData().articles[0])
-//        HeadlineRow()
-//    }
-//}
+struct HeadlineRow_Previews: PreviewProvider {
+    static var previews: some View {
+        HeadlineRow(article: ModelData().articles[0])
+    }
+}

@@ -62,16 +62,8 @@ struct StandingsView: View {
     }
 }
 
-//struct StandingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        StandingsView()
-////        List { // next pattern easily wrapped with ForEach
-////            ItemRow("Category", isCategory: true) // this can be section's header
-////            Section {
-////                ItemRow("Item 1")
-////                ItemRow("Item 2")
-////                ItemRow("Item 3")
-////            }.padding(.leading, 20)
-////        }
-//    }
-//}
+struct StandingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        StandingsView()
+    }
+}

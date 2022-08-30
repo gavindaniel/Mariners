@@ -5,8 +5,8 @@
 //  Created by Gavin Daniel on 8/6/22.
 //
 
-import SwiftUI
 //import Amplify
+import SwiftUI
 
 struct NewsDetail: View {
     @Environment(\.presentationMode) var presentationMode
@@ -46,8 +46,8 @@ struct NewsDetail: View {
 }
 
 
-//struct NewsDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewsDetail()
-//    }
-//}
+struct NewsDetail_Previews: PreviewProvider {
+    static var previews: some View {
+        NewsDetail(article: ModelData().articles[0])
+    }
+}

@@ -12,7 +12,6 @@ struct GameList: View {
     @EnvironmentObject var globalVariables: GlobalVariables
     @State private var games = ModelData().scores.league.games
     @State private var showLoading: Bool = false
-//    @State private var animationAmount = 5.0
     
     var body: some View {
         List {

@@ -11,7 +11,6 @@ struct BoxscoreItem: View {
     @Binding var showLoading: Bool
     @EnvironmentObject var modelData: ModelData
     var game: Game
-   
     
     var body: some View {
         HStack {
@@ -35,7 +34,6 @@ struct BoxscoreItem: View {
                 BoxscoreInnings(game: game)
                 // totals
                 BoxscoreTotals(game: game)
-//                Spacer()
             }
         }
         .padding(.top, 20)

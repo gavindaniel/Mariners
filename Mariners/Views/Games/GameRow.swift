@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct GameRow: View {
+    //    @Binding var showLoading: Bool
     @EnvironmentObject var modelData: ModelData
-//    @Binding var showLoading: Bool
-//    @State private var showLoading: Bool = false
     var game: Game
     
     var body: some View {

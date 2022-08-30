@@ -77,8 +77,8 @@ struct StandingItem: View {
     }
 }
 
-//struct StandingItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        StandingItem()
-//    }
-//}
+struct StandingItem_Previews: PreviewProvider {
+    static var previews: some View {
+        StandingItem(showLoading: .constant(false), division: ModelData().standings.league)
+    }
+}

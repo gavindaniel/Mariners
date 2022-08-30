@@ -5,13 +5,13 @@
 //  Created by Gavin Daniel on 8/7/22.
 //
 
-import SwiftUI
 //import Amplify
 import Combine
+import SwiftUI
 
 struct HeadlineList: View {
-    @StateObject var viewModel = ViewModel()
     @EnvironmentObject var modelData: ModelData
+    @StateObject var viewModel = ViewModel()
     
     var body: some View {
         VStack(alignment: .center) {

@@ -11,8 +11,6 @@ struct ScoringList: View {
     @EnvironmentObject var modelData: ModelData
     var away: String
     var home: String
-//    @Published var aScore: Int = 0
-//    @Published var hScore: Int = 0
     @State private var showLoading: Bool = true
     var events: [Event]
     
@@ -31,10 +29,9 @@ struct ScoringList: View {
             }
             .font(.footnote)
             .foregroundColor(.secondary)
-//            .redacted(reason: showLoading ? .placeholder : [])
             Divider()
             ForEach(events) { event in
-                ScoringRow(showLoading: $showLoading, aScore: 0, hScore: 0, event: event)
+                ScoringRow(showLoading: $showLoading, event: event)
                 Divider()
             }
         }

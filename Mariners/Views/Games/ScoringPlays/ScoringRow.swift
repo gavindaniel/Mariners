@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct ScoringRow: View {
-    @EnvironmentObject var modelData: ModelData
     @Binding var showLoading: Bool
-    var aScore: Int
-    var hScore: Int
-    var event: Event
+    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var globalVariables: GlobalVariables
     @State private var player = ModelData().player_profile.player
+    var event: Event
     
     var body: some View {
         HStack {
@@ -31,15 +30,15 @@ struct ScoringRow: View {
             .frame(width: 200, alignment: .leading)
             .font(.footnote)
             Spacer()
-            Text(getScore("away", aScore, event.runners.count, event.inningHalf.rawValue))
+            Text(getScore("away", globalVariables.aScore, event.runners.count, event.inningHalf.rawValue))
             Spacer()
-            Text(getScore("home", hScore, event.runners.count, event.inningHalf.rawValue))
+            Text(getScore("home", globalVariables.hScore, event.runners.count, event.inningHalf.rawValue))
         }
         .padding()
 //        .redacted(reason: showLoading ? .placeholder : [])
-        .task {
-            await loadData()
-        }
+//        .task {
+//            await loadData()
+//        }
     }
     
     func loadData() async {
@@ -63,8 +62,8 @@ struct ScoringRow: View {
     }
 }
 
-//struct ScoringRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ScoringRow(aScore: 0, hScore: 0, event: ModelData().score.game.home.events![0])
-//    }
-//}
+struct ScoringRow_Previews: PreviewProvider {
+    static var previews: some View {
+        ScoringRow(showLoading: .constant(false), event: ModelData().score.game.home.events![0])
+    }
+}
