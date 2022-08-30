@@ -21,7 +21,8 @@ struct GameList: View {
                 NavigationLink {
                     GameDetail(gameID: game.game.id)
                 } label: {
-                    BoxscoreRow(showLoading: $showLoading, game: game.game)
+//                    BoxscoreRow(showLoading: $showLoading, game: game.game)
+                    BoxscoreRow(showLoading: false, game: game.game)
                 }
                 .padding()
                 Divider()

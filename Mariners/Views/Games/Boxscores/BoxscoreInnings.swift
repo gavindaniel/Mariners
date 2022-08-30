@@ -13,37 +13,47 @@ struct BoxscoreInnings: View {
     var body: some View {
         HStack {
             Group {
-                ForEach(0..<9)) { i in
+                ForEach(0..<9) { i in
                     VStack(alignment: .center, spacing: 10) {
                         Text(String(i+1))
                             .font(.caption2)
                             .foregroundColor(.secondary)
-                        if i < game.away.scoring?.count {
-                            Text(game.away.scoring?[i].runs? ?? " ")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.primary)
-                                .padding(.top, 5)
-                        } else {
-                            Text(" ")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.primary)
-                                .padding(.top, 5)
-                        }
-                        if i < game.home.scoring?.count {
-                            Text(game.home.scoring?[i].runs? ?? " ")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.primary)
-                                .padding(.top, 5)
-                        } else {
-                            Text(" ")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.primary)
-                                .padding(.top, 5)
-                        }
+                        Text(" ")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.primary)
+                            .padding(.top, 5)
+                        Text(" ")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.primary)
+                            .padding(.top, 5)
+//                        if i < game.away.scoring?.count {
+//                            Text(game.away.scoring?[i].runs? ?? " ")
+//                                .font(.caption)
+//                                .fontWeight(.semibold)
+//                                .foregroundColor(.primary)
+//                                .padding(.top, 5)
+//                        } else {
+//                            Text(" ")
+//                                .font(.caption)
+//                                .fontWeight(.semibold)
+//                                .foregroundColor(.primary)
+//                                .padding(.top, 5)
+//                        }
+//                        if i < game.home.scoring?.count {
+//                            Text(game.home.scoring?[i].runs? ?? " ")
+//                                .font(.caption)
+//                                .fontWeight(.semibold)
+//                                .foregroundColor(.primary)
+//                                .padding(.top, 5)
+//                        } else {
+//                            Text(" ")
+//                                .font(.caption)
+//                                .fontWeight(.semibold)
+//                                .foregroundColor(.primary)
+//                                .padding(.top, 5)
+//                        }
                     }
                     .padding(5)
                 }

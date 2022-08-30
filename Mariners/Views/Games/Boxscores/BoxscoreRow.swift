@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct BoxscoreRow: View {
+//    @Binding var showLoading: Bool
+    var showLoading: Bool
     @EnvironmentObject var modelData: ModelData
-    @Binding var showLoading: Bool
     var game: Game
     
     var body: some View {
@@ -30,13 +31,6 @@ struct BoxscoreRow: View {
             // names
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
-//                    if checkFinal(game.status.rawValue) {
-//                        Text("Final")
-//                            .foregroundColor(.secondary)
-//                            .font(.footnote)
-//                    } else {
-//                        InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
-//                    }
                     if game.status.rawValue == "scheduled" { // game hasn't started
                         ScheduledView(game: game)
                     } else if game.status.rawValue == "inprogress" { // game is in progress
@@ -122,8 +116,8 @@ struct BoxscoreRow: View {
     }
 }
 
-//struct BoxscoreRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BoxscoreRow(isLoading: false, game: ModelData().scores.league.games[0].game)
-//    }
-//}
+struct BoxscoreRow_Previews: PreviewProvider {
+    static var previews: some View {
+        BoxscoreRow(showLoading: false, game: ModelData().scores.league.games[2].game)
+    }
+}

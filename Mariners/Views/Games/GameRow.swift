@@ -41,9 +41,9 @@ struct GameRow: View {
                     } else if game.status.rawValue == "inprogress" { // game is in progress
                         if game.outcome != nil {
                             InningView(inning: game.outcome!.currentInning, inningHalf: game.outcome!.currentInningHalf)
-                            if game.outcome!.count != nil {
-                                OutsView(outStrings: getOutsStrings(input: game.outcome!.count!.outs))
-                            }
+//                            if game.outcome!.count != nil {
+//                                OutsView(outStrings: getOutsStrings(input: game.outcome!.count!.outs))
+//                            }
                         }
                     } else { // status == closed , game is over
                         FinalView(awayRuns: game.away.runs, homeRuns: game.home.runs)

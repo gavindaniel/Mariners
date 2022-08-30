@@ -26,6 +26,7 @@ struct Game: Codable {
         case scheduled
 //        case homeTeam = "home_team"
 //        case awayTeam = "away_team"
+        case outcome
         case gameFinal = "final"
         case home, away // , pitching
     }
@@ -53,7 +54,7 @@ struct Outcome: Codable {
     var type: String
     var currentInning: Int
     var currentInningHalf: String
-    var count: Count?
+//    var count: Count?
 //    var hitter: Hitter?
 //    var pitcher: PitcherClass?
 //    var runners: [OutcomeRunner]?
@@ -62,7 +63,7 @@ struct Outcome: Codable {
         case type
         case currentInning = "current_inning"
         case currentInningHalf = "current_inning_half"
-        case count // , hitter, pitcher, runners
+//        case count // , hitter, pitcher, runners
     }
 }
 
