@@ -16,9 +16,9 @@ struct Game: Codable {
 //    var homeTeam, awayTeam: String
     var outcome: Outcome?
     var gameFinal: Final?
-    var home: Home
-    var away: Away
-//    var pitching: Pitching?
+    var home: HomeAway
+    var away: HomeAway
+    var pitching: Pitching?
 
 
     enum CodingKeys: String, CodingKey {
@@ -28,7 +28,8 @@ struct Game: Codable {
 //        case awayTeam = "away_team"
         case outcome
         case gameFinal = "final"
-        case home, away // , pitching
+        case home, away
+        case pitching
     }
 }
 
@@ -67,31 +68,12 @@ struct Outcome: Codable {
     }
 }
 
-// MARK: - Away
-struct Away: Codable {
+// MARK: - HomeAway
+struct HomeAway: Codable {
     var name, market, abbr, id: String
     var runs, hits, errors, win: Int
     var loss: Int
 //    var startingPitcher: Pitcher?
-
-//    var scoring: [AwayScoring]?
-    var scoring: [Scoring]?
-    var events: [Event]?
-
-    enum CodingKeys: String, CodingKey {
-        case name, market, abbr, id, runs, hits, errors, win, loss
-//        case startingPitcher = "starting_pitcher"
-        case scoring, events
-    }
-}
-
-// MARK: - Home
-struct Home: Codable {
-    var name, market, abbr, id: String
-    var runs, hits, errors, win: Int
-    var loss: Int
-//    var startingPitcher: Pitcher
-//    var scoring: [HomeScoring]?
     var scoring: [Scoring]?
     var events: [Event]?
 
@@ -145,92 +127,6 @@ struct Scoring: Codable, Identifiable {
     }
 }
 
-// MARK: - AwayScoring
-struct AwayScoring: Codable, Identifiable {
-    var id = UUID()
-    var number, sequence: Int
-    var runs, hits, errors: String? //Errors
-//    var type: String
-    
-    enum CodingKeys: String, CodingKey {
-        case number, sequence, runs, hits, errors
-//        case type = "inning"
-    }
-    //
-//    init(runs: String? = nil, hits: String? = nil, errors: String? = nil) {
-//        self.runs = runs
-//        self.hits = hits
-//        self.errors = errors
-//    }
-    // custom decoding
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        number = try container.decode(Int.self, forKey: .number)
-        sequence = try container.decode(Int.self, forKey: .sequence)
-
-        do {
-            runs = try String(container.decode(Int.self, forKey: .runs))
-        } catch DecodingError.typeMismatch {
-            runs = try container.decode(String.self, forKey: .runs)
-        }
-        
-        do {
-            hits = try String(container.decode(Int.self, forKey: .hits))
-        } catch DecodingError.typeMismatch {
-            hits = try container.decode(String.self, forKey: .hits)
-        }
-        
-        do {
-            errors = try String(container.decode(Int.self, forKey: .errors))
-        } catch DecodingError.typeMismatch {
-            errors = try container.decode(String.self, forKey: .errors)
-        }
-    }
-}
-
-
-// MARK: - HomeScoring
-struct HomeScoring: Codable, Identifiable {
-    var id = UUID()
-    var number, sequence: Int
-    var runs, hits, errors: String? // Errors
-//    var type: String
-    
-    enum CodingKeys: String, CodingKey {
-        case number, sequence, runs, hits, errors
-//        case type = "inning"
-    }
-    //
-//    init(runs: String? = nil, hits: String? = nil, errors: String? = nil) {
-//        self.runs = runs
-//        self.hits = hits
-//        self.errors = errors
-//    }
-    // custom decoding
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        number = try container.decode(Int.self, forKey: .number)
-        sequence = try container.decode(Int.self, forKey: .sequence)
-
-        do {
-            runs = try String(container.decode(Int.self, forKey: .runs))
-        } catch DecodingError.typeMismatch {
-            runs = try container.decode(String.self, forKey: .runs)
-        }
-        
-        do {
-            hits = try String(container.decode(Int.self, forKey: .hits))
-        } catch DecodingError.typeMismatch {
-            hits = try container.decode(String.self, forKey: .hits)
-        }
-        
-        do {
-            errors = try String(container.decode(Int.self, forKey: .errors))
-        } catch DecodingError.typeMismatch {
-            errors = try container.decode(String.self, forKey: .errors)
-        }
-    }
-}
 
 enum Errors: Decodable {
     case int(Int)
@@ -368,8 +264,9 @@ struct Pitcher: Codable {
 
 // MARK: - Pitching
 struct Pitching: Codable {
-    var win, loss, save: Loss
-    var hold, blownSave: [Loss]
+    var win, loss: Loss
+    var save: Loss?
+    var hold, blownSave: [Loss]?
 
     enum CodingKeys: String, CodingKey {
         case win, loss, save, hold

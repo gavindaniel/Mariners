@@ -18,6 +18,7 @@ struct GameDetail: View {
     var body: some View {
         List {
             GameRow(game: game)
+                .padding(.top, 15)
                 .listRowInsets(EdgeInsets())
             VStack {
                 HStack {
@@ -30,7 +31,6 @@ struct GameDetail: View {
                         .fontWeight(.semibold)
                 }
                 HStack {
-                    
                     Text(String(game.away.win) + "-" + String(game.away.loss))
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -44,11 +44,12 @@ struct GameDetail: View {
             .padding(10)
             .listRowSeparator(.hidden)
             BoxscoreFull(game: game)
-                .listRowInsets(EdgeInsets())
+//                .listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
-                .padding(.bottom, 20)
+                .padding(.top, 15)
+                .padding(.bottom, 15)
             ScoringList(showLoading: $showLoading, events: mergeEvents(game.away.events ?? [Event](), game.home.events ?? [Event]()), away: game.away.abbr, home: game.home.abbr)
-                .listRowInsets(EdgeInsets())
+//                .listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
         }
         .redacted(reason: showLoading ? .placeholder : [])
