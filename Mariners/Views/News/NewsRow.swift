@@ -11,7 +11,6 @@ struct NewsRow: View {
     @Environment(\.presentationMode) var presentationMode
 //    @EnvironmentObject var sessionManager: SessionManager
 //    @EnvironmentObject var modelData: ModelData
-    
     let article: Article
     
     var body: some View {

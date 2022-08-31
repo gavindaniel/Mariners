@@ -9,32 +9,25 @@ import SwiftUI
 
 struct ScoringList: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var globalVariables: GlobalVariables
+    @StateObject var scoringViewModel = ScoringViewModel()
+    var events: [Event]
     var away: String
     var home: String
-//    @Published var aScore: Int = 0
-//    @Published var hScore: Int = 0
-    @State private var showLoading: Bool = true
-    var events: [Event]
-    
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Inning")
-                    .padding(.leading, 10)
-//                    .unredacted()
+                Text("Scoring Plays")
+                    .fontWeight(.semibold)
                 Spacer()
-                Text(away)
-                    .padding(.trailing, 5)
-                Text(home)
-                    .padding(.trailing, 10)
             }
             .font(.footnote)
-            .foregroundColor(.secondary)
-//            .redacted(reason: showLoading ? .placeholder : [])
+            .foregroundColor(.primary)
             Divider()
             ForEach(events) { event in
-                ScoringRow(showLoading: $showLoading, aScore: 0, hScore: 0, event: event)
+                ScoringRow(event: event, away: away, home: home)
+                    .environmentObject(scoringViewModel)
                 Divider()
             }
         }
@@ -42,8 +35,9 @@ struct ScoringList: View {
     }
 }
 
-//struct ScoringList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ScoringList(away: "MIL", home: "CHC", showLoading: false, events: mergeEvents(ModelData().score.game.away.events!, ModelData().score.game.home.events!))
-//    }
-//}
+struct ScoringList_Previews: PreviewProvider {
+    static var previews: some View {
+        ScoringList(events: mergeEvents(ModelData().score.game.away.events!, ModelData().score.game.home.events!), away: "MIL", home: "CHC")
+            .environmentObject(ModelData())
+    }
+}

@@ -7,18 +7,6 @@
 
 import Foundation
 
-//func getDateComponents() -> [String] {
-//    let date = Date.now
-//    let formatter = DateFormatter()
-//    formatter.dateFormat = "yyyy"
-//    let year = formatter.string(from: date)
-//    formatter.dateFormat = "MM"
-//    let month = formatter.string(from: date)
-//    formatter.dateFormat = "dd"
-//    let day = formatter.string(from: date)
-//    print(year, month, day) // 2018 12 24
-//    return [year, month, day]
-//}
 
 func getDateComponent(_ date: Date, _ component: String) -> String {
     let formatter = DateFormatter()

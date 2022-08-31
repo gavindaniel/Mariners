@@ -11,28 +11,26 @@ struct GameList: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var globalVariables: GlobalVariables
     @State private var games = ModelData().scores.league.games
-    @State private var showLoading: Bool = false
+    @State private var showLoading: Bool = true
     
     var body: some View {
         List {
-//        ScrollView(showsIndicators: true) {
             DateView()
             ForEach(games) { game in
                 NavigationLink {
                     GameDetail(gameID: game.game.id)
                 } label: {
-//                    BoxscoreRow(showLoading: $showLoading, game: game.game)
-                    BoxscoreRow(showLoading: false, game: game.game)
+                    BoxscoreSimple(game: game.game)
                 }
                 .padding()
                 Divider()
             }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
-//        }
         }
         .listStyle(.inset)
         .navigationTitle("Scores")
+        .redacted(reason: showLoading ? .placeholder : [])
         .refreshable {
             await loadData()
         }
@@ -43,7 +41,7 @@ struct GameList: View {
     
     func loadData() async {
         print("/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/")
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/boxscore.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/boxscore.json?api_key=\(globalVariables.key)") else {
             print("Invalid URL")
             return
         }
@@ -54,11 +52,11 @@ struct GameList: View {
             
             if let box_scores = try? JSONDecoder().decode(DailyBoxscore.self, from: jsonData) {
                 games = box_scores.league.games
-                print("JSON decoded.")
+                print("GameList JSON decoded.")
                 showLoading = false
             }
         } catch {
-            print("Invalid data")
+            print("Invalid GameList data")
         }
     }
 }

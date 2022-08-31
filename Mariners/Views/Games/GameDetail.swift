@@ -9,16 +9,17 @@ import SwiftUI
 
 struct GameDetail: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var globalVariables: GlobalVariables
     @State private var game = ModelData().score.game
     @State private var events = ModelData().score.game.away.events
-    @State private var showLoading: Bool = false
+    @State private var showLoading: Bool = true
     var gameID: String
     
     var body: some View {
         List {
-//            GameRow(showLoading: $showLoading, game: game)
             GameRow(game: game)
-//            Divider()
+                .padding(.top, 15)
+                .listRowInsets(EdgeInsets())
             VStack {
                 HStack {
                     Text(game.away.name)
@@ -39,13 +40,18 @@ struct GameDetail: View {
                         .foregroundColor(.secondary)
                 }
             }
-            BoxscoreItem(showLoading: $showLoading, game: game)
-//            Divider()
-            ScoringList(away: game.away.abbr, home: game.home.abbr, events: mergeEvents(game.away.events ?? [Event](), game.home.events ?? [Event]()))
             .listRowInsets(EdgeInsets())
+            .padding(10)
             .listRowSeparator(.hidden)
+            BoxscoreFull(game: game)
+                .listRowSeparator(.hidden)
+                .padding(.top, 15)
+                .padding(.bottom, 15)
+            ScoringList(events: mergeEvents(game.away.events ?? [Event](), game.home.events ?? [Event]()), away: game.away.abbr, home: game.home.abbr)
+                .environmentObject(globalVariables)
+                .listRowSeparator(.hidden)
         }
-//        .listRowInsets(EdgeInsets())
+        .redacted(reason: showLoading ? .placeholder : [])
         .listStyle(.inset)
         .navigationTitle(game.away.abbr + " @ " + game.home.abbr)
         .refreshable {
@@ -57,7 +63,7 @@ struct GameDetail: View {
     }
     
     func loadData() async {
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(gameID)/boxscore.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(gameID)/boxscore.json?api_key=\(globalVariables.key)") else {
             print("Invalid URL")
             return
         }
@@ -68,19 +74,19 @@ struct GameDetail: View {
             
             if let gameBoxscore = try? JSONDecoder().decode(GameBoxscore.self, from: jsonData) {
                 game = gameBoxscore.game
-                print("game JSON decoded.")
+                print("GameDetail JSON decoded.")
                 showLoading = false
             }
         } catch {
-            print("Invalid data")
+            print("Invalid GameDetail data")
         }
     }
 }
 
-//struct GamesDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-////        GameDetail(game: ModelData().scores.league.games[0].game)
-//        GameDetail(isLoading: false, gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
-//            .environmentObject(ModelData())
-//    }
-//}
+struct GamesDetail_Previews: PreviewProvider {
+    static var previews: some View {
+        GameDetail(gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
+            .environmentObject(ModelData())
+            .environmentObject(GlobalVariables())
+    }
+}

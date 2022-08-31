@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DateView: View {
     @EnvironmentObject var globalVariables: GlobalVariables
-//    @State private var date = Date()
     
     var body: some View {
         ZStack {

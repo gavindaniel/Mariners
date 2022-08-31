@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StandingsView: View {
+    @EnvironmentObject var globalVariables: GlobalVariables
     @State private var showLoading: Bool = true
     @State private var leagues = ModelData().standings.league.season!.leagues
     
@@ -42,7 +43,7 @@ struct StandingsView: View {
     }
     
     func loadData() async {
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/seasons/2022/REG/standings.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/seasons/2022/REG/standings.json?api_key=\(globalVariables.key)") else {
             print("Invalid URL")
             return
         }
@@ -62,16 +63,10 @@ struct StandingsView: View {
     }
 }
 
-//struct StandingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        StandingsView()
-////        List { // next pattern easily wrapped with ForEach
-////            ItemRow("Category", isCategory: true) // this can be section's header
-////            Section {
-////                ItemRow("Item 1")
-////                ItemRow("Item 2")
-////                ItemRow("Item 3")
-////            }.padding(.leading, 20)
-////        }
-//    }
-//}
+struct StandingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        StandingsView()
+//            .environmentObject(ModelData())
+            .environmentObject(GlobalVariables())
+    }
+}

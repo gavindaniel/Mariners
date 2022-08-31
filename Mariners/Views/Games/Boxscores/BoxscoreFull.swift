@@ -1,5 +1,5 @@
 //
-//  BoxscoreItem.swift
+//  BoxscoreFull.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/20/22.
@@ -7,16 +7,14 @@
 
 import SwiftUI
 
-struct BoxscoreItem: View {
+struct BoxscoreFull: View {
     @EnvironmentObject var modelData: ModelData
-    @Binding var showLoading: Bool
     var game: Game
-   
     
     var body: some View {
-        HStack {
-            // teams
-            Group {
+        VStack {
+            HStack {
+                // teams
                 VStack(alignment: .leading, spacing: 10) {
                     Text("")
                     Text(game.away.abbr)
@@ -32,19 +30,19 @@ struct BoxscoreItem: View {
                 }
                 Spacer()
                 // innings
-                BoxscoreInnings(game: game)
+                InningScores(away: getScores("away", game), home: getScores("home", game))
                 // totals
-                BoxscoreTotals(game: game)
-//                Spacer()
+                InningTotals(game: game)
+            }
+            if game.pitching != nil {
+                PitchingView(pitching: game.pitching!)
             }
         }
-        .padding(.top, 20)
-//        .redacted(reason: showLoading ? .placeholder : [])
     }
 }
 
-//struct BoxscoreItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BoxscoreItem(isLoading: false, game: ModelData().scores.league.games[0].game)
-//    }
-//}
+struct BoxscoreFull_Previews: PreviewProvider {
+    static var previews: some View {
+        BoxscoreFull(game: ModelData().score.game)
+    }
+}
