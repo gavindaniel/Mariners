@@ -10,6 +10,7 @@ import SwiftUI
 struct ScoringList: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var globalVariables: GlobalVariables
+    @StateObject var scoringViewModel = ScoringViewModel()
     var events: [Event]
     var away: String
     var home: String
@@ -26,7 +27,7 @@ struct ScoringList: View {
             Divider()
             ForEach(events) { event in
                 ScoringRow(event: event, away: away, home: home)
-                    .environmentObject(globalVariables)
+                    .environmentObject(scoringViewModel)
                 Divider()
             }
         }

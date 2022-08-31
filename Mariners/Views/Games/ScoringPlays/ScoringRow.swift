@@ -10,6 +10,7 @@ import SwiftUI
 struct ScoringRow: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var globalVariables: GlobalVariables
+    @EnvironmentObject var scoringViewModel: ScoringViewModel
     @State private var player = ModelData().player_profile.player
     @State private var showLoading: Bool = false
     var event: Event
@@ -41,14 +42,14 @@ struct ScoringRow: View {
                     Text(away)
                         .font(.caption2)
                         .foregroundColor(.secondary)
-                    Text(String(globalVariables.aScore))
+                    Text(String(scoringViewModel.awayScore))
                 }
                 Spacer()
                 VStack(spacing: 5) {
                     Text(home)
                         .font(.caption2)
                         .foregroundColor(.secondary)
-                    Text(String(globalVariables.hScore))
+                    Text(String(scoringViewModel.homeScore))
                 }
             }
         }
@@ -57,7 +58,7 @@ struct ScoringRow: View {
 //            await loadData()
 //        }
         .onAppear {
-            globalVariables.addScore(event.inningHalf.rawValue, event.runners.count)
+            scoringViewModel.addScore(event.inningHalf.rawValue, event.runners.count)
         }
     }
     

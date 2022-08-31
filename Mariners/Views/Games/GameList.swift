@@ -23,7 +23,7 @@ struct GameList: View {
                     BoxscoreSimple(game: game.game)
                 }
                 .padding()
-//                Divider()
+                Divider()
             }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
