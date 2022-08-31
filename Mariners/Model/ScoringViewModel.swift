@@ -8,11 +8,20 @@
 import SwiftUI
 
 class ScoringViewModel: ObservableObject {
-    @Published var awayScore: Int = 0
+    var awayScore: Int = 0
     @Published var homeScore: Int = 0
     
-    func addScore(_ inningHalf: String, _ add: Int) {
-        if inningHalf == "T" { self.awayScore += add }
-        else if inningHalf == "B" { self.homeScore += add }
+    func addScore(_ inning: String, _ inningHalf: String, _ add: Int) {
+//        print("inning: " + inning + "  half: " + inningHalf + "  add: " + String(add))
+        if inningHalf == "T" {
+            self.awayScore += add
+            print("inning: " + inning + "  half: " + inningHalf)
+            print("\tadd: " + String(add) + "  score: " + String(self.awayScore))
+        }
+        else if inningHalf == "B" {
+            self.homeScore += add
+            print("inning: " + inning + "  half: " + inningHalf)
+            print("\tadd: " + String(add) + "  score: " + String(self.homeScore))
+        }
     }
 }

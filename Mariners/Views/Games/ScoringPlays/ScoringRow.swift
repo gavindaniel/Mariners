@@ -58,7 +58,7 @@ struct ScoringRow: View {
 //            await loadData()
 //        }
         .onAppear {
-            scoringViewModel.addScore(event.inningHalf.rawValue, event.runners.count)
+            scoringViewModel.addScore(String(event.inning), event.inningHalf.rawValue, event.runners.count)
         }
     }
     
