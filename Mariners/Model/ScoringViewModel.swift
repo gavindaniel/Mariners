@@ -25,7 +25,7 @@ class ScoringViewModel: ObservableObject {
     }
     
     func getScore(_ side: String) -> Int {
-        print("away: " + String(self.awayScore) + "\thome: " + String(self.homeScore))
+//        print("away: " + String(self.awayScore) + "\thome: " + String(self.homeScore))
         if side == "away" { return self.awayScore }
         else { return self.homeScore }
     }
