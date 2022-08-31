@@ -13,36 +13,73 @@ struct ScoringRow: View {
     @EnvironmentObject var globalVariables: GlobalVariables
     @State private var player = ModelData().player_profile.player
     var event: Event
+    var away: String
+    var home: String
     
     var body: some View {
-        HStack {
-            InningView(inning: event.inning, inningHalf: event.inningHalf.rawValue)
-            Spacer()
-//            Text(player.lastName + getOutcome(event.hitterOutcome))
+        VStack {
             HStack {
-                // check for Grand slam.
-                if event.hitterOutcome == "aHR" && event.runners.count == 4 {
-                    Text("Grand Slam - (\(event.runners.count))")
-                } else {
-                    Text(getPitchOutcome(modelData.glossary.pitchOutcomes, event.hitterOutcome)) //  + " - (\(event.runners.count))"
+                InningView(inning: event.inning, inningHalf: event.inningHalf.rawValue)
+                Spacer()
+                VStack(alignment: .leading, spacing: 5) {
+                    // check for Grand slam.
+                    if event.hitterOutcome == "aHR" && event.runners.count == 4 {
+                        Text("Grand Slam - (\(event.runners.count))")
+                            .font(.footnote)
+                    } else {
+                        Text(getPitchOutcome(modelData.glossary.pitchOutcomes, event.hitterOutcome)) //  + " - (\(event.runners.count))"
+                            .font(.footnote)
+                    }
+                    Text(player.lastName + "  (" + String(event.runners.count) + " RBI)")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                }
+                .font(.footnote)
+                .frame(width: 165, alignment: .leading)
+                Spacer()
+                VStack {
+                    Text(away)
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                    Text(getScore("away", 0, event.runners.count, event.inningHalf.rawValue))
+                }
+                Spacer()
+                VStack {
+                    Text(home)
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                    Text(getScore("home", 0, event.runners.count, event.inningHalf.rawValue))
                 }
             }
-            .frame(width: 200, alignment: .leading)
-            .font(.footnote)
-            Spacer()
-            Text(getScore("away", 0, event.runners.count, event.inningHalf.rawValue))
-            Spacer()
-            Text(getScore("home", 0, event.runners.count, event.inningHalf.rawValue))
+//            .padding(.bottom, 15)
+//            Divider()
+//            HStack {
+//                VStack(alignment: .leading) {
+//                    Text("Scored:  ")
+//                }
+//                HStack {
+//                    ForEach(event.runners) { runner in
+//                        if event.runners.count == 1 {
+//                            Text(runner.lastName)
+//                        } else {
+//                            Text(player.lastName + " ")
+//                        }
+//                    }
+//                }
+//                Spacer()
+//            }
+//            .font(.caption2)
+//            .foregroundColor(.secondary)
+//            .padding(.top, 5)
         }
         .padding()
-//        .redacted(reason: showLoading ? .placeholder : [])
 //        .task {
 //            await loadData()
 //        }
     }
     
     func loadData() async {
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/players/\(event.hitterID)/profile.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/players/\(event.hitterID)/profile.json?api_key=\(globalVariables.key)") else {
             print("Invalid URL")
             return
         }
@@ -63,7 +100,10 @@ struct ScoringRow: View {
 }
 
 struct ScoringRow_Previews: PreviewProvider {
+    static var home = ModelData().score.game.home
+    
     static var previews: some View {
-        ScoringRow(showLoading: .constant(false), event: ModelData().score.game.home.events![0])
+        ScoringRow(showLoading: .constant(false), event: home.events![0], away: home.abbr, home: home.abbr)
+            .environmentObject(ModelData())
     }
 }

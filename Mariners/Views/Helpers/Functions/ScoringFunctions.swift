@@ -65,7 +65,7 @@ func getScore(_ side: String, _ score: Int, _ add: Int , _ inningHalf: String) -
 }
 
 
-// get boxscore inning total score for specified side
+// get an array of runs scored for specified side
 func getScores(_ side: String, _ game: Game) -> [String] {
     var arr = [String]()
     var i = 0
@@ -97,6 +97,11 @@ func getScores(_ side: String, _ game: Game) -> [String] {
     }
         
     return arr
+}
+
+
+func getRunners() -> String {
+    return "none."
 }
 
 

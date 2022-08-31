@@ -9,14 +9,16 @@ import SwiftUI
 
 struct GameDetail: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var globalVariables: GlobalVariables
     @State private var game = ModelData().score.game
     @State private var events = ModelData().score.game.away.events
-    @State private var showLoading: Bool = true
+    @State private var showLoading: Bool = false
     var gameID: String
     
     var body: some View {
         List {
-            GameRow(game: game) // showLoading: $showLoading
+            GameRow(game: game)
+                .listRowInsets(EdgeInsets())
             VStack {
                 HStack {
                     Text(game.away.name)
@@ -28,6 +30,7 @@ struct GameDetail: View {
                         .fontWeight(.semibold)
                 }
                 HStack {
+                    
                     Text(String(game.away.win) + "-" + String(game.away.loss))
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -37,14 +40,18 @@ struct GameDetail: View {
                         .foregroundColor(.secondary)
                 }
             }
-            BoxscoreItem(showLoading: $showLoading, game: game)
-//            Divider()
-            ScoringList(showLoading: $showLoading, events: mergeEvents(game.away.events ?? [Event](), game.home.events ?? [Event]()), away: game.away.abbr, home: game.home.abbr)
             .listRowInsets(EdgeInsets())
+            .padding(10)
             .listRowSeparator(.hidden)
+            BoxscoreFull(game: game)
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
+                .padding(.bottom, 20)
+            ScoringList(showLoading: $showLoading, events: mergeEvents(game.away.events ?? [Event](), game.home.events ?? [Event]()), away: game.away.abbr, home: game.home.abbr)
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
         }
-//        .redacted(reason: showLoading ? .placeholder : [])
-//        .listRowInsets(EdgeInsets())
+        .redacted(reason: showLoading ? .placeholder : [])
         .listStyle(.inset)
         .navigationTitle(game.away.abbr + " @ " + game.home.abbr)
         .refreshable {
@@ -56,7 +63,7 @@ struct GameDetail: View {
     }
     
     func loadData() async {
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(gameID)/boxscore.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(gameID)/boxscore.json?api_key=\(globalVariables.key)") else {
             print("Invalid URL")
             return
         }
@@ -80,5 +87,6 @@ struct GamesDetail_Previews: PreviewProvider {
     static var previews: some View {
         GameDetail(gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
             .environmentObject(ModelData())
+            .environmentObject(GlobalVariables())
     }
 }

@@ -1,5 +1,5 @@
 //
-//  BoxscoreTotals.swift
+//  InningTotals.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/22/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BoxscoreTotals: View {
+struct InningTotals: View {
     var game: Game
     
     var body: some View {
@@ -78,8 +78,8 @@ struct BoxscoreTotals: View {
     }
 }
 
-struct BoxscoreTotals_Previews: PreviewProvider {
+struct InningTotals_Previews: PreviewProvider {
     static var previews: some View {
-        BoxscoreTotals(game: ModelData().scores.league.games[0].game)
+        InningTotals(game: ModelData().scores.league.games[0].game)
     }
 }

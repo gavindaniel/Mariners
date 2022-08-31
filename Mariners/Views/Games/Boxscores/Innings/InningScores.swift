@@ -1,5 +1,5 @@
 //
-//  BoxscoreInnings.swift
+//  InningScores.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/22/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BoxscoreInnings: View {
+struct InningScores: View {
 //    var game: Game
     var away: [String]
     var home: [String]
@@ -24,8 +24,8 @@ struct BoxscoreInnings: View {
     }
 }
 
-//struct BoxscoreInnings_Previews: PreviewProvider {
+//struct InningScores_Previews: PreviewProvider {
 //    static var previews: some View {
-//        BoxscoreInnings(away: ModelData().scores.league.games[0].game)
+//        InningScores(away: ModelData().scores.league.games[0].game)
 //    }
 //}

@@ -1,5 +1,5 @@
 //
-//  BoxscoreRow.swift
+//  BoxscoreSimple.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/20/22.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct BoxscoreRow: View {
-    @Binding var showLoading: Bool
+struct BoxscoreSimple: View {
+//    @Binding var showLoading: Bool
     @EnvironmentObject var modelData: ModelData
     //    @State private var animationAmount = 5.0
     var game: Game
@@ -112,7 +112,7 @@ struct BoxscoreRow: View {
         }
         .padding(.top, 10)
         .padding(.bottom, 10)
-        .redacted(reason: showLoading ? .placeholder : [])
+//        .redacted(reason: showLoading ? .placeholder : [])
 //        .animation(.easeInOut, value: !showLoading)
 //        .animation(
 //            .easeInOut(duration: 5)
@@ -122,8 +122,8 @@ struct BoxscoreRow: View {
     }
 }
 
-struct BoxscoreRow_Previews: PreviewProvider {
+struct BoxscoreSimple_Previews: PreviewProvider {
     static var previews: some View {
-        BoxscoreRow(showLoading: .constant(false), game: ModelData().scores.league.games[2].game)
+        BoxscoreSimple(game: ModelData().scores.league.games[2].game)
     }
 }

@@ -20,10 +20,10 @@ struct GameList: View {
                 NavigationLink {
                     GameDetail(gameID: game.game.id)
                 } label: {
-                    BoxscoreRow(showLoading: $showLoading, game: game.game)
+                    BoxscoreSimple(game: game.game)
                 }
                 .padding()
-                Divider()
+//                Divider()
             }
             .listRowInsets(EdgeInsets())
             .listRowSeparator(.hidden)
@@ -40,7 +40,7 @@ struct GameList: View {
     
     func loadData() async {
         print("/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/")
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/boxscore.json?api_key=wnfa3bdarch3hxhh8jv64znu") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/boxscore.json?api_key=\(globalVariables.key)") else {
             print("Invalid URL")
             return
         }

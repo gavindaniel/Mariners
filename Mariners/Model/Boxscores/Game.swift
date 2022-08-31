@@ -330,7 +330,7 @@ struct Event: Codable, Identifiable {
 }
 
 // MARK: - Runner
-struct Runner: Codable {
+struct Runner: Codable, Identifiable {
     var startingBase: Int
     var firstName, lastName, preferredName, jerseyNumber: String
     var id: String

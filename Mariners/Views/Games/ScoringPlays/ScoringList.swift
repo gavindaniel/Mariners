@@ -17,20 +17,21 @@ struct ScoringList: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Inning")
-                    .padding(.leading, 10)
+                Text("Scoring Plays")
+                    .fontWeight(.semibold)
+//                    .padding(.leading, 5)
 //                    .unredacted()
                 Spacer()
-                Text(away)
-                    .padding(.trailing, 5)
-                Text(home)
-                    .padding(.trailing, 10)
+//                Text(away)
+//                    .padding(.trailing, 5)
+//                Text(home)
+//                    .padding(.trailing, 10)
             }
             .font(.footnote)
-            .foregroundColor(.secondary)
+            .foregroundColor(.primary)
             Divider()
             ForEach(events) { event in
-                ScoringRow(showLoading: $showLoading, event: event)
+                ScoringRow(showLoading: $showLoading, event: event, away: away, home: home)
                 Divider()
             }
         }
@@ -41,5 +42,6 @@ struct ScoringList: View {
 struct ScoringList_Previews: PreviewProvider {
     static var previews: some View {
         ScoringList(showLoading: .constant(false), events: mergeEvents(ModelData().score.game.away.events!, ModelData().score.game.home.events!), away: "MIL", home: "CHC")
+            .environmentObject(ModelData())
     }
 }

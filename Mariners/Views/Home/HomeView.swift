@@ -9,12 +9,11 @@ import SwiftUI
 //import Amplify
 
 struct HomeView: View {
+    @Binding var showLoading: Bool
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var globalVariables: GlobalVariables
     @State private var showingSettings = false
-    @Binding var showLoading: Bool // optional show loading symbol
 //    @StateObject var viewModel = ViewModel()
-//    @State private var games = [GameElement]()
     
     
     var body: some View {
@@ -110,10 +109,11 @@ struct HomeView: View {
 //    }
 //}
 
-//struct HomeView_Previews: PreviewProvider {
-//    @State private var showLoading: Bool = false
-//    static var previews: some View {
-//        HomeView(showLoading: $showLoading)
-//            .environmentObject(ModelData())
-//    }
-//}
+struct HomeView_Previews: PreviewProvider {
+    @State private var showLoading: Bool = false
+    static var previews: some View {
+        HomeView(showLoading: .constant(false))
+            .environmentObject(ModelData())
+            .environmentObject(GlobalVariables())
+    }
+}
