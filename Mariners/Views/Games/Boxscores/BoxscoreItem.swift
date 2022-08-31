@@ -31,7 +31,8 @@ struct BoxscoreItem: View {
                 }
                 Spacer()
                 // innings
-                BoxscoreInnings(game: game)
+//                BoxscoreInnings(game: game)
+                BoxscoreInnings(away: getScores("away", game), home: getScores("home", game))
                 // totals
                 BoxscoreTotals(game: game)
             }

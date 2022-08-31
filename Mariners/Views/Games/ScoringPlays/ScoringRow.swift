@@ -30,9 +30,9 @@ struct ScoringRow: View {
             .frame(width: 200, alignment: .leading)
             .font(.footnote)
             Spacer()
-            Text(getScore("away", globalVariables.aScore, event.runners.count, event.inningHalf.rawValue))
+            Text(getScore("away", 0, event.runners.count, event.inningHalf.rawValue))
             Spacer()
-            Text(getScore("home", globalVariables.hScore, event.runners.count, event.inningHalf.rawValue))
+            Text(getScore("home", 0, event.runners.count, event.inningHalf.rawValue))
         }
         .padding()
 //        .redacted(reason: showLoading ? .placeholder : [])

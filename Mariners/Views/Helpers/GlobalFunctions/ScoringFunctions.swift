@@ -8,6 +8,8 @@
 import Foundation
 import SceneKit
 
+
+// merge away & home events into a single sorted array
 func mergeEvents(_ awayEvents: [Event], _ homeEvents: [Event]) -> [Event] {
     var events = [Event]()
     var i = 0, j = 0
@@ -44,19 +46,7 @@ func mergeEvents(_ awayEvents: [Event], _ homeEvents: [Event]) -> [Event] {
 }
 
 
-//func getOutcome(_ hitter_outcome: String) -> String {
-//    switch hitter_outcome {
-//    case "aS": return " singled."
-//    case "aD": return " doubled."
-//    case "aT": return " tripled."
-//    case "aHR": return " homered."
-//    case "oSF": return " hit a sacrifice fly."
-//    case "oGO": return " grounded into fielder's choice."
-//    default: return " \(hitter_outcome)" // "unknown."
-//    }
-//}
-
-
+// get text string of scoring event
 func getPitchOutcome( _ pitchOutcomes: [PitchOutcome], _ hitter_outcome: String) -> String {
     if pitchOutcomes.contains(where: { $0.id == hitter_outcome }) {
         let pitchOutcome = pitchOutcomes.first(where: { $0.id == hitter_outcome })
@@ -67,15 +57,52 @@ func getPitchOutcome( _ pitchOutcomes: [PitchOutcome], _ hitter_outcome: String)
 }
 
 
+// get text string of score based on event
 func getScore(_ side: String, _ score: Int, _ add: Int , _ inningHalf: String) -> String {
     if side == "away" && inningHalf == "T" { return String(score + add) }
     else if side == "home" && inningHalf == "B" { return String(score + add) }
     else { return String(score) }
 }
 
-func addScore(aScore: Int, hScore: Int) {
+
+// get boxscore inning total score for specified side
+func getScores(_ side: String, _ game: Game) -> [String] {
+    var arr = [String]()
+    var i = 0
     
+    if side == "away" {
+        if game.away.scoring != nil {
+            while i < game.away.scoring!.count {
+                arr.append(game.away.scoring![i].runs!)
+                i += 1
+            }
+        }
+        
+        while i < 9 { // FIXME: change later to account for games going into extras
+            arr.append(" ")
+            i += 1
+        }
+    } else { // side == "home"
+        if game.home.scoring != nil {
+            while i < game.home.scoring!.count {
+                arr.append(game.home.scoring![i].runs!)
+                i += 1
+            }
+        }
+        
+        while i < 9 { // FIXME: change later to account for games going into extras
+            arr.append(" ")
+            i += 1
+        }
+    }
+        
+    return arr
 }
+
+
+//func addScore(aScore: Int, hScore: Int) {
+//    
+//}
 
 //func getPlayerName(_ playerID: String) async -> String {
 //    let player: Player

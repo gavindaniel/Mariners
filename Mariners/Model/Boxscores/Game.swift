@@ -74,7 +74,8 @@ struct Away: Codable {
     var loss: Int
 //    var startingPitcher: Pitcher?
 
-    var scoring: [AwayScoring]?
+//    var scoring: [AwayScoring]?
+    var scoring: [Scoring]?
     var events: [Event]?
 
     enum CodingKeys: String, CodingKey {
@@ -90,13 +91,57 @@ struct Home: Codable {
     var runs, hits, errors, win: Int
     var loss: Int
 //    var startingPitcher: Pitcher
-    var scoring: [HomeScoring]?
+//    var scoring: [HomeScoring]?
+    var scoring: [Scoring]?
     var events: [Event]?
 
     enum CodingKeys: String, CodingKey {
         case name, market, abbr, id, runs, hits, errors, win, loss
 //        case startingPitcher = "starting_pitcher"
         case scoring, events
+    }
+}
+
+// MARK: - Scoring
+struct Scoring: Codable, Identifiable {
+    var id = UUID()
+    var number, sequence: Int
+    var runs, hits, errors: String? //Errors
+//    var type: String
+    
+    enum CodingKeys: String, CodingKey {
+        case number, sequence, runs, hits, errors
+//        case type = "inning"
+    }
+    //
+//    init(runs: String? = nil, hits: String? = nil, errors: String? = nil) {
+//        self.runs = runs
+//        self.hits = hits
+//        self.errors = errors
+//    }
+    // custom decoding
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        number = try container.decode(Int.self, forKey: .number)
+        sequence = try container.decode(Int.self, forKey: .sequence)
+
+        do {
+            runs = try String(container.decode(Int.self, forKey: .runs))
+        } catch DecodingError.typeMismatch {
+            runs = try container.decode(String.self, forKey: .runs)
+        }
+        
+        do {
+            hits = try String(container.decode(Int.self, forKey: .hits))
+        } catch DecodingError.typeMismatch {
+            hits = try container.decode(String.self, forKey: .hits)
+        }
+        
+        do {
+            errors = try String(container.decode(Int.self, forKey: .errors))
+        } catch DecodingError.typeMismatch {
+            errors = try container.decode(String.self, forKey: .errors)
+        }
     }
 }
 

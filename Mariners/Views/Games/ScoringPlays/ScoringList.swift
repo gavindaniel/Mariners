@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct ScoringList: View {
+    @Binding var showLoading: Bool
     @EnvironmentObject var modelData: ModelData
+    var events: [Event]
     var away: String
     var home: String
-    @State private var showLoading: Bool = true
-    var events: [Event]
-    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -39,8 +38,8 @@ struct ScoringList: View {
     }
 }
 
-//struct ScoringList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ScoringList(away: "MIL", home: "CHC", showLoading: false, events: mergeEvents(ModelData().score.game.away.events!, ModelData().score.game.home.events!))
-//    }
-//}
+struct ScoringList_Previews: PreviewProvider {
+    static var previews: some View {
+        ScoringList(showLoading: .constant(false), events: mergeEvents(ModelData().score.game.away.events!, ModelData().score.game.home.events!), away: "MIL", home: "CHC")
+    }
+}
