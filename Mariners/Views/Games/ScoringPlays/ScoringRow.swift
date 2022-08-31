@@ -37,40 +37,20 @@ struct ScoringRow: View {
                 .font(.footnote)
                 .frame(width: 165, alignment: .leading)
                 Spacer()
-                VStack {
+                VStack(spacing: 5) {
                     Text(away)
                         .font(.caption2)
                         .foregroundColor(.secondary)
                     Text(getScore("away", 0, event.runners.count, event.inningHalf.rawValue))
                 }
                 Spacer()
-                VStack {
+                VStack(spacing: 5) {
                     Text(home)
                         .font(.caption2)
                         .foregroundColor(.secondary)
                     Text(getScore("home", 0, event.runners.count, event.inningHalf.rawValue))
                 }
             }
-//            .padding(.bottom, 15)
-//            Divider()
-//            HStack {
-//                VStack(alignment: .leading) {
-//                    Text("Scored:  ")
-//                }
-//                HStack {
-//                    ForEach(event.runners) { runner in
-//                        if event.runners.count == 1 {
-//                            Text(runner.lastName)
-//                        } else {
-//                            Text(player.lastName + " ")
-//                        }
-//                    }
-//                }
-//                Spacer()
-//            }
-//            .font(.caption2)
-//            .foregroundColor(.secondary)
-//            .padding(.top, 5)
         }
         .padding()
 //        .task {

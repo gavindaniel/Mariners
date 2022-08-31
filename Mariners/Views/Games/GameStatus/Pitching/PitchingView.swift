@@ -11,8 +11,8 @@ struct PitchingView: View {
     var pitching: Pitching
     
     var body: some View {
-        HStack {
-            VStack {
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 5) {
                 PitchingItem(outcome: "W", pitcher: pitching.win)
                     .padding(.trailing, 20)
                 if pitching.save != nil {
