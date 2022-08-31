@@ -42,14 +42,14 @@ struct ScoringRow: View {
                     Text(away)
                         .font(.caption2)
                         .foregroundColor(.secondary)
-                    Text(String(scoringViewModel.awayScore))
+                    Text(String(scoringViewModel.getScore("away")-7))
                 }
                 Spacer()
                 VStack(spacing: 5) {
                     Text(home)
                         .font(.caption2)
                         .foregroundColor(.secondary)
-                    Text(String(scoringViewModel.homeScore))
+                    Text(String(scoringViewModel.getScore("home")-8))
                 }
             }
         }
