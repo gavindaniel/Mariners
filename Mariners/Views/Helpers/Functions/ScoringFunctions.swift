@@ -13,7 +13,7 @@ import SceneKit
 func mergeEvents(_ awayEvents: [Event], _ homeEvents: [Event]) -> [Event] {
     var events = [Event]()
     var i = 0, j = 0
-    
+    // merge events while there are still events in both arrays
     while(i < awayEvents.count && j < homeEvents.count) {
         // e.g. if Top 1st < Bottom 2nd then add Top 1st
         if (awayEvents[i].inning < homeEvents[j].inning) {
@@ -29,19 +29,19 @@ func mergeEvents(_ awayEvents: [Event], _ homeEvents: [Event]) -> [Event] {
             i += 1
         }
     }
-    
+    // add remaining events if any
     while (i < awayEvents.count)
     {
         events.append(awayEvents[i])
         i += 1
     }
-
+    // add remaining events if any
     while (j < homeEvents.count)
     {
         events.append(homeEvents[j])
         j += 1
     }
-    
+    // return merged arrays
     return events
 }
 
