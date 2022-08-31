@@ -11,7 +11,7 @@ struct GameList: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var globalVariables: GlobalVariables
     @State private var games = ModelData().scores.league.games
-    @State private var showLoading: Bool = false
+    @State private var showLoading: Bool = true
     
     var body: some View {
         List {
@@ -30,6 +30,7 @@ struct GameList: View {
         }
         .listStyle(.inset)
         .navigationTitle("Scores")
+        .redacted(reason: showLoading ? .placeholder : [])
         .refreshable {
             await loadData()
         }

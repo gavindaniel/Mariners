@@ -12,7 +12,7 @@ struct GameDetail: View {
     @EnvironmentObject var globalVariables: GlobalVariables
     @State private var game = ModelData().score.game
     @State private var events = ModelData().score.game.away.events
-    @State private var showLoading: Bool = false
+    @State private var showLoading: Bool = true
     var gameID: String
     
     var body: some View {
