@@ -84,7 +84,7 @@ def writeJSON(index, headline, time, author, lines):
         json += ",\n\t{\n"
 
     if (headline is not None):
-        json += "\t\t\"id\": " + str(index+1) + ",\n"
+        json += "\t\t\"id\": \"" + str(index+1) + "\",\n"
         json += "\t\t\"title\": \"" + headline.get_text() + "\",\n"
         
         if (time is not None):
