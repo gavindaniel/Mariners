@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Article: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: String
     var title: String
     var date: String
     var source: String

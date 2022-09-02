@@ -10,8 +10,9 @@ import Combine
 import SwiftUI
 
 struct HeadlineList: View {
+    @ObservedObject var viewModel = ViewModel()
     @EnvironmentObject var modelData: ModelData
-    @StateObject var viewModel = ViewModel()
+//    @StateObject var viewModel = ViewModel()
     
     var body: some View {
         VStack(alignment: .center) {
@@ -35,8 +36,8 @@ struct HeadlineList: View {
             Divider()
             
             VStack(alignment: .leading, spacing: 0) {
-                // viewModel
-                ForEach(modelData.articles.prefix(3)) { article in
+                //  modelData
+                ForEach(viewModel.articles.prefix(3)) { article in
                     NavigationLink {
                         NewsDetail(article: article)
                     } label: {
@@ -48,25 +49,8 @@ struct HeadlineList: View {
         }
 //        .onAppear(perform: viewModel.getArticles)
     }
-}
-
-extension HeadlineList {
-    class ViewModel: ObservableObject {
-        @Published var articles = [Article]()
-        
-//        func getArticles() {
-//            Amplify.DataStore.query(Article.self) { result in
-//                do {
-//                    let articles = try result.get()
-////                    print(articles)
-//                    DispatchQueue.main.async { [weak self] in
-//                        self?.articles = articles
-//                    }
-//                } catch {
-//                    print(error)
-//                }
-//            }
-//        }
+    init() {
+        viewModel.getData()
     }
 }
 
