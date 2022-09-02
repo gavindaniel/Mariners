@@ -9,13 +9,14 @@
 import SwiftUI
 
 struct NewsList: View {
-    @StateObject var viewModel = ViewModel()
+//    @StateObject var viewModel = ViewModel()
+    @ObservedObject var viewModel = ViewModel()
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {
 //        List {
             ScrollView(showsIndicators: true) {
-                ForEach(modelData.articles) { article in
+                ForEach(viewModel.articles) { article in
                     NavigationLink {
                         NewsDetail(article: article)
                     } label: {
@@ -27,29 +28,12 @@ struct NewsList: View {
 //        }
         .listStyle(.inset)
         .navigationTitle("News")
-//        .onAppear(perform: viewModel.getArticles)
     }
+    init() {
+            viewModel.getData()
+        }
 }
 
-extension NewsList {
-    class ViewModel: ObservableObject {
-        @Published var articles = [Article]()
-        
-//        func getArticles() {
-//            Amplify.DataStore.query(Article.self) { result in
-//                do {
-//                    let articles = try result.get()
-////                    print(articles)
-//                    DispatchQueue.main.async { [weak self] in
-//                        self?.articles = articles
-//                    }
-//                } catch {
-//                    print(error)
-//                }
-//            }
-//        }
-    }
-}
 
 struct NewsList_Previews: PreviewProvider {
     static var previews: some View {
