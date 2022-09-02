@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct NewsList: View {
-//    @StateObject var viewModel = ViewModel()
-    @ObservedObject var viewModel = ViewModel()
+    @ObservedObject var viewModel = NewsViewModel()
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {
@@ -23,15 +22,15 @@ struct NewsList: View {
                         NewsRow(article: article)
                     }
                 }
-            }
+            } // scrollview end
             .listRowInsets(EdgeInsets())
-//        }
+//        } // list end
         .listStyle(.inset)
         .navigationTitle("News")
     }
     init() {
-            viewModel.getData()
-        }
+        viewModel.getData()
+    }
 }
 
 
