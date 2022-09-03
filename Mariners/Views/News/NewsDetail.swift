@@ -24,18 +24,18 @@ struct NewsDetail: View {
 //                    .frame(height: 150)
                     .clipped()
                 VStack(alignment: .leading) {
-                    Text(article.title) // ?? "Title"
+                    Text(article.title)
                         .font(.title3)
                         .fontWeight(.semibold)
-                    Text((article.date ?? "Date") + " • " + (article.source ?? "Source"))
+                    Text((article.date) + " • " + (article.source))
                         .font(.footnote)
                         .foregroundColor(Color.secondary)
                         .offset(y: 3)
-//                    Text(.init(article.body ?? "Body"))
-                    Text(try! AttributedString(markdown: article.body ?? "Body"))
+                    Text(try! AttributedString(markdown: article.body))
                         .font(.callout)
                         .padding(.top)
-                        .lineSpacing(5)
+                        .opacity(0.85)
+                        .lineSpacing(10)
                 }
                 .padding()
             }
