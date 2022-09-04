@@ -16,18 +16,17 @@ db = firestore.client()
 # get game recap links
 links = helper.getLinks()
 
-# create the data to be added
-
-
 #create the batch
 batch = db.batch()
 
 # Set the data for article(s)
 for index, link in enumerate(links):
+    # create reference
     news_ref = db.collection(u'articles').document(u"" + str(index) + "")
+    # create the data to be added
     data = helper.getData(link)
+    # add data to batch
     batch.set(news_ref, data)
-
 
 # Delete All
 # for index, link in enumerate(links):

@@ -1,7 +1,11 @@
+# folders
 html/
 __pycache__/
 output/
 test/
 scrape-espn/
 MLB/
+times/
+# files
 serviceAccountKey.json
+example.py
