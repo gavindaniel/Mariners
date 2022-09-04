@@ -316,7 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				4C7E071D28B69AFF000668C1 /* DateView.swift */,
-				4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */,
 				4C7E072728B6B676000668C1 /* Functions */,
 			);
 			path = Helpers;
@@ -380,6 +379,7 @@
 		4C47A6F328C2A02900C5AEE8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */,
 				4C267D7628A9A9BD008468A2 /* ModelData.swift */,
 				4C47A6F428C2A04800C5AEE8 /* NewsViewModel.swift */,
 				4C10AF4128BFF0660035A830 /* ScoringViewModel.swift */,
