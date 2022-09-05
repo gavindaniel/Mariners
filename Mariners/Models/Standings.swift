@@ -11,6 +11,7 @@
 //   let standings = try? newJSONDecoder().decode(Standings.self, from: jsonData)
 
 import Foundation
+import FirebaseFirestoreSwift
 
 //struct StandingsResponse: Codable {
 //    var results: [Standings]
@@ -18,10 +19,13 @@ import Foundation
 
 // MARK: - Standings
 struct Standings: Codable {
+//    @DocumentID var id: String?
+//    let id: String
     let league: League
     let comment: String
 
     enum CodingKeys: String, CodingKey {
+//        case id
         case league
         case comment = "_comment"
     }

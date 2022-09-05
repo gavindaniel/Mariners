@@ -10,6 +10,7 @@ import SwiftUI
 struct GameList: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var globalVariables: GlobalVariables
+    @ObservedObject var viewModel = GamesViewModel()
     @State private var games = ModelData().scores.league.games
     @State private var showLoading: Bool = true
     
@@ -33,15 +34,17 @@ struct GameList: View {
         .redacted(reason: showLoading ? .placeholder : [])
         .refreshable {
             await loadData()
+//            viewModel.getData()
         }
         .task {
             await loadData()
+//            viewModel.getData()
         }
     }
     
     func loadData() async {
         print("/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/")
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/boxscore.json?api_key=\(globalVariables.key)") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(getDateComponent(globalVariables.myDate, "Y"))/\(getDateComponent(globalVariables.myDate, "M"))/\(getDateComponent(globalVariables.myDate, "D"))/boxscore.json?api_key=\(globalVariables.keys.sport_radar)") else {
             print("Invalid URL")
             return
         }

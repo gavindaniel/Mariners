@@ -1,5 +1,5 @@
 #
-# main.py
+# standings.py
 #
 
 #import
@@ -26,17 +26,15 @@ db = firestore.client()
 batch = db.batch()
 
 # create the data to be added
-url = "https://api.sportradar.us/mlb/trial/v7/en/games/2022/09/01/boxscore.json?api_key=" + keys.sport_radar
+url = "https://api.sportradar.us/mlb/trial/v7/en/seasons/2022/REG/standings.json?api_key=" + keys.sport_radar
 response = requests.get(url)
 data = response.json()
-# day_boxscore = DayBoxscore(**data)
 
 # create reference
-# boxscore_ref = db.collection(u'boxscores').document(u"" + data.league.id + "")
-boxscore_ref = db.collection(u'boxscores').document(u"" + str(1) + "")
+standings_ref = db.collection(u'standings').document(u"reg")
 
 # add data to batch
-batch.set(boxscore_ref, data)
+batch.update(standings_ref, data)
 
 # Delete All
 # for index, link in enumerate(links):

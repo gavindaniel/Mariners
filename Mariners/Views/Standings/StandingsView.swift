@@ -9,11 +9,12 @@ import SwiftUI
 
 struct StandingsView: View {
     @EnvironmentObject var globalVariables: GlobalVariables
-    @State private var showLoading: Bool = true
+    @ObservedObject var viewModel = StandingsViewModel()
+    @State private var showLoading: Bool = false
     @State private var leagues = ModelData().standings.league.season!.leagues
     
     var body: some View {
-        List(leagues, id: \.id) { league in
+        List(viewModel.standings.league.season!.leagues, id: \.id) { league in
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
                     Image(league.name)
@@ -35,15 +36,17 @@ struct StandingsView: View {
         
         .navigationTitle("Standings")
         .refreshable {
-            await loadData()
+//            await loadData()
+            viewModel.getData()
         }
         .task {
-            await loadData()
+//            await loadData()
+            viewModel.getData()
         }
     }
     
     func loadData() async {
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/seasons/2022/REG/standings.json?api_key=\(globalVariables.key)") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/seasons/2022/REG/standings.json?api_key=\(globalVariables.keys.sport_radar)") else {
             print("Invalid URL")
             return
         }
