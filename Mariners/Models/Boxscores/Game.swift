@@ -211,7 +211,8 @@ struct Event: Codable, Identifiable {
     var inning: Int
     var inningHalf: InningHalf
     var type: TypeEnum
-    var hitterOutcome, id: String
+    var hitterOutcome: String?
+    var id: String
     var runners: [Runner]
 
     enum CodingKeys: String, CodingKey {
@@ -228,7 +229,7 @@ struct Event: Codable, Identifiable {
 // MARK: - Runner
 struct Runner: Codable, Identifiable {
     var startingBase: Int
-    var firstName, lastName, preferredName, jerseyNumber: String
+    var firstName, lastName, preferredName: String // , jerseyNumber
     var id: String
 
     enum CodingKeys: String, CodingKey {
@@ -236,7 +237,7 @@ struct Runner: Codable, Identifiable {
         case firstName = "first_name"
         case lastName = "last_name"
         case preferredName = "preferred_name"
-        case jerseyNumber = "jersey_number"
+//        case jerseyNumber = "jersey_number"
         case id
     }
 }
@@ -244,11 +245,12 @@ struct Runner: Codable, Identifiable {
 
 enum TypeEnum: String, Codable {
     case pitch = "pitch"
+    case steal = "steal"
 }
 
 // MARK: - Pitcher
 struct Pitcher: Codable {
-    var preferredName, firstName, lastName, jerseyNumber: String
+    var preferredName, firstName, lastName: String // , jerseyNumber
     var id: String
     var win, loss: Int
     var era: Double
@@ -257,7 +259,7 @@ struct Pitcher: Codable {
         case preferredName = "preferred_name"
         case firstName = "first_name"
         case lastName = "last_name"
-        case jerseyNumber = "jersey_number"
+//        case jerseyNumber = "jersey_number"
         case id, win, loss, era
     }
 }
@@ -276,7 +278,7 @@ struct Pitching: Codable {
 
 // MARK: - Loss
 struct Loss: Codable {
-    var preferredName, firstName, lastName, jerseyNumber: String
+    var preferredName, firstName, lastName: String // , jerseyNumber
     var status, position, primaryPosition, id: String
     var win, loss, save, hold: Int
     var blownSave: Int
@@ -285,7 +287,7 @@ struct Loss: Codable {
         case preferredName = "preferred_name"
         case firstName = "first_name"
         case lastName = "last_name"
-        case jerseyNumber = "jersey_number"
+//        case jerseyNumber = "jersey_number"
         case status, position
         case primaryPosition = "primary_position"
         case id, win, loss, save, hold

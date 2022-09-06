@@ -27,7 +27,7 @@
 		4C267D8128A9B1EB008468A2 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 4C267D8028A9B1EB008468A2 /* FirebaseAppCheck */; };
 		4C267D8428A9B77A008468A2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4C267D8328A9B77A008468A2 /* FirebaseFirestore */; };
 		4C329E9328B32ADF00F8A237 /* boxscoreData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C329E9228B32ADF00F8A237 /* boxscoreData.json */; };
-		4C329E9528B3364C00F8A237 /* TimeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C329E9428B3364C00F8A237 /* TimeFunctions.swift */; };
+		4C329E9528B3364C00F8A237 /* DateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C329E9428B3364C00F8A237 /* DateFunctions.swift */; };
 		4C394B5528AB41B800313CBD /* TweetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B3928AB41B800313CBD /* TweetDetail.swift */; };
 		4C394B5628AB41B800313CBD /* TweetCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B3B28AB41B800313CBD /* TweetCardRow.swift */; };
 		4C394B5728AB41B800313CBD /* TweetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B3C28AB41B800313CBD /* TweetCard.swift */; };
@@ -102,7 +102,7 @@
 		4C267D7528A9A9BD008468A2 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		4C267D7628A9A9BD008468A2 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		4C329E9228B32ADF00F8A237 /* boxscoreData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = boxscoreData.json; sourceTree = "<group>"; };
-		4C329E9428B3364C00F8A237 /* TimeFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFunctions.swift; sourceTree = "<group>"; };
+		4C329E9428B3364C00F8A237 /* DateFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFunctions.swift; sourceTree = "<group>"; };
 		4C394B3928AB41B800313CBD /* TweetDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetail.swift; sourceTree = "<group>"; };
 		4C394B3B28AB41B800313CBD /* TweetCardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCardRow.swift; sourceTree = "<group>"; };
 		4C394B3C28AB41B800313CBD /* TweetCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCard.swift; sourceTree = "<group>"; };
@@ -391,9 +391,9 @@
 				4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */,
 				4C5CB74528C56412006B1BCC /* Keys.swift */,
 				4C267D7628A9A9BD008468A2 /* ModelData.swift */,
+				4C5CB74728C57849006B1BCC /* GamesViewModel.swift */,
 				4C47A6F428C2A04800C5AEE8 /* NewsViewModel.swift */,
 				4C10AF4128BFF0660035A830 /* ScoringViewModel.swift */,
-				4C5CB74728C57849006B1BCC /* GamesViewModel.swift */,
 				4C5CB74928C57C15006B1BCC /* StandingsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -452,7 +452,7 @@
 				4C5A100228AD68FA00AB96A8 /* DisplayFunctions.swift */,
 				4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */,
 				4C67595128B58C100055389D /* ScoringFunctions.swift */,
-				4C329E9428B3364C00F8A237 /* TimeFunctions.swift */,
+				4C329E9428B3364C00F8A237 /* DateFunctions.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -588,7 +588,7 @@
 				4C6F7A4728AC5C54007CBE94 /* StandingItem.swift in Sources */,
 				4CDFA77728B16A4A009EA2F5 /* GameFunctions.swift in Sources */,
 				4C7E072428B6B3DA000668C1 /* GlobalVariables.swift in Sources */,
-				4C329E9528B3364C00F8A237 /* TimeFunctions.swift in Sources */,
+				4C329E9528B3364C00F8A237 /* DateFunctions.swift in Sources */,
 				4C7E072028B69F75000668C1 /* Glossary.swift in Sources */,
 				4C394B5828AB41B800313CBD /* TweetList.swift in Sources */,
 				4C67595228B58C100055389D /* ScoringFunctions.swift in Sources */,

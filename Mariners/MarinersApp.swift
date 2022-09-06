@@ -7,9 +7,10 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAppCheck
 import FirebaseCore
 import FirebaseFirestore
-import FirebaseAppCheck
+import FirebaseFirestoreSwift
 //import FirebaseAuth
 
 

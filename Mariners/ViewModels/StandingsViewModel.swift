@@ -9,7 +9,6 @@ import Foundation
 import Firebase
 
 class StandingsViewModel: ObservableObject {
-//    @Published var standings = [Standings]()
     @Published var standings = ModelData().standings
     
     func getData() {
@@ -27,8 +26,6 @@ class StandingsViewModel: ObservableObject {
             else {
                 if let document = document {
                     do {
-//                        self.standings = try document.data(as: Standings.self)
-//                        return try? document.data(as: Standings.self)
                         self.standings = try document.data(as: Standings.self)
                     }
                     catch {

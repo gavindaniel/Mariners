@@ -28,8 +28,13 @@ struct ScoringRow: View {
                         Text("Grand Slam - (\(event.runners.count))")
                             .font(.footnote)
                     } else {
-                        Text(getPitchOutcome(modelData.glossary.pitchOutcomes, event.hitterOutcome)) //  + " - (\(event.runners.count))"
-                            .font(.footnote)
+                        if event.type.rawValue == "steal" {
+                            Text("Stole home")
+                                .font(.footnote)
+                        } else {
+                            Text(getPitchOutcome(modelData.glossary.pitchOutcomes, event.hitterOutcome!)) //  + " - (\(event.runners.count))"
+                                .font(.footnote)
+                        }
                     }
                     Text(player.lastName + "  (" + String(event.runners.count) + " RBI)")
                         .font(.caption2)

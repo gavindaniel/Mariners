@@ -1,5 +1,5 @@
 #
-# standings.py
+# scores.py
 #
 
 #import
@@ -12,6 +12,10 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 # main
+
+year = "2022"
+month = "09"
+day = "06"
 
 # create the credentials to access database 
 cred = credentials.Certificate("serviceAccountKey.json")
@@ -26,15 +30,15 @@ db = firestore.client()
 batch = db.batch()
 
 # create the data to be added
-url = "https://api.sportradar.us/mlb/trial/v7/en/seasons/2022/REG/standings.json?api_key=" + keys.sport_radar
+url = "http://api.sportradar.us/mlb/trial/v7/en/games/"+year+"/"+month+"/"+day+"/boxscore.json?api_key=" + keys.sport_radar
 response = requests.get(url)
 data = response.json()
 
 # create reference
-standings_ref = db.collection(u'standings').document(u"reg")
+scores_ref = db.collection(u'boxscores').document(u"" + year + "-" + month + "-" + day + "")
 
 # set batch to update with data
-batch.update(standings_ref, data)
+batch.set(scores_ref, data)
 
 # Commit the batch
 batch.commit()

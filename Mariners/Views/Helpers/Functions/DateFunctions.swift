@@ -1,5 +1,5 @@
 //
-//  TimeFunctions.swift
+//  DateFunctions.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/21/22.
@@ -18,6 +18,11 @@ func getDateComponent(_ date: Date, _ component: String) -> String {
         formatter.dateFormat = "dd"
     }
     return formatter.string(from: date)
+}
+
+// get date compenents of global date in form "yyyy/MM/dd"
+func getDateComponents(_ date: Date) -> String {
+    return getDateComponent(date, "Y") + "-" + getDateComponent(date, "M") + "-" + getDateComponent(date, "D")
 }
 
 func getStartTime(_ isoDate: String) -> String {

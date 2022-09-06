@@ -9,31 +9,30 @@ import Foundation
 import Firebase
 
 class GamesViewModel: ObservableObject {
-    @Published var boxscores = [DailyBoxscore]()
-    
-    func getData() {
+    @Published var scores = ModelData().scores
         
+    func getData(date: String) {
         // get a reference to the database
         let db = Firestore.firestore()
         
-        // Read the documents at a specific path
-        db.collection("boxscores").getDocuments { snapshot, error in
-            
-            // check for error
-            if error == nil {
-                // No errors
-                if let snapshot = snapshot {
-                    // update the list property in the main thread
-                    DispatchQueue.main.async {
-                        // get all the documents and create articles
-                        self.boxscores = snapshot.documents.map { d in
-                            // create an article object for each document returned
-                            return DailyBoxscore(league: (d["league"] as? LeagueBoxscore)!)
-                        }
+        // create reference
+        let docRef = db.collection("boxscores").document(date)
+        print("getData date: " + date)
+        
+        docRef.getDocument { document, error in
+            if let error = error as NSError? {
+                // handle error
+            }
+            else {
+                if let document = document {
+                    do {
+                        self.scores = try document.data(as: DailyBoxscore.self)
+                        print("scores data retreived")
+                    }
+                    catch {
+                        print(error)
                     }
                 }
-            } else {
-                // Handle the error
             }
         }
     }
