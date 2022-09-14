@@ -35,13 +35,6 @@ response = requests.get(url)
 data = response.json()
 
 # create reference
-# scores_ref = db.collection(u'boxscores').document(u"" + year + "-" + month + "-" + day + "")
-
-# set batch to update with data
-# batch.update(scores_ref, data)
-# batch.set(scores_ref, data)
-
-
 doc_ref = db.collection(u'boxscores').document(u"" + year + "-" + month + "-" + day + "")
 
 doc = doc_ref.get()
