@@ -1,11 +1,11 @@
-import article
+from article import Article
 import os
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-
+date = ""
 
 def convertTime(datetime_input):
     # Convert to datetime (UTC)
@@ -16,6 +16,14 @@ def convertTime(datetime_input):
     # dt = dt_pst - timedelta(hours=12)
     # Change format
     dt_output = dt_pst.strftime("%m/%d/%Y %I:%M %p %Z")
+    # return new string
+    return(dt_output)
+
+
+def getDate(dt_input):
+    # Change format
+    # dt_output = dt_input.strftime("%m-%d-%Y---%I:%M")
+    dt_output = datetime.strptime(dt_input, '%m/%d/%Y %I:%M %p %Z').strftime('%m-%d-%Y---%I:%M')
     # return new string
     return(dt_output)
 
@@ -39,6 +47,8 @@ def getLinks():
     links = soup.select("a[href*=recap\?gameId]")
     return links
 
+# # get time id for link
+# def getTimeID(link):
 
 # write a json output file for articles from ESPN using provided parameters
 def getData(link):
@@ -49,11 +59,11 @@ def getData(link):
     author = soup.find('div', class_="author")
     lines = soup.find_all('p')
 
-    data = writeDataObject(headline, time, author, lines)
+    article = writeArticle(headline, time, author, lines)
 
     print("...")
 
-    return data
+    return article
 
 
 def getHeadline(headline):
@@ -66,6 +76,7 @@ def getHeadline(headline):
 def getTime(time):
     if (time is not None):
         temp = convertTime(time.get('data-date'))
+        # date = temp
         return temp
 
 
@@ -74,26 +85,39 @@ def getAuthor(author):
         return author.get_text()
 
 
-def writeDataObject(headline, time, author, lines):
-        body = ""
-        for line in lines:
-            temp = fixQuotes(line.get_text())
-            temp = fixNewLines(temp)
-            body += temp + "\\\n\\\n"
+def writeArticle(headline, time, author, lines):
+    body = ""
+    for line in lines:
+        # temp = line.get_text()
+        temp = fixQuotes(line.get_text())
+        temp = fixNewLines(temp)
+        body += temp + "\\\n\\\n"
+        # body += temp + "\n\n"
 
-        data = {
-            u'title': u"" + getHeadline(headline) + "",
-            u'date': u"" + getTime(time) + "",
-            u'author': u"" + getAuthor(author) + "",
-            u'source': u'ESPN',
-            u'body': u"" + body + ""
-        }
+    # article = {
+    #     u'title': u"" + getHeadline(headline) + "",
+    #     u'date': u"" + getTime(time) + "",
+    #     u'author': u"" + getAuthor(author) + "",
+    #     u'source': u'ESPN',
+    #     u'body': u"" + body + ""
+    # }
 
-        # city = City(title=u'Los Angeles', state=u'CA', country=u'USA')
+    # article = Article(title=u"" + getHeadline(headline) + "", date=u"" + getTime(time) + "", author=u"" + getAuthor(author) + "", source=u'ESPN', body=u"" + body + "")
+    article = Article(getHeadline(headline), getTime(time), getAuthor(author), "ESPN", body)
+    # print(article.time)
+
+    return article
 
 
-        return data
+def writeDataObject(article):
+    data = {
+        u'title': u"" + article.headline + "",
+        u'date': u"" + article.time + "",
+        u'author': u"" + article.author + "",
+        u'source': u"" + article.source + "",
+        u'body': u"" + article.body + ""
+    }
 
-
+    return data
 
 

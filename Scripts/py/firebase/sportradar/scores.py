@@ -15,7 +15,7 @@ from firebase_admin import firestore
 
 year = "2022"
 month = "09"
-day = "06"
+day = "07"
 
 # create the credentials to access database 
 cred = credentials.Certificate("serviceAccountKey.json")
@@ -38,6 +38,7 @@ data = response.json()
 scores_ref = db.collection(u'boxscores').document(u"" + year + "-" + month + "-" + day + "")
 
 # set batch to update with data
+# batch.update(scores_ref, data)
 batch.set(scores_ref, data)
 
 # Commit the batch

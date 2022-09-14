@@ -1,5 +1,6 @@
+from article import Article
 import helper
-# import firebase
+# firebase import(s)
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -21,10 +22,15 @@ batch = db.batch()
 
 # Set the data for article(s)
 for index, link in enumerate(links):
+    # create the article object
+    ar = helper.getData(link)
+    # create id
+    date_id = ar.time.replace("/", "-") 
+    print(date_id)
     # create reference
-    news_ref = db.collection(u'articles').document(u"" + str(index) + "")
+    news_ref = db.collection(u'espn').document(u"" + date_id + "")
     # create the data to be added
-    data = helper.getData(link)
+    data = helper.writeDataObject(ar)
     # add data to batch
     batch.set(news_ref, data)
 
