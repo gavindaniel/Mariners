@@ -15,7 +15,7 @@ from firebase_admin import firestore
 
 year = "2022"
 month = "09"
-day = "07"
+day = "13"
 
 # create the credentials to access database 
 cred = credentials.Certificate("serviceAccountKey.json")
@@ -35,11 +35,25 @@ response = requests.get(url)
 data = response.json()
 
 # create reference
-scores_ref = db.collection(u'boxscores').document(u"" + year + "-" + month + "-" + day + "")
+# scores_ref = db.collection(u'boxscores').document(u"" + year + "-" + month + "-" + day + "")
 
 # set batch to update with data
 # batch.update(scores_ref, data)
-batch.set(scores_ref, data)
+# batch.set(scores_ref, data)
+
+
+doc_ref = db.collection(u'boxscores').document(u"" + year + "-" + month + "-" + day + "")
+
+doc = doc_ref.get()
+
+if doc.exists:
+    # print(f'Document data: {doc.to_dict()}')
+    print("Document exists. Updating...")
+    batch.update(doc_ref, data)
+else:
+    print("No such document! Creating...")
+    batch.set(doc_ref, data)
+
 
 # Commit the batch
 batch.commit()

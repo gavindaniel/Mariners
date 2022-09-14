@@ -26,13 +26,21 @@ for index, link in enumerate(links):
     ar = helper.getData(link)
     # create id
     date_id = ar.time.replace("/", "-") 
-    print(date_id)
     # create reference
-    news_ref = db.collection(u'espn').document(u"" + date_id + "")
+    news_ref = db.collection(u'articles').document(u"" + date_id + "")
     # create the data to be added
     data = helper.writeDataObject(ar)
     # add data to batch
     batch.set(news_ref, data)
+
+    # doc_ref = db.collection(u'articles').document(u"" + date_id + "")
+
+    # doc = doc_ref.get()
+
+    # if doc.exists:
+    #     print(f'Document data: {doc.to_dict()}')
+    # else:
+    #     print(u'No such document!')
 
 # Delete All
 # for index, link in enumerate(links):

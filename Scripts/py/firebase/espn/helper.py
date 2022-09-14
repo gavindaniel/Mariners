@@ -20,14 +20,6 @@ def convertTime(datetime_input):
     return(dt_output)
 
 
-def getDate(dt_input):
-    # Change format
-    # dt_output = dt_input.strftime("%m-%d-%Y---%I:%M")
-    dt_output = datetime.strptime(dt_input, '%m/%d/%Y %I:%M %p %Z').strftime('%m-%d-%Y---%I:%M')
-    # return new string
-    return(dt_output)
-
-
 # fix escaping quotes for JSON
 def fixQuotes(line_text):
     new_line = line_text.replace('\"', '\\"')
@@ -47,8 +39,6 @@ def getLinks():
     links = soup.select("a[href*=recap\?gameId]")
     return links
 
-# # get time id for link
-# def getTimeID(link):
 
 # write a json output file for articles from ESPN using provided parameters
 def getData(link):
@@ -104,7 +94,6 @@ def writeArticle(headline, time, author, lines):
 
     # article = Article(title=u"" + getHeadline(headline) + "", date=u"" + getTime(time) + "", author=u"" + getAuthor(author) + "", source=u'ESPN', body=u"" + body + "")
     article = Article(getHeadline(headline), getTime(time), getAuthor(author), "ESPN", body)
-    # print(article.time)
 
     return article
 
