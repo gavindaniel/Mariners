@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-date = ""
 
+# convert UTC time to PDT
 def convertTime(datetime_input):
     # Convert to datetime (UTC)
     dt_utc = datetime.strptime(datetime_input, "%Y-%m-%dT%H:%M:%S%z")
@@ -26,6 +26,7 @@ def fixQuotes(line_text):
     return new_line
 
 
+# add new lines to raw html to make reading easier
 def fixNewLines(line_text):
     new_line = line_text.replace('><', '>\n<')
     return new_line
@@ -56,6 +57,7 @@ def getData(link):
     return article
 
 
+# get headline text
 def getHeadline(headline):
     if (headline is not None):
         return headline.get_text()
@@ -63,6 +65,7 @@ def getHeadline(headline):
         return ""
 
 
+# get time that article was published
 def getTime(time):
     if (time is not None):
         temp = convertTime(time.get('data-date'))
@@ -70,34 +73,26 @@ def getTime(time):
         return temp
 
 
+# get article author
 def getAuthor(author):
     if (author is not None):
         return author.get_text()
 
 
+# write article object from inputs
 def writeArticle(headline, time, author, lines):
     body = ""
     for line in lines:
-        # temp = line.get_text()
         temp = fixQuotes(line.get_text())
         temp = fixNewLines(temp)
         body += temp + "\\\n\\\n"
-        # body += temp + "\n\n"
 
-    # article = {
-    #     u'title': u"" + getHeadline(headline) + "",
-    #     u'date': u"" + getTime(time) + "",
-    #     u'author': u"" + getAuthor(author) + "",
-    #     u'source': u'ESPN',
-    #     u'body': u"" + body + ""
-    # }
-
-    # article = Article(title=u"" + getHeadline(headline) + "", date=u"" + getTime(time) + "", author=u"" + getAuthor(author) + "", source=u'ESPN', body=u"" + body + "")
     article = Article(getHeadline(headline), getTime(time), getAuthor(author), "ESPN", body)
 
     return article
 
 
+# write data object for firebase from article object
 def writeDataObject(article):
     data = {
         u'title': u"" + article.headline + "",

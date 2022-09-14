@@ -35,18 +35,11 @@ for index, link in enumerate(links):
     doc = doc_ref.get()
 
     if doc.exists:
-        # print(f'Document data: {doc.to_dict()}')
         print("Document exists. Updating...")
         batch.update(doc_ref, data)
     else:
         print("No such document! Creating...")
         batch.set(doc_ref, data)
-
-# Delete All
-# for index, link in enumerate(links):
-#     delete_ref = db.collection(u'articles').document(u"" + str(index) + "")
-#     batch.delete(delete_ref)
-
 
 # Commit the batch
 batch.commit()
