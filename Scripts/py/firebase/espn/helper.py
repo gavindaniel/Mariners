@@ -7,7 +7,7 @@ from zoneinfo import ZoneInfo
 
 
 # convert UTC time to PDT
-def convertTime(datetime_input):
+def convert_time(datetime_input):
     # Convert to datetime (UTC)
     dt_utc = datetime.strptime(datetime_input, "%Y-%m-%dT%H:%M:%S%z")
     # Convert to PST
@@ -21,19 +21,19 @@ def convertTime(datetime_input):
 
 
 # fix escaping quotes for JSON
-def fixQuotes(line_text):
+def fix_quotes(line_text):
     new_line = line_text.replace('\"', '\\"')
     return new_line
 
 
 # add new lines to raw html to make reading easier
-def fixNewLines(line_text):
+def fix_new_lines(line_text):
     new_line = line_text.replace('><', '>\n<')
     return new_line
 
 
 # get href links from <a> tags
-def getLinks():
+def get_links():
     url = "https://www.espn.com/mlb/team/_/name/sea/seattle-mariners"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'lxml')
@@ -41,24 +41,8 @@ def getLinks():
     return links
 
 
-# write a json output file for articles from ESPN using provided parameters
-def getData(link):
-    response = requests.get(link.get('href'))
-    soup = BeautifulSoup(response.text, 'lxml')
-    headline = soup.find('header', class_="article-header")
-    time = soup.select_one("span[data-date]")
-    author = soup.find('div', class_="author")
-    lines = soup.find_all('p')
-
-    article = writeArticle(headline, time, author, lines)
-
-    print("...")
-
-    return article
-
-
 # get headline text
-def getHeadline(headline):
+def get_headline(headline):
     if (headline is not None):
         return headline.get_text()
     else:
@@ -66,34 +50,46 @@ def getHeadline(headline):
 
 
 # get time that article was published
-def getTime(time):
+def get_time(time):
     if (time is not None):
-        temp = convertTime(time.get('data-date'))
-        # date = temp
+        temp = convert_time(time.get('data-date'))
         return temp
+    else:
+        return ""
 
 
 # get article author
-def getAuthor(author):
+def get_author(author):
     if (author is not None):
         return author.get_text()
+    else:
+        return ""
 
 
-# write article object from inputs
-def writeArticle(headline, time, author, lines):
+# parse XML from href link and create and return an Article object with parsed data
+def parse_article(link):
+    response = requests.get(link.get('href'))
+    soup = BeautifulSoup(response.text, 'lxml')
+    headline = soup.find('header', class_="article-header")
+    time = soup.select_one("span[data-date]")
+    author = soup.find('div', class_="author")
+    lines = soup.find_all('p')
+
     body = ""
     for line in lines:
-        temp = fixQuotes(line.get_text())
-        temp = fixNewLines(temp)
+        temp = fix_quotes(line.get_text())
+        temp = fix_new_lines(temp)
         body += temp + "\\\n\\\n"
 
-    article = Article(getHeadline(headline), getTime(time), getAuthor(author), "ESPN", body)
+    article = Article(get_headline(headline), get_time(time), get_author(author), "ESPN", body)
+
+    print("...")
 
     return article
 
 
-# write data object for firebase from article object
-def writeDataObject(article):
+# create and return a data object for firebase from Article class object
+def create_firebase_data(article):
     data = {
         u'title': u"" + article.headline + "",
         u'date': u"" + article.time + "",
@@ -101,7 +97,7 @@ def writeDataObject(article):
         u'source': u"" + article.source + "",
         u'body': u"" + article.body + ""
     }
-
+    # return data object
     return data
 
 

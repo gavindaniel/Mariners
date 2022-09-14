@@ -1,51 +1,61 @@
-from article import Article
+#
+# espn.py
+#
+
+#import custom libraries
 import helper
-# firebase import(s)
+from article import Article
+# import firebase libraries
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-# create the credentials to access database 
-cred = credentials.Certificate("../serviceAccountKey.json")
 
-# create the app 
-app = firebase_admin.initialize_app(cred)
+# main
+def main():
+    # create the credentials to access database 
+    cred = credentials.Certificate("../serviceAccountKey.json")
 
-# create the database
-db = firestore.client()
+    # create the app 
+    app = firebase_admin.initialize_app(cred)
 
-# get game recap links
-links = helper.getLinks()
+    # create the database
+    db = firestore.client()
 
-#create the batch
-batch = db.batch()
+    # get game recap links
+    links = helper.get_links()
 
-# Set the data for article(s)
-for index, link in enumerate(links):
-    # create the article object
-    ar = helper.getData(link)
-    # create id
-    date_id = ar.time.replace("/", "-") 
-    # create the data to be added
-    data = helper.writeDataObject(ar)
+    #create the batch
+    batch = db.batch()
 
-    # create reference
-    doc_ref = db.collection(u'articles').document(u"" + date_id + "")
+    # Set the data for article(s)
+    for index, link in enumerate(links):
+        # create the article object
+        ar = helper.parse_article(link)
+        # create id
+        date_id = ar.time.replace("/", "-") 
+        # create the data to be added
+        data = helper.create_firebase_data(ar)
 
-    doc = doc_ref.get()
+        # create reference
+        doc_ref = db.collection(u'articles').document(u"" + date_id + "")
 
-    if doc.exists:
-        print("Document exists. Updating...")
-        batch.update(doc_ref, data)
-    else:
-        print("No such document! Creating...")
-        batch.set(doc_ref, data)
+        # get document from reference
+        doc = doc_ref.get()
 
-# Commit the batch
-batch.commit()
+        if doc.exists:
+            print("Document exists. Updating...")
+            batch.update(doc_ref, data)
+        else:
+            print("No such document! Creating...")
+            batch.set(doc_ref, data)
 
-# debug output
-print("done.")
+    # Commit the batch
+    batch.commit()
+
+    # debug output
+    print("done.")
 
 
-
+if __name__ == '__main__':
+    main()
