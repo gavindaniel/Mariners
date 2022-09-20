@@ -25,7 +25,7 @@ struct ScoringRow: View {
                 VStack(alignment: .leading, spacing: 5) {
                     // check for Grand slam.
                     if event.hitterOutcome == "aHR" && event.runners.count == 4 {
-                        Text("Grand Slam - (\(event.runners.count))")
+                        Text("Grand Slam")
                             .font(.footnote)
                     } else {
                         if event.type.rawValue == "steal" {

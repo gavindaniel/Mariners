@@ -23,10 +23,33 @@ struct PlayerProfile: Codable {
 }
 
 // MARK: - Player
+//struct Player: Codable {
+//    let id: String
+//    let status: Status
+//    let position: PositionEnum
+//    let primaryPosition: Name
+//    let firstName, lastName, preferredName, jerseyNumber: String
+//    let depth: Int
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id, status, position
+//        case primaryPosition = "primary_position"
+//        case firstName = "first_name"
+//        case lastName = "last_name"
+//        case preferredName = "preferred_name"
+//        case jerseyNumber = "jersey_number"
+//        case depth
+//    }
+//}
+
+// MARK: - Player
 struct Player: Codable {
     let id, status, position: String
-    let primaryPosition: Position
+//    let primaryPosition: Position
+    let primaryPosition: Name
     let firstName, lastName, preferredName, jerseyNumber: String
+    // for depth chart
+    let depth: Int?
 //    let fullName, height, weight, throwHand: String
 //    let batHand, highSchool, birthdate, birthstate: String
 //    let birthcountry, birthcity, proDebut: String
@@ -51,6 +74,8 @@ struct Player: Codable {
 //        case birthdate, birthstate, birthcountry, birthcity
 //        case proDebut = "pro_debut"
 //        case updated, reference, draft, team, seasons
+        // for depth chart
+        case depth
     }
 }
 

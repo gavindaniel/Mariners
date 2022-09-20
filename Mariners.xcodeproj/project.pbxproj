@@ -72,6 +72,8 @@
 		4C7E072428B6B3DA000668C1 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */; };
 		4C7E072928B6C144000668C1 /* ScheduledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E072828B6C144000668C1 /* ScheduledView.swift */; };
 		4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9CC28AD42F70020CCEA /* GameRow.swift */; };
+		4CB06F0628DA4F8C00491587 /* DepthChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB06F0528DA4F8C00491587 /* DepthChart.swift */; };
+		4CB06F0828DA540B00491587 /* rosterData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CB06F0728DA540B00491587 /* rosterData.json */; };
 		4CDFA77728B16A4A009EA2F5 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */; };
 		4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */; };
 		4CDFA77B28B1AF88009EA2F5 /* BoxscoreSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77A28B1AF88009EA2F5 /* BoxscoreSimple.swift */; };
@@ -147,6 +149,8 @@
 		4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		4C7E072828B6C144000668C1 /* ScheduledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledView.swift; sourceTree = "<group>"; };
 		4C9AB9CC28AD42F70020CCEA /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
+		4CB06F0528DA4F8C00491587 /* DepthChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthChart.swift; sourceTree = "<group>"; };
+		4CB06F0728DA540B00491587 /* rosterData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rosterData.json; sourceTree = "<group>"; };
 		4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 		4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxscore.swift; sourceTree = "<group>"; };
 		4CDFA77A28B1AF88009EA2F5 /* BoxscoreSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreSimple.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 				4C267D6B28A9A9B0008468A2 /* gameData.json */,
 				4C267D6C28A9A9B0008468A2 /* tweetData.json */,
 				4C267D6D28A9A9B0008468A2 /* articleData.json */,
+				4CB06F0728DA540B00491587 /* rosterData.json */,
 				4C67594D28B575040055389D /* playerData.json */,
 				4C7E072128B69FF0000668C1 /* glossaryData.json */,
 				4C329E9228B32ADF00F8A237 /* boxscoreData.json */,
@@ -268,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				4C267D7528A9A9BD008468A2 /* Article.swift */,
+				4CB06F0528DA4F8C00491587 /* DepthChart.swift */,
 				4C7E071F28B69F75000668C1 /* Glossary.swift */,
 				4C67594F28B575560055389D /* PlayerProfile.swift */,
 				4C267D7428A9A9BD008468A2 /* Settings.swift */,
@@ -541,6 +547,7 @@
 				4C267D6E28A9A9B0008468A2 /* gameData.json in Resources */,
 				4C7E072228B69FF0000668C1 /* glossaryData.json in Resources */,
 				4C267D5E28A9A903008468A2 /* Assets.xcassets in Resources */,
+				4CB06F0828DA540B00491587 /* rosterData.json in Resources */,
 				4C267D6F28A9A9B0008468A2 /* tweetData.json in Resources */,
 				4C267D6928A9A95D008468A2 /* GoogleService-Info.plist in Resources */,
 				4C67594228B4B78B0055389D /* standingsData.json in Resources */,
@@ -569,6 +576,7 @@
 				4C394B5528AB41B800313CBD /* TweetDetail.swift in Sources */,
 				4C394B6328AB41B800313CBD /* HeadlineRow.swift in Sources */,
 				4C394B5A28AB41B800313CBD /* WebView.swift in Sources */,
+				4CB06F0628DA4F8C00491587 /* DepthChart.swift in Sources */,
 				4C267D5C28A9A902008468A2 /* ContentView.swift in Sources */,
 				4C7E071E28B69AFF000668C1 /* DateView.swift in Sources */,
 				4C394B5728AB41B800313CBD /* TweetCard.swift in Sources */,
