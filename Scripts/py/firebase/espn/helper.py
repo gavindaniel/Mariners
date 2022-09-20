@@ -37,7 +37,9 @@ def get_links():
     url = "https://www.espn.com/mlb/team/_/name/sea/seattle-mariners"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'lxml')
-    links = soup.select("a[href*=recap\?gameId]")
+    # links = soup.select("a[href*=recap\?gameId]")
+    links = soup.select("a[href*=recap]")
+
     return links
 
 
@@ -66,9 +68,20 @@ def get_author(author):
         return ""
 
 
+# check href link if it contains the full url and fix if it does not
+def fix_link(link_input):
+    # get href link
+    link_output = link_input.get('href')
+    # check if it contains full url
+    if "https://www.espn.com" not in link_output:
+        link_output = "https://www.espn.com" + link_output
+
+    return link_output
+
+
 # parse XML from href link and create and return an Article object with parsed data
 def parse_article(link):
-    response = requests.get(link.get('href'))
+    response = requests.get(fix_link(link))
     soup = BeautifulSoup(response.text, 'lxml')
     headline = soup.find('header', class_="article-header")
     time = soup.select_one("span[data-date]")

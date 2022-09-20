@@ -8,7 +8,6 @@ MLB/
 times/
 # files
 serviceAccountKey.json
+config.py
 example.py
 Keys.swift
-keys.py
-config.py

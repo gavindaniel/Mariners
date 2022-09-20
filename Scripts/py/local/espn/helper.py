@@ -246,11 +246,17 @@ def writeFileJSON(file_name, index, headline, time, author, lines):
 def printLinks(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'lxml')
-    links = soup.select("a[href*=recap\?gameId]")
+    # links = soup.select("a[href*=recap\?gameId]")
+    # links = links + soup.select("a[href*=recap\/\_\/gameId]")
+    links = soup.select("a[href*=gameId]")
 
     print() 
     for link in links:
-        print(link.get('href')) # Prints all links.
+        temp = link.get('href')
+        if "https://www.espn.com" not in temp:
+            temp = "https://www.espn.com" + temp
+        # print(link.get('href')) # Prints all links.
+        print(temp)
     print()
 
 
