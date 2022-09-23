@@ -36,7 +36,8 @@ struct ScoringRow: View {
                                 .font(.footnote)
                         }
                     }
-                    Text(player.lastName + "  (" + String(event.runners.count) + " RBI)")
+//                    Text(player.lastName + "  (" + String(event.runners.count) + " RBI)")
+                    Text(scoringViewModel.getPlayer(event.hitterID) + "  (" + String(event.runners.count) + " RBI)")
                         .font(.caption2)
                         .foregroundColor(.secondary)
                 }
@@ -47,6 +48,7 @@ struct ScoringRow: View {
                     Text(away)
                         .font(.caption2)
                         .foregroundColor(.secondary)
+                    // FIXME: temporary fix
                     Text(String(scoringViewModel.getScore("away")-7))
                 }
                 Spacer()
@@ -54,6 +56,7 @@ struct ScoringRow: View {
                     Text(home)
                         .font(.caption2)
                         .foregroundColor(.secondary)
+                    // FIXME: temporary fix
                     Text(String(scoringViewModel.getScore("home")-8))
                 }
             }
