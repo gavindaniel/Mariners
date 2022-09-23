@@ -32,7 +32,15 @@ struct ScoringList: View {
             }
         }
         .padding(.top, 20)
+        
+//        .task {
+//            showLoading = true
+//            print(getDateComponents(globalVariables.myDate))
+//            scoringViewModel.getRosterData()
+//            showLoading = false
+//        }
     }
+    
 }
 
 struct ScoringList_Previews: PreviewProvider {

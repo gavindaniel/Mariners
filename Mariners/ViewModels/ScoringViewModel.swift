@@ -57,4 +57,10 @@ class ScoringViewModel: ObservableObject {
             }
         }
     }
+    
+    func getPlayer(_ hitterID: String) {
+        ForEach(self.rosters.league.teams!) { team in
+            
+        }
+    }
 }
