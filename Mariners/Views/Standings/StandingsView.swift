@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct StandingsView: View {
-    @ObservedObject var viewModel = StandingsViewModel()
-    @State private var showLoading: Bool = true
+    @StateObject private var viewModel = ViewModel()
     
     var body: some View {
         List(viewModel.standings.league.season!.leagues, id: \.id) { league in
@@ -23,8 +22,7 @@ struct StandingsView: View {
                 }
                 .padding(.top, 20)
                 ForEach(league.divisions!) { division in
-                    StandingItem(showLoading: $showLoading, division: division)
-//                    StandingItem(division: division)
+                    StandingItem(division: division)
                     Divider()
                 }
             }
@@ -32,17 +30,13 @@ struct StandingsView: View {
             .listRowSeparator(.hidden)
         }
         .listStyle(.inset)
-//        .redacted(reason: showLoading ? .placeholder : [])
+        .redacted(reason: viewModel.showLoading ? .placeholder : [])
         .navigationTitle("Standings")
         .refreshable {
-            showLoading = true
             viewModel.getData()
-            showLoading = false
         }
         .task {
-            showLoading = true
             viewModel.getData()
-            showLoading = false
         }
     }
 }

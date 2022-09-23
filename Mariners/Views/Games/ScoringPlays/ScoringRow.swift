@@ -37,9 +37,10 @@ struct ScoringRow: View {
                         }
                     }
 //                    Text(player.lastName + "  (" + String(event.runners.count) + " RBI)")
-                    Text(scoringViewModel.getPlayer(event.hitterID) + "  (" + String(event.runners.count) + " RBI)")
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
+                    // FIXME: causing compiler timeout 
+//                    Text(scoringViewModel.getPlayer(event.hitterID) + "  (" + String(event.runners.count) + " RBI)")
+//                        .font(.caption2)
+//                        .foregroundColor(.secondary)
                 }
                 .font(.footnote)
                 .frame(width: 165, alignment: .leading)
