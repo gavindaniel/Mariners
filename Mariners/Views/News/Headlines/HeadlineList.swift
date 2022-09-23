@@ -10,9 +10,8 @@ import Combine
 import SwiftUI
 
 struct HeadlineList: View {
-    @ObservedObject var viewModel = ViewModel()
+    @ObservedObject var viewModel = NewsViewModel()
     @EnvironmentObject var modelData: ModelData
-//    @StateObject var viewModel = ViewModel()
     
     var body: some View {
         VStack(alignment: .center) {

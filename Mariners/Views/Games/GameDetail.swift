@@ -63,7 +63,7 @@ struct GameDetail: View {
     }
     
     func loadData() async {
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(gameID)/boxscore.json?api_key=\(globalVariables.key)") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/games/\(gameID)/boxscore.json?api_key=\(globalVariables.keys.sport_radar)") else {
             print("Invalid URL")
             return
         }

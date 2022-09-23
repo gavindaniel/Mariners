@@ -11,10 +11,8 @@
 //   let standings = try? newJSONDecoder().decode(Standings.self, from: jsonData)
 
 import Foundation
+import FirebaseFirestoreSwift
 
-//struct StandingsResponse: Codable {
-//    var results: [Standings]
-//}
 
 // MARK: - Standings
 struct Standings: Codable {
@@ -43,21 +41,28 @@ struct League: Codable, Identifiable {
     let teams: [Team]?
 }
 
+//struct Team: Codable {
+//    let name, market, abbr, id: String
+//    let positions: [PositionElement]
+//}
+
 // MARK: - Team
 struct Team: Codable, Identifiable {
     let name, market, abbr, id: String
-    let awayLoss, awayWin, eliminationNumber: Int
-    let gamesBack: Double
-    let homeLoss, homeWin, last10_Lost, last10_Won: Int
-    let loss: Int
-    let streak, wildCardBack: String
-    let win: Int
-    let winP: Double
+    let awayLoss, awayWin, eliminationNumber: Int?
+    let gamesBack: Double?
+    let homeLoss, homeWin, last10_Lost, last10_Won: Int?
+    let loss: Int?
+    let streak, wildCardBack: String?
+    let win: Int?
+    let winP: Double?
     let alLoss, alWin: Int?
-    let cLoss, cWin, wLoss, wWin: Int
-    let eLoss, eWin, divisionEliminationNumber: Int
-    let rank: Rank
+    let cLoss, cWin, wLoss, wWin: Int?
+    let eLoss, eWin, divisionEliminationNumber: Int?
+    let rank: Rank?
     let nlLoss, nlWin: Int?
+    // for depth chart
+    let positions: [PositionElement]?
 
     enum CodingKeys: String, CodingKey {
         case name, market, abbr, id
@@ -85,6 +90,8 @@ struct Team: Codable, Identifiable {
         case rank
         case nlLoss = "nl_loss"
         case nlWin = "nl_win"
+        // for depth chart
+        case positions
     }
 }
 

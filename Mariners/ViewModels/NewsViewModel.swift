@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  NewsViewModel.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 9/2/22.
@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-class ViewModel: ObservableObject {
+class NewsViewModel: ObservableObject {
     @Published var articles = [Article]()
     
     func getData() {

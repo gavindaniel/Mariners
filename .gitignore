@@ -1,7 +1,13 @@
+# folders
 html/
 __pycache__/
 output/
 test/
 scrape-espn/
-# Mariners/Mariners/Assets.xcassets/MLB/
 MLB/
+times/
+# files
+serviceAccountKey.json
+config.py
+example.py
+Keys.swift

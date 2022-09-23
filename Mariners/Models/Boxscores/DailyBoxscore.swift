@@ -10,6 +10,7 @@
 //   var dailyBoxscore = try? newJSONDecoder().decode(DailyBoxscore.self, from: jsonData)
 
 import Foundation
+import FirebaseFirestoreSwift
 
 // MARK: - DailyBoxscore
 struct DailyBoxscore: Codable {

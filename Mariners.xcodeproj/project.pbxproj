@@ -27,7 +27,7 @@
 		4C267D8128A9B1EB008468A2 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 4C267D8028A9B1EB008468A2 /* FirebaseAppCheck */; };
 		4C267D8428A9B77A008468A2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4C267D8328A9B77A008468A2 /* FirebaseFirestore */; };
 		4C329E9328B32ADF00F8A237 /* boxscoreData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C329E9228B32ADF00F8A237 /* boxscoreData.json */; };
-		4C329E9528B3364C00F8A237 /* TimeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C329E9428B3364C00F8A237 /* TimeFunctions.swift */; };
+		4C329E9528B3364C00F8A237 /* DateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C329E9428B3364C00F8A237 /* DateFunctions.swift */; };
 		4C394B5528AB41B800313CBD /* TweetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B3928AB41B800313CBD /* TweetDetail.swift */; };
 		4C394B5628AB41B800313CBD /* TweetCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B3B28AB41B800313CBD /* TweetCardRow.swift */; };
 		4C394B5728AB41B800313CBD /* TweetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B3C28AB41B800313CBD /* TweetCard.swift */; };
@@ -47,14 +47,16 @@
 		4C394B6528AB41B800313CBD /* NewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B5128AB41B800313CBD /* NewsRow.swift */; };
 		4C394B6628AB41B800313CBD /* NewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B5228AB41B800313CBD /* NewsList.swift */; };
 		4C394B6728AB41B900313CBD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B5428AB41B800313CBD /* HomeView.swift */; };
-		4C394B6928AB43CC00313CBD /* TestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B6828AB43CC00313CBD /* TestResponse.swift */; };
-		4C394B6C28AB447900313CBD /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B6B28AB447900313CBD /* ResponseView.swift */; };
 		4C394B6F28AC232500313CBD /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B6E28AC232500313CBD /* StandingsView.swift */; };
 		4C394B7128AC233500313CBD /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394B7028AC233500313CBD /* Standings.swift */; };
-		4C47A6F528C2A04800C5AEE8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47A6F428C2A04800C5AEE8 /* ViewModel.swift */; };
+		4C47A6F528C2A04800C5AEE8 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47A6F428C2A04800C5AEE8 /* NewsViewModel.swift */; };
 		4C5A100128AD67CA00AB96A8 /* OutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A100028AD67CA00AB96A8 /* OutsView.swift */; };
 		4C5A100328AD68FA00AB96A8 /* DisplayFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A100228AD68FA00AB96A8 /* DisplayFunctions.swift */; };
 		4C5A100528AD6C6C00AB96A8 /* InningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A100428AD6C6C00AB96A8 /* InningView.swift */; };
+		4C5CB74628C56412006B1BCC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CB74528C56412006B1BCC /* Keys.swift */; };
+		4C5CB74828C57849006B1BCC /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CB74728C57849006B1BCC /* GamesViewModel.swift */; };
+		4C5CB74A28C57C15006B1BCC /* StandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CB74928C57C15006B1BCC /* StandingsViewModel.swift */; };
+		4C5CB74D28C67EF5006B1BCC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4C5CB74C28C67EF5006B1BCC /* FirebaseFirestoreSwift */; };
 		4C67594228B4B78B0055389D /* standingsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C67594128B4B78B0055389D /* standingsData.json */; };
 		4C67594528B570A30055389D /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67594428B570A30055389D /* PlayerList.swift */; };
 		4C67594728B570B70055389D /* PlayerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67594628B570B70055389D /* PlayerRow.swift */; };
@@ -70,6 +72,8 @@
 		4C7E072428B6B3DA000668C1 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */; };
 		4C7E072928B6C144000668C1 /* ScheduledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E072828B6C144000668C1 /* ScheduledView.swift */; };
 		4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AB9CC28AD42F70020CCEA /* GameRow.swift */; };
+		4CB06F0628DA4F8C00491587 /* DepthChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB06F0528DA4F8C00491587 /* DepthChart.swift */; };
+		4CB06F0828DA540B00491587 /* rosterData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CB06F0728DA540B00491587 /* rosterData.json */; };
 		4CDFA77728B16A4A009EA2F5 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */; };
 		4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */; };
 		4CDFA77B28B1AF88009EA2F5 /* BoxscoreSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFA77A28B1AF88009EA2F5 /* BoxscoreSimple.swift */; };
@@ -100,7 +104,7 @@
 		4C267D7528A9A9BD008468A2 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		4C267D7628A9A9BD008468A2 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		4C329E9228B32ADF00F8A237 /* boxscoreData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = boxscoreData.json; sourceTree = "<group>"; };
-		4C329E9428B3364C00F8A237 /* TimeFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFunctions.swift; sourceTree = "<group>"; };
+		4C329E9428B3364C00F8A237 /* DateFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFunctions.swift; sourceTree = "<group>"; };
 		4C394B3928AB41B800313CBD /* TweetDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetail.swift; sourceTree = "<group>"; };
 		4C394B3B28AB41B800313CBD /* TweetCardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCardRow.swift; sourceTree = "<group>"; };
 		4C394B3C28AB41B800313CBD /* TweetCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCard.swift; sourceTree = "<group>"; };
@@ -120,15 +124,16 @@
 		4C394B5128AB41B800313CBD /* NewsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsRow.swift; sourceTree = "<group>"; };
 		4C394B5228AB41B800313CBD /* NewsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsList.swift; sourceTree = "<group>"; };
 		4C394B5428AB41B800313CBD /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		4C394B6828AB43CC00313CBD /* TestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponse.swift; sourceTree = "<group>"; };
-		4C394B6B28AB447900313CBD /* ResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
 		4C394B6E28AC232500313CBD /* StandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsView.swift; sourceTree = "<group>"; };
 		4C394B7028AC233500313CBD /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
-		4C47A6F428C2A04800C5AEE8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		4C47A6F428C2A04800C5AEE8 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		4C47A6F628C2A12F00C5AEE8 /* Mariners.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mariners.entitlements; sourceTree = "<group>"; };
 		4C5A100028AD67CA00AB96A8 /* OutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutsView.swift; sourceTree = "<group>"; };
 		4C5A100228AD68FA00AB96A8 /* DisplayFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFunctions.swift; sourceTree = "<group>"; };
 		4C5A100428AD6C6C00AB96A8 /* InningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningView.swift; sourceTree = "<group>"; };
+		4C5CB74528C56412006B1BCC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		4C5CB74728C57849006B1BCC /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
+		4C5CB74928C57C15006B1BCC /* StandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewModel.swift; sourceTree = "<group>"; };
 		4C67594128B4B78B0055389D /* standingsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = standingsData.json; sourceTree = "<group>"; };
 		4C67594428B570A30055389D /* PlayerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerList.swift; sourceTree = "<group>"; };
 		4C67594628B570B70055389D /* PlayerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRow.swift; sourceTree = "<group>"; };
@@ -144,6 +149,8 @@
 		4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		4C7E072828B6C144000668C1 /* ScheduledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledView.swift; sourceTree = "<group>"; };
 		4C9AB9CC28AD42F70020CCEA /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
+		4CB06F0528DA4F8C00491587 /* DepthChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthChart.swift; sourceTree = "<group>"; };
+		4CB06F0728DA540B00491587 /* rosterData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rosterData.json; sourceTree = "<group>"; };
 		4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 		4CDFA77828B17744009EA2F5 /* DailyBoxscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxscore.swift; sourceTree = "<group>"; };
 		4CDFA77A28B1AF88009EA2F5 /* BoxscoreSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxscoreSimple.swift; sourceTree = "<group>"; };
@@ -163,6 +170,7 @@
 				4C267D8128A9B1EB008468A2 /* FirebaseAppCheck in Frameworks */,
 				4C267D7E28A9AB6A008468A2 /* FirebaseAnalytics in Frameworks */,
 				4C267D8428A9B77A008468A2 /* FirebaseFirestore in Frameworks */,
+				4C5CB74D28C67EF5006B1BCC /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +201,7 @@
 			children = (
 				4C267D5828A9A902008468A2 /* Mariners */,
 				4C267D5728A9A902008468A2 /* Products */,
+				4C5CB74B28C67EF5006B1BCC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,7 +249,6 @@
 				4C394B4828AB41B800313CBD /* Settings */,
 				4C394B6D28AC230400313CBD /* Standings */,
 				4C67594328B5702F0055389D /* Stats */,
-				4C394B6A28AB442200313CBD /* Test */,
 				4C394B3828AB41B800313CBD /* Tweets */,
 			);
 			path = Views;
@@ -252,6 +260,7 @@
 				4C267D6B28A9A9B0008468A2 /* gameData.json */,
 				4C267D6C28A9A9B0008468A2 /* tweetData.json */,
 				4C267D6D28A9A9B0008468A2 /* articleData.json */,
+				4CB06F0728DA540B00491587 /* rosterData.json */,
 				4C67594D28B575040055389D /* playerData.json */,
 				4C7E072128B69FF0000668C1 /* glossaryData.json */,
 				4C329E9228B32ADF00F8A237 /* boxscoreData.json */,
@@ -264,14 +273,12 @@
 			isa = PBXGroup;
 			children = (
 				4C267D7528A9A9BD008468A2 /* Article.swift */,
+				4CB06F0528DA4F8C00491587 /* DepthChart.swift */,
 				4C7E071F28B69F75000668C1 /* Glossary.swift */,
-				4C267D7628A9A9BD008468A2 /* ModelData.swift */,
 				4C67594F28B575560055389D /* PlayerProfile.swift */,
 				4C267D7428A9A9BD008468A2 /* Settings.swift */,
 				4C394B7028AC233500313CBD /* Standings.swift */,
-				4C394B6828AB43CC00313CBD /* TestResponse.swift */,
 				4C267D7328A9A9BD008468A2 /* Tweet.swift */,
-				4C10AF4128BFF0660035A830 /* ScoringViewModel.swift */,
 				4CF1232628B4798B00666DEE /* Boxscores */,
 			);
 			path = Models;
@@ -324,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				4C7E071D28B69AFF000668C1 /* DateView.swift */,
-				4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */,
 				4C7E072728B6B676000668C1 /* Functions */,
 			);
 			path = Helpers;
@@ -376,14 +382,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		4C394B6A28AB442200313CBD /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				4C394B6B28AB447900313CBD /* ResponseView.swift */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		4C394B6D28AC230400313CBD /* Standings */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,9 +394,22 @@
 		4C47A6F328C2A02900C5AEE8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				4C47A6F428C2A04800C5AEE8 /* ViewModel.swift */,
+				4C7E072328B6B3DA000668C1 /* GlobalVariables.swift */,
+				4C5CB74528C56412006B1BCC /* Keys.swift */,
+				4C267D7628A9A9BD008468A2 /* ModelData.swift */,
+				4C5CB74728C57849006B1BCC /* GamesViewModel.swift */,
+				4C47A6F428C2A04800C5AEE8 /* NewsViewModel.swift */,
+				4C10AF4128BFF0660035A830 /* ScoringViewModel.swift */,
+				4C5CB74928C57C15006B1BCC /* StandingsViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4C5CB74B28C67EF5006B1BCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		4C67594328B5702F0055389D /* Stats */ = {
@@ -447,7 +458,7 @@
 				4C5A100228AD68FA00AB96A8 /* DisplayFunctions.swift */,
 				4CDFA77628B16A4A009EA2F5 /* GameFunctions.swift */,
 				4C67595128B58C100055389D /* ScoringFunctions.swift */,
-				4C329E9428B3364C00F8A237 /* TimeFunctions.swift */,
+				4C329E9428B3364C00F8A237 /* DateFunctions.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -482,6 +493,7 @@
 				4C267D7D28A9AB6A008468A2 /* FirebaseAnalytics */,
 				4C267D8028A9B1EB008468A2 /* FirebaseAppCheck */,
 				4C267D8328A9B77A008468A2 /* FirebaseFirestore */,
+				4C5CB74C28C67EF5006B1BCC /* FirebaseFirestoreSwift */,
 			);
 			productName = Mariners;
 			productReference = 4C267D5628A9A902008468A2 /* Mariners.app */;
@@ -513,8 +525,6 @@
 			mainGroup = 4C267D4D28A9A901008468A2;
 			packageReferences = (
 				4C267D7C28A9AB6A008468A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				4C267D7F28A9B1EB008468A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				4C267D8228A9B77A008468A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 4C267D5728A9A902008468A2 /* Products */;
 			projectDirPath = "";
@@ -537,6 +547,7 @@
 				4C267D6E28A9A9B0008468A2 /* gameData.json in Resources */,
 				4C7E072228B69FF0000668C1 /* glossaryData.json in Resources */,
 				4C267D5E28A9A903008468A2 /* Assets.xcassets in Resources */,
+				4CB06F0828DA540B00491587 /* rosterData.json in Resources */,
 				4C267D6F28A9A9B0008468A2 /* tweetData.json in Resources */,
 				4C267D6928A9A95D008468A2 /* GoogleService-Info.plist in Resources */,
 				4C67594228B4B78B0055389D /* standingsData.json in Resources */,
@@ -560,15 +571,16 @@
 				4C67594728B570B70055389D /* PlayerRow.swift in Sources */,
 				4C394B5F28AB41B800313CBD /* SettingsSummary.swift in Sources */,
 				4CDFA77928B17744009EA2F5 /* DailyBoxscore.swift in Sources */,
-				4C47A6F528C2A04800C5AEE8 /* ViewModel.swift in Sources */,
+				4C47A6F528C2A04800C5AEE8 /* NewsViewModel.swift in Sources */,
 				4C394B6028AB41B800313CBD /* SettingsEditor.swift in Sources */,
 				4C394B5528AB41B800313CBD /* TweetDetail.swift in Sources */,
-				4C394B6928AB43CC00313CBD /* TestResponse.swift in Sources */,
 				4C394B6328AB41B800313CBD /* HeadlineRow.swift in Sources */,
 				4C394B5A28AB41B800313CBD /* WebView.swift in Sources */,
+				4CB06F0628DA4F8C00491587 /* DepthChart.swift in Sources */,
 				4C267D5C28A9A902008468A2 /* ContentView.swift in Sources */,
 				4C7E071E28B69AFF000668C1 /* DateView.swift in Sources */,
 				4C394B5728AB41B800313CBD /* TweetCard.swift in Sources */,
+				4C5CB74A28C57C15006B1BCC /* StandingsViewModel.swift in Sources */,
 				4C267D7A28A9A9BD008468A2 /* Article.swift in Sources */,
 				4C9AB9CD28AD42F70020CCEA /* GameRow.swift in Sources */,
 				4C394B5C28AB41B800313CBD /* GameList.swift in Sources */,
@@ -577,14 +589,14 @@
 				4C267D5A28A9A902008468A2 /* MarinersApp.swift in Sources */,
 				4CF1232528B4776C00666DEE /* GameBoxscore.swift in Sources */,
 				4C394B6528AB41B800313CBD /* NewsRow.swift in Sources */,
-				4C394B6C28AB447900313CBD /* ResponseView.swift in Sources */,
 				4C394B5E28AB41B800313CBD /* LoginView.swift in Sources */,
+				4C5CB74628C56412006B1BCC /* Keys.swift in Sources */,
 				4C394B6F28AC232500313CBD /* StandingsView.swift in Sources */,
 				4C394B6728AB41B900313CBD /* HomeView.swift in Sources */,
 				4C6F7A4728AC5C54007CBE94 /* StandingItem.swift in Sources */,
 				4CDFA77728B16A4A009EA2F5 /* GameFunctions.swift in Sources */,
 				4C7E072428B6B3DA000668C1 /* GlobalVariables.swift in Sources */,
-				4C329E9528B3364C00F8A237 /* TimeFunctions.swift in Sources */,
+				4C329E9528B3364C00F8A237 /* DateFunctions.swift in Sources */,
 				4C7E072028B69F75000668C1 /* Glossary.swift in Sources */,
 				4C394B5828AB41B800313CBD /* TweetList.swift in Sources */,
 				4C67595228B58C100055389D /* ScoringFunctions.swift in Sources */,
@@ -595,6 +607,7 @@
 				4CF1232128B468FC00666DEE /* InningTotals.swift in Sources */,
 				4C5A100528AD6C6C00AB96A8 /* InningView.swift in Sources */,
 				4C267D7928A9A9BD008468A2 /* Settings.swift in Sources */,
+				4C5CB74828C57849006B1BCC /* GamesViewModel.swift in Sources */,
 				4CF1231F28B441D100666DEE /* FinalView.swift in Sources */,
 				4C394B6128AB41B800313CBD /* SettingsHost.swift in Sources */,
 				4C394B7128AC233500313CBD /* Standings.swift in Sources */,
@@ -665,7 +678,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -719,7 +732,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -821,22 +834,6 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		4C267D7F28A9B1EB008468A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-		4C267D8228A9B77A008468A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -854,6 +851,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4C267D7C28A9AB6A008468A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		4C5CB74C28C67EF5006B1BCC /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C267D7C28A9AB6A008468A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

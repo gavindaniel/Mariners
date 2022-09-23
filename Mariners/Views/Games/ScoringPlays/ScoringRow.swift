@@ -25,11 +25,16 @@ struct ScoringRow: View {
                 VStack(alignment: .leading, spacing: 5) {
                     // check for Grand slam.
                     if event.hitterOutcome == "aHR" && event.runners.count == 4 {
-                        Text("Grand Slam - (\(event.runners.count))")
+                        Text("Grand Slam")
                             .font(.footnote)
                     } else {
-                        Text(getPitchOutcome(modelData.glossary.pitchOutcomes, event.hitterOutcome)) //  + " - (\(event.runners.count))"
-                            .font(.footnote)
+                        if event.type.rawValue == "steal" {
+                            Text("Stole home")
+                                .font(.footnote)
+                        } else {
+                            Text(getPitchOutcome(modelData.glossary.pitchOutcomes, event.hitterOutcome!)) //  + " - (\(event.runners.count))"
+                                .font(.footnote)
+                        }
                     }
                     Text(player.lastName + "  (" + String(event.runners.count) + " RBI)")
                         .font(.caption2)
@@ -63,7 +68,7 @@ struct ScoringRow: View {
     }
     
     func loadData() async {
-        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/players/\(event.hitterID)/profile.json?api_key=\(globalVariables.key)") else {
+        guard let url = URL(string: "https://api.sportradar.us/mlb/trial/v7/en/players/\(event.hitterID)/profile.json?api_key=\(globalVariables.keys.sport_radar)") else {
             print("Invalid URL")
             return
         }

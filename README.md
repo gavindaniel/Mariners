@@ -10,8 +10,8 @@ Start by downloading the repository as a zip file. Then open the file `Mariners.
 
 ### News / Articles
 
-Uses a python script to parse the HTML from the ESPN page for the Mariners and builds an array of URLs for game recaps. The script then iterates through the array and parses the HTML in each game recap article to collect the necessary info to build the articles in the App. As the script runs and parses the HTML it is wrtiting a JSON file to be sent to the app (for now it just builds a local file that I load into `Resources` folder).
+Uses a python script and Beautiful Soup to parse HTML data and create a JSON object to store/update documents in a Firestore database.
 
 ### Scores & Standings
 
-Uses Sportradar RESTful APIs to get live and historical data by decoding the JSON data that is received. These APIs are intended for B2B applications and not B2C so I plan to use Google Cloud services to call the API periodically and store the data. For now I am just calling the API from within the app, this will be changed in the future. 
+Uses Google Cloud to schedule and run python scripts to call Sportradar RESTful APIs periodically to get live and historical data and store/update documents in a Firestore database. 

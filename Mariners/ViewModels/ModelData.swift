@@ -16,6 +16,7 @@ final class ModelData: ObservableObject {
     var standings: Standings = load("standingsData.json")
     var player_profile: PlayerProfile = load("playerData.json")
     var glossary: Glossary = load("glossaryData.json")
+    var rosters: DepthChart = load("rosterData.json")
     @Published var settings = Settings.default
 }
 
