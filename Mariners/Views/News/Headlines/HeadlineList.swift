@@ -23,7 +23,7 @@ struct HeadlineList: View {
                 Spacer()
                 
                 NavigationLink {
-                    NewsList()
+                    NewsView()
                 } label: {
                     Text("See All")
                         .foregroundColor(Color.blue)

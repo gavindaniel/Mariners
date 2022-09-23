@@ -12,6 +12,5 @@ class GlobalVariables: ObservableObject {
     @Published var myDate = Date()
     @Published var aScore = 0
     @Published var hScore = 0
-//    var key = Keys().sport_radar
     var keys = Keys()
 }

@@ -1,5 +1,5 @@
 //
-//  GameRow.swift
+//  ScoreRow.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/17/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GameRow: View {
+struct ScoreRow: View {
     //    @Binding var showLoading: Bool
     @EnvironmentObject var modelData: ModelData
     var game: Game
@@ -80,8 +80,8 @@ struct GameRow: View {
     }
 }
 
-struct GameRow_Previews: PreviewProvider {
+struct ScoreRow_Previews: PreviewProvider {
     static var previews: some View {
-        GameRow(game: ModelData().scores.league.games[5].game)
+        ScoreRow(game: ModelData().scores.league.games[5].game)
     }
 }

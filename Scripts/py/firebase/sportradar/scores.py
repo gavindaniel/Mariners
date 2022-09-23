@@ -16,7 +16,7 @@ def main():
     # FIXME: change these to arguments
     year = "2022"
     month = "09"
-    day = "20"
+    day = "23"
 
     # create the credentials to access database 
     cred = credentials.Certificate("../serviceAccountKey.json")

@@ -1,5 +1,5 @@
 //
-//  NewsList.swift
+//  NewsView.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/5/22.
@@ -8,9 +8,9 @@
 //import Amplify
 import SwiftUI
 
-struct NewsList: View {
-    @ObservedObject var viewModel = NewsViewModel()
-    @EnvironmentObject var modelData: ModelData
+struct NewsView: View {
+//    @EnvironmentObject var modelData: ModelData
+    @ObservedObject var viewModel = ViewModel()
     
     var body: some View {
 //        List {
@@ -34,9 +34,9 @@ struct NewsList: View {
 }
 
 
-struct NewsList_Previews: PreviewProvider {
+struct NewsView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsList()
+        NewsView()
             .environmentObject(ModelData())
     }
 }

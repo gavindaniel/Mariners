@@ -1,5 +1,5 @@
 //
-//  BoxscoreSimple.swift
+//  LineScoreSimple.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/20/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BoxscoreSimple: View {
+struct LineScoreSimple: View {
 //    @Binding var showLoading: Bool
     @EnvironmentObject var modelData: ModelData
     //    @State private var animationAmount = 5.0
@@ -122,8 +122,8 @@ struct BoxscoreSimple: View {
     }
 }
 
-struct BoxscoreSimple_Previews: PreviewProvider {
+struct LineScoreSimple_Previews: PreviewProvider {
     static var previews: some View {
-        BoxscoreSimple(game: ModelData().scores.league.games[2].game)
+        LineScoreSimple(game: ModelData().scores.league.games[2].game)
     }
 }

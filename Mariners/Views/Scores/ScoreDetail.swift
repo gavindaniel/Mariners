@@ -1,5 +1,5 @@
 //
-//  GameDetail.swift
+//  ScoreDetail.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/6/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GameDetail: View {
+struct ScoreDetail: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var globalVariables: GlobalVariables
     @State private var game = ModelData().score.game
@@ -17,7 +17,7 @@ struct GameDetail: View {
     
     var body: some View {
         List {
-            GameRow(game: game)
+            ScoreRow(game: game)
                 .padding(.top, 15)
                 .listRowInsets(EdgeInsets())
             VStack {
@@ -43,7 +43,7 @@ struct GameDetail: View {
             .listRowInsets(EdgeInsets())
             .padding(10)
             .listRowSeparator(.hidden)
-            BoxscoreFull(game: game)
+            LineScoreFull(game: game)
                 .listRowSeparator(.hidden)
                 .padding(.top, 15)
                 .padding(.bottom, 15)
@@ -74,18 +74,18 @@ struct GameDetail: View {
             
             if let gameBoxscore = try? JSONDecoder().decode(GameBoxscore.self, from: jsonData) {
                 game = gameBoxscore.game
-                print("GameDetail JSON decoded.")
+                print("ScoreDetail JSON decoded.")
                 showLoading = false
             }
         } catch {
-            print("Invalid GameDetail data")
+            print("Invalid ScoreDetail data")
         }
     }
 }
 
 struct GamesDetail_Previews: PreviewProvider {
     static var previews: some View {
-        GameDetail(gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
+        ScoreDetail(gameID: "00cb0901-a2c1-411a-8884-f03190a54e8a")
             .environmentObject(ModelData())
             .environmentObject(GlobalVariables())
     }

@@ -1,5 +1,5 @@
 //
-//  GameFeatured.swift
+//  ScoreFeatured.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/7/22.
@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct GameFeatured: View {
-    @Binding var showLoading: Bool
+struct ScoreFeatured: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var globalVariables: GlobalVariables
     var game: Game
@@ -23,7 +22,7 @@ struct GameFeatured: View {
                 Spacer()
                 
                 NavigationLink {
-                    GameList()
+                    ScoresView()
                         .environmentObject(globalVariables)
                 } label: {
                     Text("See All")
@@ -34,17 +33,16 @@ struct GameFeatured: View {
             .padding(.top, 10)
             Divider()
             NavigationLink {
-                GameDetail(gameID: game.id)
+                ScoreDetail(gameID: game.id)
             } label: {
-//                GameRow(showLoading: $showLoading, game: game)
-                GameRow(game: game)
+                ScoreRow(game: game)
             }
         }
     }
 }
 
-struct GameFeatured_Previews: PreviewProvider {
+struct ScoreFeatured_Previews: PreviewProvider {
     static var previews: some View {
-        GameFeatured(showLoading: .constant(false), game: ModelData().scores.league.games[0].game)
+        ScoreFeatured(game: ModelData().scores.league.games[0].game)
     }
 }

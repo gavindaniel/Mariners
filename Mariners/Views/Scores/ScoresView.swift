@@ -1,5 +1,5 @@
 //
-//  GameList.swift
+//  ScoresView.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/5/22.
@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-struct GameList: View {
+struct ScoresView: View {
     @EnvironmentObject var globalVariables: GlobalVariables
-    @ObservedObject var viewModel = GamesViewModel()
-//    @State private var games = ModelData().scores.league.games
-    @State private var showLoading: Bool = true
+    @ObservedObject var viewModel = ViewModel()
     
     var body: some View {
         List {
@@ -19,9 +17,9 @@ struct GameList: View {
                 .environmentObject(globalVariables)
             ForEach(viewModel.scores.league.games) { game in
                 NavigationLink {
-                    GameDetail(gameID: game.game.id)
+                    ScoreDetail(gameID: game.game.id)
                 } label: {
-                    BoxscoreSimple(game: game.game)
+                    LineScoreSimple(game: game.game)
                 }
                 .padding()
                 Divider()
@@ -31,25 +29,23 @@ struct GameList: View {
         }
         .listStyle(.inset)
         .navigationTitle("Scores")
-        .redacted(reason: showLoading ? .placeholder : [])
+        .redacted(reason: viewModel.showLoading ? .placeholder : [])
         .refreshable {
-            showLoading = true
+            // FIXME: remove debug print later
             print(getDateComponents(globalVariables.myDate))
             viewModel.getData(date: getDateComponents(globalVariables.myDate))
-            showLoading = false
         }
         .task {
-            showLoading = true
+            // FIXME: remove debug print later
             print(getDateComponents(globalVariables.myDate))
             viewModel.getData(date: getDateComponents(globalVariables.myDate))
-            showLoading = false
         }
     }
 }
 
-struct GameList_Previews: PreviewProvider {
+struct ScoresView_Previews: PreviewProvider {
     static var previews: some View {
-        GameList()
+        ScoresView()
             .environmentObject(ModelData())
             .environmentObject(GlobalVariables())
     }

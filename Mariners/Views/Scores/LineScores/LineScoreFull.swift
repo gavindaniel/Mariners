@@ -1,5 +1,5 @@
 //
-//  BoxscoreFull.swift
+//  LineScoreFull.swift
 //  Mariners
 //
 //  Created by Gavin Daniel on 8/20/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BoxscoreFull: View {
+struct LineScoreFull: View {
     @EnvironmentObject var modelData: ModelData
     var game: Game
     
@@ -41,8 +41,8 @@ struct BoxscoreFull: View {
     }
 }
 
-struct BoxscoreFull_Previews: PreviewProvider {
+struct LineScoreFull_Previews: PreviewProvider {
     static var previews: some View {
-        BoxscoreFull(game: ModelData().score.game)
+        LineScoreFull(game: ModelData().score.game)
     }
 }
